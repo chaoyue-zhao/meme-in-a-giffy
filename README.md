@@ -5,4 +5,4 @@ Awesome Group Members includes:
 - Chaoyue Zhao
 - Jonathan Wong
 - Jeannette Ng
-- Moe Abbs
+- Moe Abbas
