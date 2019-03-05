@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import SearchBar from './components/search-bar/SearchBar';
+import GalleryList from './components/gallery-list/GalleryList';
 
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
-      memes: [],
-      gifs: [],
-      type: ''
+      displayedItems: [],
+      type: 'gifs'
     }
   }
 
@@ -27,7 +27,7 @@ class App extends Component {
       });
 
       this.setState({
-        gifs: response.data.data
+        displayedItems: response.data.data
       });
 
       console.log(response.data.data);
@@ -36,14 +36,28 @@ class App extends Component {
     }
   } 
 
-  handleFormSubmit = (query) => {
-    this.getDataFromApi(query);
+  handleFormSubmit = (query, type) => {
+      this.setState({ type })
+      if (type === 'gifs') {
+          this.getDataFromApi(query);
+      } else {
+          // get from firebase -- TO INCLUDE FUNCTION
+      }
+    // set type as gif vs meme = firebase call
+    //If type === 'gifs' Display Gifs = getDataFrommApi
+    //else display memes
+
+    // displayedItems = [] = either gifs or memes
   }
 
   render() {
     return (
       <div className="App">
-        <SearchBar gatherUserInput={this.handleFormSubmit}/>
+        <SearchBar getHandleFormSubmit={this.handleFormSubmit}/>
+        <GalleryList 
+            displayedItems={this.state.displayedItems}
+            type={this.state.type}
+        />
       </div>
     );
   }

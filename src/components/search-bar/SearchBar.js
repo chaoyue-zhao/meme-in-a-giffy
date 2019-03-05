@@ -23,7 +23,7 @@ class SearchBar extends Component {
 
 formSubmit = (e) =>{
   e.preventDefault();
-  this.props.gatherUserInput(this.state.query);
+  this.props.getHandleFormSubmit(this.state.query, this.state.type);
 }
   render() {
     return (
