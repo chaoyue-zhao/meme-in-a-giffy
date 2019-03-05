@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 
 class GalleryListItem extends Component {
+
+  onItemClick = () => {
+    this.props.handleGalleryItem(this.props.item);
+    this.props.handleToggleModal ();
+  } 
+
   render() {
+    const {images, title} = this.props.item
+
     return (
-      <li>
-        <img src={this.props.gifImage} alt={this.props.gifTitle} />
+      <li onClick={this.onItemClick}>
+        <img src={images.original.url} alt={title} />
       </li>
     );
   }
