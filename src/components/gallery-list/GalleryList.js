@@ -1,21 +1,29 @@
 import React, { Component } from "react";
-import GifListItem from "./../gif-list-item/GifListItem.js";
+import GalleryListItem from "./../gallery-list-item/GalleryListItem.js";
 
 class GalleryList extends Component {
-  // constructor() {
-  //     super();
-  //     this.state = {
-
-  //     }
-  // }
+  constructor() {
+      super();
+      this.state = {
+          showModal: false
+      }
+  }
   renderGalleryItems = () => {
-    return this.props.displayedItems.map(item => {
+    return this.props.displayedItems.map((item, i) => {
       console.log(item.images.original.url);
       let gifImage = item.images.original.url;
       let gifTitle = item.title;
-      return <GifListItem gifImage={gifImage} gifTitle={gifTitle} />;
+      return <GalleryListItem key={i} gifImage={gifImage} gifTitle={gifTitle} onClick={this.handleToggleModal} />;
     });
   };
+
+  handleToggleModal = () => {
+      this.setState((prevState) => {
+          return {
+              showModal : !prevState.showModal
+          }
+      });
+  }
 
   render() {
     if (!this.props.displayedItems) return <div />;

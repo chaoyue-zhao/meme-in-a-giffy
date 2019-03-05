@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class GifListItem extends Component {
+class GalleryListItem extends Component {
   render() {
     return (
       <li>
@@ -9,4 +9,4 @@ class GifListItem extends Component {
     );
   }
 }
-export default GifListItem;
+export default GalleryListItem;
