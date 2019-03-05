@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import GalleryListItem from "./../gallery-list-item/GalleryListItem.js";
-import GifModal from '../gif-modal/GifModal';
+import GifModal from '../gif-modal/GifModal.js';
 
 class GalleryList extends Component {
   constructor() {

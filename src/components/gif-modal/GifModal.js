@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import database from '../firebase/firebase.js';
 
 class GifModal extends Component {
   constructor() {
@@ -19,6 +20,19 @@ class GifModal extends Component {
   handleInputTag = e => {
     this.setState({ tags: e.target.value });
   };
+
+  handleSubmit = (e) => {
+      e.preventDefault();
+      database.ref('memes').push({
+          likes: 0,
+          dislikes: 0,
+          url: this.props.item.images.original.url,
+          title: this.props.item.title,
+          tags: this.state.tags,
+          inputOne: this.state.inputOne,
+          inputTwo: this.state.inputTwo
+      })
+  }
 
   render() {
     const { images, title } = this.props.item;
@@ -41,7 +55,7 @@ class GifModal extends Component {
               {this.state.inputTwo && this.state.inputTwo}
             </p>
           </div>
-          <form action="">
+          <form action="" onSubmit={this.handleSubmit}>
             <label htmlFor="inputTop">Top text:</label>
             <input
               className="modal-inputTop"

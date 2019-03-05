@@ -3,6 +3,8 @@ import "./App.css";
 import axios from "axios";
 import SearchBar from "./components/search-bar/SearchBar";
 import GalleryList from "./components/gallery-list/GalleryList";
+import firebase from 'firebase';
+
 
 class App extends Component {
   constructor() {
