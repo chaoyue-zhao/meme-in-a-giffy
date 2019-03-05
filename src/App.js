@@ -1,28 +1,53 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import SearchBar from './components/search-bar/SearchBar';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      memes: [],
+      gifs: [],
+      type: ''
+    }
+  }
+
+  getDataFromApi = async (query) => {
+    try {
+      const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+      const apiUrl = "http://api.giphy.com//v1/gifs/search";
+
+      const response = await axios.get(proxyUrl + apiUrl, {
+        params: {
+          api_key: "3nzTnsDMtCQPXuoNQS6repIsBh6Jy3dY",
+          q: query
+        }
+      });
+
+      this.setState({
+        gifs: response.data.data
+      });
+
+      console.log(response.data.data);
+    } catch (error) {
+      throw error
+    }
+  } 
+
+  handleFormSubmit = (query) => {
+    this.getDataFromApi(query);
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <SearchBar gatherUserInput={this.handleFormSubmit}/>
       </div>
     );
   }
 }
 
 export default App;
+
+
