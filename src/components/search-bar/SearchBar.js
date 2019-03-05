@@ -5,7 +5,7 @@ class SearchBar extends Component {
     super();
     this.state = {
       query: "",
-      type: ""
+      type: "gifs"
     };
   }
 
@@ -21,14 +21,14 @@ class SearchBar extends Component {
     });
   };
 
-formSubmit = (e) =>{
-  e.preventDefault();
-  this.props.getHandleFormSubmit(this.state.query, this.state.type);
-}
+  formSubmit = e => {
+    e.preventDefault();
+    this.props.getHandleFormSubmit(this.state.query, this.state.type);
+  };
   render() {
     return (
       <React.Fragment>
-        <form onSubmit= {this.formSubmit}>
+        <form onSubmit={this.formSubmit}>
           <label htmlFor="userInput">
             Please enter a search term for your gifs:
           </label>
