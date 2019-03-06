@@ -5,6 +5,7 @@ class SearchBar extends Component {
     super();
     this.state = {
       query: "",
+      //setting the default to gifs so when page first load, there is something for the api call if the user did not select anything
       type: "gifs"
     };
   }
