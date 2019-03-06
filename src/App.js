@@ -5,7 +5,6 @@ import SearchBar from "./components/search-bar/SearchBar";
 import GalleryList from "./components/gallery-list/GalleryList";
 import database from './components/firebase/firebase';
 
-
 class App extends Component {
   constructor() {
     super();
@@ -38,13 +37,10 @@ class App extends Component {
 
   handleFormSubmit = async (query, type) => {
     this.setState({ type });
-    console.log("checking type on form submit", type);
     if (type === "gifs") {
       await this.getDataFromApi(query);
     } else {
-      // console.log('firebase');
       database.ref('memes').on('value', (response) => {
-        console.log(response);
         const newState = [];
         response.forEach((meme) => {
           newState.push({
@@ -54,10 +50,14 @@ class App extends Component {
         });
         
         const filteredMemes = newState
-          .filter(meme => meme.title.toLowerCase().includes(query.toLowerCase())
-          || meme.tags.toLowerCase().includes(query.toLowerCase()));
-        
+          .filter(meme => {
+            const subjectWords = meme.subject.split('-');
 
+            return meme.title.toLowerCase().includes(query.toLowerCase())
+            || meme.tags.toLowerCase().includes(query.toLowerCase())
+            || subjectWords.includes(query.toLowerCase());
+          }) 
+      
         this.setState({ displayedItems : filteredMemes});
       });
     }

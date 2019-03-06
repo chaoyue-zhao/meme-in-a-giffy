@@ -30,7 +30,8 @@ class GifModal extends Component {
           title: this.props.item.title,
           tags: this.state.tags,
           inputOne: this.state.inputOne,
-          inputTwo: this.state.inputTwo
+          inputTwo: this.state.inputTwo,
+          subject: this.props.item.slug
       })
   }
 
