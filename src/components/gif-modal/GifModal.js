@@ -9,13 +9,14 @@ class GifModal extends Component {
       inputOne: "",
       inputTwo: "",
       tags: "",
-      errorMessage: ""
+      error: "Enter text to continue"
     };
   }
 
   // these one liner setState are very sweet. they help us get the value from da inputs. 
   handleInputOneChange = e => {
     this.setState({ inputOne: e.target.value });
+    
   };
   handleInputTwoChange = e => {
     this.setState({ inputTwo: e.target.value });
@@ -24,30 +25,24 @@ class GifModal extends Component {
     this.setState({ tags: e.target.value });
   };
 
-  validateInput = async () => {
-    if (this.state.inputOne || this.state.inputTwo) {
-      this.setState({
-        errorMessage: ""
+  validateInput = () => {
+    if (this.state.inputOne ==="" && this.state.inputTwo ==="") {
+     this.setState({
+        error: "Error enter text to continue"
       })
     } else {
-      this.setState({
-        errorMessage: "Must have at least one entered text!"
+    this.setState({
+       error: ""
     })
   }}
 
-  handleSubmit = (e) => {
+  handleSubmit =  (e) => {
       // chao's fav form method. don't forget. please don't forget.
       e.preventDefault();
       // this is very nice also. PUSHING TO FIREBASE with a customized object to the meme ref
-
-      console.log('inputone',this.state.inputOne);
-      console.log('inputtwo',this.state.inputTwo)
-
       this.validateInput() 
-      
-      console.log('error', this.state.errorMessage);
-
-      if(this.state.errorMessage !== "") {database.ref('memes').push({
+      if(!this.state.error) {
+        database.ref('memes').push({
           // with all of our things. all of them. 
           likes: 0,
           dislikes: 0,
@@ -58,7 +53,8 @@ class GifModal extends Component {
           inputTwo: this.state.inputTwo,
           subject: this.props.item.slug
       })    
-  }}
+  }
+}
 
   render() {
     //very NOICE deconstructing here. Good job taking out those key (on the left) off the object (on the right)
@@ -109,7 +105,7 @@ class GifModal extends Component {
               value={this.state.tags}
             />
             <div className="modal-button-container">
-              <p>{this.state.errorMessage}</p>
+              <p>{this.state.error ? this.state.error : ""}</p>
               <button type="submit" className="modal-button">
                 Save
               </button>
