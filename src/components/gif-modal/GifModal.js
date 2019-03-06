@@ -8,7 +8,8 @@ class GifModal extends Component {
       showModal: true,
       inputOne: "",
       inputTwo: "",
-      tags: ""
+      tags: "",
+      errorMessage: ""
     };
   }
 
@@ -23,11 +24,30 @@ class GifModal extends Component {
     this.setState({ tags: e.target.value });
   };
 
+  validateInput = async () => {
+    if (this.state.inputOne || this.state.inputTwo) {
+      this.setState({
+        errorMessage: ""
+      })
+    } else {
+      this.setState({
+        errorMessage: "Must have at least one entered text!"
+    })
+  }}
+
   handleSubmit = (e) => {
       // chao's fav form method. don't forget. please don't forget.
       e.preventDefault();
       // this is very nice also. PUSHING TO FIREBASE with a customized object to the meme ref
-      database.ref('memes').push({
+
+      console.log('inputone',this.state.inputOne);
+      console.log('inputtwo',this.state.inputTwo)
+
+      this.validateInput() 
+      
+      console.log('error', this.state.errorMessage);
+
+      if(this.state.errorMessage !== "") {database.ref('memes').push({
           // with all of our things. all of them. 
           likes: 0,
           dislikes: 0,
@@ -37,8 +57,8 @@ class GifModal extends Component {
           inputOne: this.state.inputOne,
           inputTwo: this.state.inputTwo,
           subject: this.props.item.slug
-      })
-  }
+      })    
+  }}
 
   render() {
     //very NOICE deconstructing here. Good job taking out those key (on the left) off the object (on the right)
@@ -48,7 +68,7 @@ class GifModal extends Component {
         <div className="modal-body">
           <div className="modal-meme-container">
             <p className="modal-textTop">
-              {/* conditionally render if inputOne has content (trusy), show the result from inputOne in the DOM*/}
+              {/* conditionally render if inputOne has content (trusly), show the result from inputOne in the DOM*/}
               {this.state.inputOne && this.state.inputOne}
             </p>
             <div className="model-image-container">
@@ -71,6 +91,7 @@ class GifModal extends Component {
               id="inputTop"
               onChange={this.handleInputOneChange}
               value={this.state.inputOne}
+
             />
             <label htmlFor="inputBottom">Bottom text:</label>
             <input
@@ -88,6 +109,7 @@ class GifModal extends Component {
               value={this.state.tags}
             />
             <div className="modal-button-container">
+              <p>{this.state.errorMessage}</p>
               <button type="submit" className="modal-button">
                 Save
               </button>
