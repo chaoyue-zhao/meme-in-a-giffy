@@ -3,7 +3,7 @@ import "./App.css";
 import axios from "axios";
 import SearchBar from "./components/search-bar/SearchBar";
 import GalleryList from "./components/gallery-list/GalleryList";
-import firebase from 'firebase';
+import database from './components/firebase/firebase';
 
 
 class App extends Component {
@@ -16,7 +16,6 @@ class App extends Component {
   }
 
   getDataFromApi = async query => {
-    console.log("when to get api data");
     try {
       const proxyUrl = "https://cors-anywhere.herokuapp.com/";
       const apiUrl = "http://api.giphy.com//v1/gifs/search";
@@ -32,29 +31,44 @@ class App extends Component {
         displayedItems: response.data.data
       });
 
-      console.log(response.data.data);
-      console.log("checking state", this.state.displayedItems);
     } catch (error) {
       alert(error);
     }
   };
 
-  handleFormSubmit = (query, type) => {
+  handleFormSubmit = async (query, type) => {
     this.setState({ type });
     console.log("checking type on form submit", type);
     if (type === "gifs") {
-      this.getDataFromApi(query);
+      await this.getDataFromApi(query);
     } else {
-      // get from firebase -- TO INCLUDE FUNCTION
-    }
-    // set type as gif vs meme = firebase call
-    //If type === 'gifs' Display Gifs = getDataFrommApi
-    //else display memes
+      // console.log('firebase');
+      database.ref('memes').on('value', (response) => {
+        console.log(response);
+        const newState = [];
+        response.forEach((meme) => {
+          newState.push({
+            ...meme.val(),
+            id : meme.key,
+          });
+        });
+        
+        const filteredMemes = newState
+          .filter(meme => meme.title.toLowerCase().includes(query.toLowerCase())
+          || meme.tags.toLowerCase().includes(query.toLowerCase()));
+        
 
-    // displayedItems = [] = either gifs or memes
+        this.setState({ displayedItems : filteredMemes});
+      });
+    }
   };
 
+  componentWillUnmount() {
+    database.ref().off();
+  }
+
   render() {
+    if(!this.state.displayedItems) return <div />
     return (
       <div className="App">
         <SearchBar getHandleFormSubmit={this.handleFormSubmit} />

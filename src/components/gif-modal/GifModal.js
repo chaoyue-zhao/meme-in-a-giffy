@@ -26,7 +26,7 @@ class GifModal extends Component {
       database.ref('memes').push({
           likes: 0,
           dislikes: 0,
-          url: this.props.item.images.original.url,
+          images: this.props.item.images,
           title: this.props.item.title,
           tags: this.state.tags,
           inputOne: this.state.inputOne,

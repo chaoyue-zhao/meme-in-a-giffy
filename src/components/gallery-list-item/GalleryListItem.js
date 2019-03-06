@@ -17,4 +17,5 @@ class GalleryListItem extends Component {
     );
   }
 }
+
 export default GalleryListItem;
