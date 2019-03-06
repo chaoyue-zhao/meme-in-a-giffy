@@ -10,6 +10,7 @@ const config = {
   };
   firebase.initializeApp(config);
 
+//defining the variable database her so we are not constantly writing firebase.database()
 const database = firebase.database();
 
 export default database;
