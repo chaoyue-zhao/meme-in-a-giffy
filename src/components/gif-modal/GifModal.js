@@ -48,7 +48,7 @@ class GifModal extends Component {
         <div className="modal-body">
           <div className="modal-meme-container">
             <p className="modal-textTop">
-              {/* chao did not pay attention during this portion so she is just going to say nice work. She thinks it has to do with && return a true value if they are both true??? */}
+              {/* conditionally render if inputOne has content (trusy), show the result from inputOne in the DOM*/}
               {this.state.inputOne && this.state.inputOne}
             </p>
             <div className="model-image-container">

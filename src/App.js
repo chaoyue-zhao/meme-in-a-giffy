@@ -42,7 +42,7 @@ class App extends Component {
     if (type === "gifs") {
       await this.getDataFromApi(query);
     } else {
-      //getting the snapshoot of our api data. store it in the newState, along with the api Key
+      //getting the snapshot of our api data. store it in the newState, along with the api Key
       database.ref('memes').on('value', (response) => {
         const newState = [];
         response.forEach((meme) => {
@@ -53,10 +53,10 @@ class App extends Component {
           });
         });
         
-        //chao is going to try to say that this is helping the user to filter from the data saved in the database. 
+        //this is filtering our meme data from firebase based on the user query 
         const filteredMemes = newState
           .filter(meme => {
-            {/*spliting the string into lil strings and seperate them whenever there is a "-"*/} 
+            //splitting the string into lil strings and separate them whenever there is a "-"
             const subjectWords = meme.subject.split('-');
 
             // return this if any of the following has the search query 1)title 2)tags 3)keywords
@@ -70,7 +70,7 @@ class App extends Component {
     }
   };
 
-  //chao also doesn't know what exactly this do?
+  // tell the firebase to stop listen for changes so we can avoid potential async memory leaks
   componentWillUnmount() {
     database.ref().off();
   }
