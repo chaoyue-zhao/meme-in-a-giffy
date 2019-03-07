@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Twitter from "../twitter/Twitter";
-import database from '../firebase/firebase';
+import database, {auth, provider} from '../firebase/firebase';
 
 class MemeListItem extends Component {
 
@@ -12,6 +12,14 @@ class MemeListItem extends Component {
   handleDislikes = () => {
     this.props.item.dislikes = this.props.item.dislikes + 1
     database.ref(`memes/${this.props.item.id}`).update(this.props.item)
+  }
+
+  onSaveClick = () => {
+    if(this.props.authId) {
+      database.ref(`users/${this.props.authId}/memes`).push(this.props.item);
+    } else {
+      auth.signInWithPopup(provider);
+    }
   }
 
   render() {
@@ -31,7 +39,13 @@ class MemeListItem extends Component {
                 <span>{this.props.item.dislikes}</span>
             </div>
             <div>
-                <button type='button' className='save-button'>Save</button>
+                <button 
+                  type='button' 
+                  className='save-button'
+                  onClick={this.onSaveClick}
+                >
+                Save
+                </button>
             </div>
             <div>
               <Twitter memeId={this.props.item.id}/>

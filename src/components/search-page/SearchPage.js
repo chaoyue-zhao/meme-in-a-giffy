@@ -37,10 +37,14 @@ class SearchPage extends Component {
     };
 
     handleFormSubmit = async (query, type) => {
+      
         this.setState({ type });
+        console.log('type', type);
         if (type === "gifs") {
+          console.log('getting gifs');
             await this.getDataFromApi(query);
         } else {
+          console.log('getting memes');
             //getting the snapshot of our api data. store it in the newState, along with the api Key
             database.ref('memes').on('value', (response) => {
                 const newState = [];
@@ -51,7 +55,7 @@ class SearchPage extends Component {
                         id: meme.key,
                     });
                 });
-
+                console.log('database memes', response.val());
                 //this is filtering our meme data from firebase based on the user query 
                 const filteredMemes = newState
                     .filter(meme => {
@@ -77,12 +81,12 @@ class SearchPage extends Component {
     render() {
         if (!this.state.displayedItems) return <div />
         return (
-
             <div className="App">
                 <SearchBar getHandleFormSubmit={this.handleFormSubmit} />
                 <GalleryList
                     displayedItems={this.state.displayedItems}
                     type={this.state.type}
+                    authId={this.props.authId}
                 />
             </div>
         );

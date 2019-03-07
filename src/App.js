@@ -45,7 +45,7 @@ class App extends Component {
 						handleLogInClick={this.handleLogInClick}
 						handleLogOutClick={this.handleLogOutClick}
 					/>
-          <Route path="/" component= {SearchPage} exact/>
+          <Route path="/" render={(props) => <SearchPage authId={this.state.auth} {...props} />} />
           <Route path="/saved" component= {SavedMemes}/>
           <Route path="/display/:memeId" component= {MemeDetails}/>
         </React.Fragment>
