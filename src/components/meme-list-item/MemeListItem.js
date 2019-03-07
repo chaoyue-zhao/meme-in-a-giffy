@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Twitter from "../twitter/Twitter";
 import database from '../firebase/firebase';
 
 class MemeListItem extends Component {
@@ -33,7 +34,7 @@ class MemeListItem extends Component {
                 <button type='button' className='save-button'>Save</button>
             </div>
             <div>
-                <button type='button' className='share-meme'>Share</button>
+              <Twitter memeId={this.props.item.id}/>
             </div>
         </div>
       </li>
