@@ -60,7 +60,7 @@ class GalleryList extends Component {
   };
 
   render() {
-    console.log(this.props);
+    console.log('displayedItems', this.props);
     //conditional rendering only if this.props.displayedItems(the array contains our data from api is NOT empty/falsy)
     if (!this.props.displayedItems) return <div />;
     return (

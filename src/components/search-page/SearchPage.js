@@ -13,19 +13,23 @@ class SearchPage extends Component {
         };
     }
 
-    getDataFromApi = async query => {
-        try {
-            //sweet proxy everyone love.
-            const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-            const apiUrl = "http://api.giphy.com//v1/gifs/search";
+    apiCall = (endpoint, query) => {
+        //sweet proxy everyone love.
+        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+        const apiUrl = `http://api.giphy.com//v1/gifs/${endpoint}`;
 
-            const response = await axios.get(proxyUrl + apiUrl, {
-                params: {
-                    //still working on hiding this key
-                    api_key: `${process.env.REACT_APP_API_KEY}`,
-                    q: query
-                }
-            });
+        return axios.get(proxyUrl + apiUrl, {
+            params: {
+                //still working on hiding this key
+                api_key: `${process.env.REACT_APP_API_KEY}`,
+                q: query
+            }
+        });
+    }
+
+    getDataFromApi = async (query) => {
+        try {
+            const response = await this.apiCall('search', query);
 
             this.setState({
                 displayedItems: response.data.data
@@ -70,6 +74,7 @@ class SearchPage extends Component {
 
                 this.setState({ displayedItems: filteredMemes });
             });
+            console.log('database maybe?', database.ref('memes'))
         }
     };
 
@@ -79,6 +84,7 @@ class SearchPage extends Component {
     }
 
     render() {
+        console.log('state at SearchPage', this.state.displayedItems)
         if (!this.state.displayedItems) return <div />
         return (
             <div className="App">

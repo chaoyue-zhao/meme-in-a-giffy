@@ -5,7 +5,7 @@ import Header from './components/header/Header';
 import SavedMemes from "./components/saved-memes/SavedMemes";
 import MemeDetails from "./components/meme-details/MemeDetails";
 import {BrowserRouter, Route} from 'react-router-dom';
-import {provider, auth, database} from './components/firebase/firebase';
+import {provider, auth} from './components/firebase/firebase';
 
 class App extends Component {
 	constructor() {
