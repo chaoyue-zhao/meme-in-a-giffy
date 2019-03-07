@@ -14,6 +14,10 @@ class MemeListItem extends Component {
     database.ref(`memes/${this.props.item.id}`).update(this.props.item)
   }
 
+  handleSaveClick = () => {
+      database.ref(`memes/`)
+  }
+
   render() {
     const { images, title, inputOne, inputTwo } = this.props.item;
     return (
@@ -31,7 +35,7 @@ class MemeListItem extends Component {
                 <span>{this.props.item.dislikes}</span>
             </div>
             <div>
-                <button type='button' className='save-button'>Save</button>
+                <button type='button' className='save-button' onClick={this.handleSaveClick}>Save</button>
             </div>
             <div>
               <Twitter memeId={this.props.item.id}/>
