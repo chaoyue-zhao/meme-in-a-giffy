@@ -7,7 +7,6 @@ import MemeDetails from "./components/meme-details/MemeDetails";
 import {BrowserRouter, Route} from 'react-router-dom';
 
 class App extends Component {
-
   render() {
     return (
       <BrowserRouter>

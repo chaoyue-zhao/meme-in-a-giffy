@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Twitter from "../twitter/Twitter";
 import database from '../firebase/firebase';
 
 class MemeListItem extends Component {
@@ -33,11 +34,7 @@ class MemeListItem extends Component {
                 <button type='button' className='save-button'>Save</button>
             </div>
             <div>
-                {/* <button type='button' className='share-meme'>Share</button> */}
-                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=made+this+meme+with+Meme+in+a+Giffy"
-                    data-size="large">
-                Tweet your meme!
-                </a>
+              <Twitter memeId={this.props.item.id}/>
             </div>
         </div>
       </li>
