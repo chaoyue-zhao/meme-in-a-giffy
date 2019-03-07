@@ -33,7 +33,11 @@ class MemeListItem extends Component {
                 <button type='button' className='save-button'>Save</button>
             </div>
             <div>
-                <button type='button' className='share-meme'>Share</button>
+                {/* <button type='button' className='share-meme'>Share</button> */}
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=made+this+meme+with+Meme+in+a+Giffy"
+                    data-size="large">
+                Tweet your meme!
+                </a>
             </div>
         </div>
       </li>
