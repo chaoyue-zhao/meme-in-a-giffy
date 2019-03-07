@@ -5,7 +5,7 @@ import Header from './components/header/Header';
 import SavedMemes from "./components/saved-memes/SavedMemes";
 import MemeDetails from "./components/meme-details/MemeDetails";
 import {BrowserRouter, Route} from 'react-router-dom';
-import {provider, auth, database} from './components/firebase/firebase';
+import {provider, auth} from './components/firebase/firebase';
 
 class App extends Component {
 	constructor() {
@@ -41,11 +41,11 @@ class App extends Component {
       <BrowserRouter>
         <React.Fragment>
           <Header 
-			isAuth={this.state.auth}
-			handleLogInClick={this.handleLogInClick}
-			handleLogOutClick={this.handleLogOutClick}
-			/>
-          <Route path="/" component= {SearchPage} exact/>
+						isAuth={this.state.auth}
+						handleLogInClick={this.handleLogInClick}
+						handleLogOutClick={this.handleLogOutClick}
+					/>
+          <Route path="/" render={(props) => <SearchPage authId={this.state.auth} {...props} />} />
           <Route path="/saved" component= {SavedMemes}/>
           <Route path="/display/:memeId" component= {MemeDetails}/>
         </React.Fragment>

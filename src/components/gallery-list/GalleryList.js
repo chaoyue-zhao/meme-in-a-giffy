@@ -39,7 +39,7 @@ class GalleryList extends Component {
           handleGalleryItem={this.handleGalleryItem}
         />
       ) : (
-        <MemeListItem item={item} />
+        <MemeListItem item={item} authId={this.props.authId}/>
       );
     });
   };
@@ -60,6 +60,7 @@ class GalleryList extends Component {
   };
 
   render() {
+    console.log('displayedItems', this.props);
     //conditional rendering only if this.props.displayedItems(the array contains our data from api is NOT empty/falsy)
     if (!this.props.displayedItems) return <div />;
     return (

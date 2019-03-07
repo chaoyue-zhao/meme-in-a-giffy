@@ -13,19 +13,23 @@ class SearchPage extends Component {
         };
     }
 
-    getDataFromApi = async query => {
-        try {
-            //sweet proxy everyone love.
-            const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-            const apiUrl = "http://api.giphy.com//v1/gifs/search";
+    apiCall = (endpoint, query) => {
+        //sweet proxy everyone love.
+        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+        const apiUrl = `http://api.giphy.com//v1/gifs/${endpoint}`;
 
-            const response = await axios.get(proxyUrl + apiUrl, {
-                params: {
-                    //still working on hiding this key
-                    api_key: `${process.env.REACT_APP_API_KEY}`,
-                    q: query
-                }
-            });
+        return axios.get(proxyUrl + apiUrl, {
+            params: {
+                //still working on hiding this key
+                api_key: `${process.env.REACT_APP_API_KEY}`,
+                q: query
+            }
+        });
+    }
+
+    getDataFromApi = async (query) => {
+        try {
+            const response = await this.apiCall('search', query);
 
             this.setState({
                 displayedItems: response.data.data
@@ -37,10 +41,14 @@ class SearchPage extends Component {
     };
 
     handleFormSubmit = async (query, type) => {
+      
         this.setState({ type });
+        console.log('type', type);
         if (type === "gifs") {
+          console.log('getting gifs');
             await this.getDataFromApi(query);
         } else {
+          console.log('getting memes');
             //getting the snapshot of our api data. store it in the newState, along with the api Key
             database.ref('memes').on('value', (response) => {
                 const newState = [];
@@ -51,7 +59,7 @@ class SearchPage extends Component {
                         id: meme.key,
                     });
                 });
-
+                console.log('database memes', response.val());
                 //this is filtering our meme data from firebase based on the user query 
                 const filteredMemes = newState
                     .filter(meme => {
@@ -66,6 +74,7 @@ class SearchPage extends Component {
 
                 this.setState({ displayedItems: filteredMemes });
             });
+            console.log('database maybe?', database.ref('memes'))
         }
     };
 
@@ -75,14 +84,15 @@ class SearchPage extends Component {
     }
 
     render() {
+        console.log('state at SearchPage', this.state.displayedItems)
         if (!this.state.displayedItems) return <div />
         return (
-
             <div className="App">
                 <SearchBar getHandleFormSubmit={this.handleFormSubmit} />
                 <GalleryList
                     displayedItems={this.state.displayedItems}
                     type={this.state.type}
+                    authId={this.props.authId}
                 />
             </div>
         );
