@@ -13,7 +13,20 @@ class GalleryList extends Component {
       currentGalleryItem: ""
     };
   }
+  
   renderGalleryItems = () => {
+    if(this.props.type==='memes') {
+      this.props.displayedItems.sort((a,b) => {
+          if(a.likes > b.likes) {
+            return -1;
+          } else if (b.likes > a.likes){
+            return 1;
+          } else {
+            return 0;
+          }
+      });
+    }
+
     return this.props.displayedItems.map((item, i) => {
       return this.props.type === "gifs" ? (
         <GalleryListItem
