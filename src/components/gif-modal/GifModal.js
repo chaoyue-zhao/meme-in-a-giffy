@@ -31,7 +31,7 @@ class GifModal extends Component {
         error: "Error enter text to continue"
       })
     } else {
-    this.setState({
+    this.setState({ 
        error: ""
     })
   }}
