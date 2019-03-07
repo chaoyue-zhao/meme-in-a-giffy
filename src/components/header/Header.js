@@ -14,6 +14,7 @@ class Header extends Component {
                 <li>
                   <NavLink to="/saved">Saved</NavLink>
                 </li>
+                {this.props.isAuth ? <button onClick={this.props.handleLogOutClick}>Log Out</button>: <button onClick={this.props.handleLogInClick}>Log In</button>}
               </ul>
             </nav>
           </header>

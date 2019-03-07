@@ -5,13 +5,46 @@ import Header from './components/header/Header';
 import SavedMemes from "./components/saved-memes/SavedMemes";
 import MemeDetails from "./components/meme-details/MemeDetails";
 import {BrowserRouter, Route} from 'react-router-dom';
+import {provider, auth, database} from './components/firebase/firebase';
 
 class App extends Component {
-  render() {
+	constructor() {
+        super();
+        this.state = {
+            auth: null
+        }
+    }
+
+	componentDidMount () {
+		auth.onAuthStateChanged((user => {
+			if (user) {
+				this.setState({ auth: user.uid })
+				console.log('loggedIn')
+			} else {
+				this.setState ({ auth: null })
+				console.log('loggedOut')
+			}
+		}
+		))
+	}
+
+	handleLogInClick = () => {
+		auth.signInWithPopup(provider) 
+	}
+
+	handleLogOutClick = () => {
+		auth.signOut() 
+	}
+
+	render() {
     return (
       <BrowserRouter>
         <React.Fragment>
-          <Header />
+          <Header 
+						isAuth={this.state.auth}
+						handleLogInClick={this.handleLogInClick}
+						handleLogOutClick={this.handleLogOutClick}
+					/>
           <Route path="/" component= {SearchPage} exact/>
           <Route path="/saved" component= {SavedMemes}/>
           <Route path="/display/:memeId" component= {MemeDetails}/>

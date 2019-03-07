@@ -12,5 +12,7 @@ const config = {
 
 //defining the variable database her so we are not constantly writing firebase.database()
 const database = firebase.database();
+const provider = new firebase.auth.GoogleAuthProvider();
+const auth = firebase.auth();
 
-export default database;
+export { provider, auth, database as default };
