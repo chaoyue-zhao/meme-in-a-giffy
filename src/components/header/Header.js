@@ -11,10 +11,11 @@ class Header extends Component {
                 <li>
                   <NavLink to="/" exact>Search</NavLink>
                 </li>
-                <li>
+                {this.props.isAuth &&
+                    <li>
                   <NavLink to="/saved">Saved</NavLink>
-                </li>
-                {this.props.isAuth ? <button onClick={this.props.handleLogOutClick}>Log Out</button>: <button onClick={this.props.handleLogInClick}>Log In</button>}
+                </li>}
+                {this.props.isAuth ? <button onClick={this.props.handleLogOutClick}>Log Out</button> : <button onClick={this.props.handleLogInClick}>Log In</button>}
               </ul>
             </nav>
           </header>

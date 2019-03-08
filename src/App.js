@@ -45,7 +45,7 @@ class App extends Component {
 				handleLogInClick={this.handleLogInClick}
 				handleLogOutClick={this.handleLogOutClick}
 				/>
-          <Route path="/" render={(props) => <SearchPage authId={this.state.auth} {...props} exact />} />
+          <Route path="/" render={(props) => <SearchPage authId={this.state.auth} {...props} />} exact />
           <Route path="/saved"
           render={
             (props) => <SavedMemes authId={this.state.auth} {...props} /> 

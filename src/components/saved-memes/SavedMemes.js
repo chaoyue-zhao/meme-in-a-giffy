@@ -5,7 +5,7 @@ class SavedMemes extends Component {
     constructor(){
         super();
         this.state={
-            savedMemes: ""
+            savedMemes: null
         }
     }
     componentDidMount(){
@@ -25,6 +25,8 @@ class SavedMemes extends Component {
     }
 
     render() {
+        console.log(this.props)
+        if(!this.state.savedMemes) return <div />
         return(
             <GalleryList displayedItems={this.state.savedMemes} type="memes" savedMeme={true} />
         )

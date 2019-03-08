@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Twitter from "../twitter/Twitter";
-import database from '../firebase/firebase';
+import database, {auth, provider} from '../firebase/firebase';
 
 class MemeListItem extends Component {
 
