@@ -266,4 +266,14 @@ body {
 .heading {
   font-family: "Fjalla One", sans-serif;
 }
+
+.modal {
+  border: 2px solid tomato;
+  z-index: 10;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  bottom: 10%;
+  left: 10%;
+}
 /*# sourceMappingURL=app.css.map */

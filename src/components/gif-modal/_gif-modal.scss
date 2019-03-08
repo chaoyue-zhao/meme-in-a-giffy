@@ -1,0 +1,8 @@
+.modal {
+    border: 2px solid tomato;
+    z-index: 10;
+    @include position (absolute, 10%, 10%, 10%, 10%);
+    
+    
+}
+

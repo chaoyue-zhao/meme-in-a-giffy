@@ -60,7 +60,7 @@ class GifModal extends Component {
     //very NOICE deconstructing here. Good job taking out those key (on the left) off the object (on the right)
     const { images, title } = this.props.item;
     return (
-      <section className="modal-background">
+      <section className="modal modal-background">
         <div className="modal-body">
           <div className="modal-meme-container">
             <p className="modal-textTop">
