@@ -39,7 +39,7 @@ class GalleryList extends Component {
           handleGalleryItem={this.handleGalleryItem}
         />
       ) : (
-        <MemeListItem item={item} authId={this.props.authId}/>
+        <MemeListItem savedMeme = {this.props.savedMeme} item={item} authId={this.props.authId}/>
       );
     });
   };

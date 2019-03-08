@@ -41,12 +41,16 @@ class App extends Component {
       <BrowserRouter>
         <React.Fragment>
           <Header 
-			isAuth={this.state.auth}
-			handleLogInClick={this.handleLogInClick}
-			handleLogOutClick={this.handleLogOutClick}
-			/>
-          <Route path="/" render={(props) => <SearchPage authId={this.state.auth} {...props} />} />
-          <Route path="/saved" component= {SavedMemes}/>
+				isAuth={this.state.auth}
+				handleLogInClick={this.handleLogInClick}
+				handleLogOutClick={this.handleLogOutClick}
+				/>
+          <Route path="/" render={(props) => <SearchPage authId={this.state.auth} {...props} exact />} />
+          <Route path="/saved"
+          render={
+            (props) => <SavedMemes authId={this.state.auth} {...props} /> 
+          }
+           />         
           <Route path="/display/:memeId" component= {MemeDetails}/>
         </React.Fragment>
       </BrowserRouter>
