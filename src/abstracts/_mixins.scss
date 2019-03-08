@@ -1,1 +1,25 @@
+@mixin media($screen-size) {
+  @media (max-width: $screen-size) {
+    @content;
+  }
+}
 
+@mixin list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin position($position, $top, $right, $bottom, $left) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

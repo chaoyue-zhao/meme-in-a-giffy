@@ -251,4 +251,18 @@ template {
 html {
   font-size: 125%;
 }
+
+body {
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+}
+
+.wrapper {
+  max-width: 1600px;
+  width: 80%;
+}
+
+.heading {
+  font-family: "Fjalla One", sans-serif;
+}
 /*# sourceMappingURL=app.css.map */
