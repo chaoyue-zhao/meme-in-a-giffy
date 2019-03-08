@@ -20,9 +20,22 @@ class MemeListItem extends Component {
       auth.signInWithPopup(provider);
     }
   }
+
+  onDeleteClick = () => {
+      console.log('delete, damnit!')
+        database.ref(`users/${this.props.authId}/memes/${this.props.item.savedMemeId}`).remove();
+  }
+  
+
   renderButtons = () =>{
     return this.props.savedMeme ? (
-      <button>Delete</button>
+      <button
+      type='button'
+      className='delete-button'
+      onClick={this.onDeleteClick}
+      >
+      Delete
+      </button>
     ):(
     <button 
         type='button' 

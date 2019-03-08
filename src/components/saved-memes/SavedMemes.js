@@ -20,15 +20,16 @@ class SavedMemes extends Component {
             this.setState({savedMemes:arrayNewState})
         })
     }
-    componentDidUpdate(){
-        console.log(this.state.savedMemes)
-    }
+
+    componentWillUnmount(){
+        database.ref().off();
+    }  
 
     render() {
         console.log(this.props)
         if(!this.state.savedMemes) return <div />
         return(
-            <GalleryList displayedItems={this.state.savedMemes} type="memes" savedMeme={true} />
+            <GalleryList displayedItems={this.state.savedMemes} type="memes" authId={this.props.authId} savedMeme={true} />
         )
     }
 }

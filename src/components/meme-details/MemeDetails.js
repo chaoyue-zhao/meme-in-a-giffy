@@ -12,9 +12,7 @@ class MemeDetails extends Component {
             this.setState({memes: response.val()})
          })
     }
-    componentDidUpdate(){
-        console.log('meme',this.state.meme)
-    }
+    
     render() {
         if(!this.state.memes)return (<div></div>)
         return (
