@@ -9,7 +9,7 @@ class Header extends Component {
             <nav>
               <ul>
                 <li>
-                  <NavLink to="/">Search</NavLink>
+                  <NavLink to="/" exact>Search</NavLink>
                 </li>
                 <li>
                   <NavLink to="/saved">Saved</NavLink>

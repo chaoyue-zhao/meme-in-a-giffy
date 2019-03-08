@@ -41,7 +41,6 @@ class SearchPage extends Component {
     };
 
     handleFormSubmit = async (query, type) => {
-      
         this.setState({ type });
         console.log('type', type);
         if (type === "gifs") {
