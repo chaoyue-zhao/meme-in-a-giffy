@@ -1,6 +1,8 @@
 .gallery {
   ul {
     padding: 0;
+    margin: 0;
     list-style: none;
+    padding-bottom: $small-gap;
   }
 }

@@ -268,6 +268,35 @@ body {
   font-family: "Fjalla One", sans-serif;
 }
 
+
+form input {
+  height: 40px;
+  width: calc(100% - 20% - 40px);
+}
+
+form select {
+  width: 20%;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  height: 40px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+}
+
+form button {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+}
+
+form .search-bar-icon {
+  width: 18px;
+}
+
 .modal {
   z-index: 10;
   position: fixed;
@@ -352,6 +381,7 @@ body {
 
 form p {
   margin: 0;
+  font-family: "Lato", sans-serif;
 }
 
 .clearfix:after {
@@ -375,28 +405,31 @@ form p {
   clear: both;
   padding-top: 1rem;
   padding-bottom: 2rem;
+  font-family: "Fjalla One", sans-serif;
 }
 
-nav ul {
+nav.header-nav ul.clearfix {
   padding: 0;
   margin: 0;
   float: right;
 }
 
-nav ul li {
+nav.header-nav ul.clearfix li {
   list-style: none;
   margin: 0;
   float: left;
   margin-right: 1rem;
+  font-family: "Lato", sans-serif;
 }
 
-nav ul button {
+nav.header-nav ul.clearfix button {
   float: left;
+  font-family: "Lato", sans-serif;
 }
 
 nav a {
   text-decoration: none;
-  color: #FAFAFA;
+  color: #fafafa;
 }
 
 label[for="userInput"] {
@@ -408,10 +441,6 @@ label[for="userInput"] p {
   margin: 0;
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-#userInput {
-  min-width: calc(100% - 253px);
 }
 
 #userInput p {
@@ -426,27 +455,37 @@ label[for="userInput"] p {
 
 .gallery ul {
   padding: 0;
+  margin: 0;
   list-style: none;
+  padding-bottom: 1rem;
 }
 
-ul.clearfix li {
-  width: calc(20% - 4px);
+ul.gallery-container li {
   float: left;
   margin: 2px;
-}
-
-ul.clearfix li img {
-  width: 100%;
+  position: relative;
   height: 200px;
+  width: calc(20% - 4px);
 }
 
-ul.clearfix li:nth-of-type(5n) {
-  margin-right: 0;
+ul.gallery-container li .overlay {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(255, 255, 255, 0.3)), to(#f8fb90));
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 50%, #f8fb90 100%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+ul.gallery-container li img {
+  width: 100%;
+  height: 100%;
 }
 
 footer {
   text-align: center;
-  background: #232323;
-  color: #FAFAFA;
+  background: #000000;
+  color: #fafafa;
 }
 /*# sourceMappingURL=app.css.map */
