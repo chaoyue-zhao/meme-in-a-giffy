@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import database from '../firebase/firebase.js';
+import database from "../firebase/firebase.js";
 
 class GifModal extends Component {
   constructor() {
@@ -8,17 +8,28 @@ class GifModal extends Component {
       showModal: true,
       inputOne: "",
       inputTwo: "",
+      inputFontSize: "font-big",
       tags: "",
       error: null
     };
   }
 
-  // these one liner setState are very sweet. they help us get the value from da inputs. 
+  // these one liner setState are very sweet. they help us get the value from da inputs.
   handleInputOneChange = e => {
+    if (e.target.value.length >= 22) {
+      this.setState ({ inputFontSize: "font-small" })
+    } else {
+      this.setState({ inputFontSize: "font-big" })
+    }
     this.setState({ inputOne: e.target.value });
   };
 
   handleInputTwoChange = e => {
+    if (e.target.value.length >= 22) {
+      this.setState({ inputFontSize: "font-small" })
+    } else {
+      this.setState({ inputFontSize: "font-big" })
+    }
     this.setState({ inputTwo: e.target.value });
   };
 
@@ -26,11 +37,12 @@ class GifModal extends Component {
     this.setState({ tags: e.target.value });
   };
 
+
   validateInput = async () => {
     if (!this.state.inputOne && !this.state.inputTwo) {
      await this.setState({
         error: "Error enter text to continue"
-      })
+      });
     } else {
     await this.setState({ 
        error: null
@@ -66,20 +78,26 @@ class GifModal extends Component {
     return (
       <section className="modal-background" onClick={this.props.handleToggleModal}>
         <div className="modal-body" onClick={(e) => e.stopPropagation()}>
-          <div className="modal-meme-container">
-            <p className="modal-textTop">
+         <div className="modal-image-container">
+            <p
+              className={`meme-text modal-text-top ${
+                this.state.inputFontSize
+              }`}
+            >
               {/* conditionally render if inputOne has content (trusly), show the result from inputOne in the DOM*/}
               {this.state.inputOne && this.state.inputOne}
             </p>
-            <div className="model-image-container">
+            <img
+              src={images.original.url}
+              alt={title}
+              className="modal-image"
+            />
             {/* referring to the deconstructing up top. also commenting in JSX is not fun. */}
-              <img
-                src={images.original.url}
-                alt={title}
-                className="modal-image"
-              />
-            </div>
-            <p className="modal-textBottom">
+            <p
+              className={`meme-text modal-text-bottom ${
+                this.state.inputFontSize
+              }`}
+            >
               {this.state.inputTwo && this.state.inputTwo}
             </p>
           </div>
@@ -91,7 +109,7 @@ class GifModal extends Component {
               id="inputTop"
               onChange={this.handleInputOneChange}
               value={this.state.inputOne}
-
+              maxlength = "100"
             />
             <label htmlFor="inputBottom">Bottom text:</label>
             <input
@@ -100,6 +118,7 @@ class GifModal extends Component {
               id="inputBottom"
               onChange={this.handleInputTwoChange}
               value={this.state.inputTwo}
+              maxlength="100"
             />
             <input
               type="text"

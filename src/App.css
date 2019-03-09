@@ -261,9 +261,192 @@ body {
 .wrapper {
   max-width: 1600px;
   width: 80%;
+  margin: 0 auto;
 }
 
 .heading {
   font-family: "Fjalla One", sans-serif;
+}
+
+.modal {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-background {
+  background: rgba(35, 35, 35, 0.8);
+}
+
+.modal-body {
+  z-index: 20;
+  position: fixed;
+  top: 10%;
+  right: 10%;
+  bottom: 10%;
+  left: 10%;
+  background: #FAFAFA;
+}
+
+.modal-image-container {
+  width: 70%;
+  height: 60vh;
+  margin: 1rem auto;
+  padding: 8vh 0;
+  position: relative;
+  background: #232323;
+  border: 5px solid #232323;
+}
+
+.modal-image {
+  display: block;
+  height: 300px;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.modal .meme-text {
+  color: #FAFAFA;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+.modal-text-top, .modal-text-bottom {
+  z-index: 30;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.modal-text-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-text-bottom {
+  position: absolute;
+  top: 85%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.font-big {
+  font-size: 2.4rem;
+}
+
+.font-small {
+  font-size: 1.2rem;
+}
+
+form p {
+  margin: 0;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+.header {
+  background: #232323;
+  padding-top: 1rem;
+}
+
+.header h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  clear: both;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0;
+  float: left;
+  margin-right: 1rem;
+}
+
+nav ul button {
+  float: left;
+}
+
+nav a {
+  text-decoration: none;
+  color: #FAFAFA;
+}
+
+label[for="userInput"] {
+  min-width: calc(100% - 253px);
+}
+
+label[for="userInput"] p {
+  text-align: center;
+  margin: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#userInput {
+  min-width: calc(100% - 253px);
+}
+
+#userInput p {
+  margin: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.App {
+  background: #232323;
+}
+
+.gallery ul {
+  padding: 0;
+  list-style: none;
+}
+
+ul.clearfix li {
+  width: calc(20% - 4px);
+  float: left;
+  margin: 2px;
+}
+
+ul.clearfix li img {
+  width: 100%;
+  height: 200px;
+}
+
+ul.clearfix li:nth-of-type(5n) {
+  margin-right: 0;
+}
+
+footer {
+  text-align: center;
+  background: #232323;
+  color: #FAFAFA;
 }
 /*# sourceMappingURL=app.css.map */

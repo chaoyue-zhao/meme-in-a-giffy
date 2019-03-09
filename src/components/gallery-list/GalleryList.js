@@ -15,17 +15,17 @@ class GalleryList extends Component {
       showSavedModal: false 
     };
   }
-  
+
   renderGalleryItems = () => {
-    if(this.props.type==='memes') {
-      this.props.displayedItems.sort((a,b) => {
-          if(a.likes > b.likes) {
-            return -1;
-          } else if (b.likes > a.likes){
-            return 1;
-          } else {
-            return 0;
-          }
+    if (this.props.type === "memes") {
+      this.props.displayedItems.sort((a, b) => {
+        if (a.likes > b.likes) {
+          return -1;
+        } else if (b.likes > a.likes) {
+          return 1;
+        } else {
+          return 0;
+        }
       });
     }
 
@@ -84,15 +84,13 @@ class GalleryList extends Component {
   render() {
     //conditional rendering only if this.props.displayedItems(the array contains our data from api is NOT empty/falsy)
     // if (!this.props.displayedItems) return <div />;
-    console.log(this.props)
-    return (
-     
+    return (   
       //conditional rendering again! we are choosing to display the title based on user's selection - linking to the dropdown
       <div>
         <h2>{this.props.type === "gifs" ? "Gifs List" : "Memes List"}</h2>
         {/* ??? what is this for??? {this.props.displayedItems} */}
-        <div className="gallery">
-          <ul>{this.renderGalleryItems()}</ul>
+        <div className="gallery ">
+          <ul className="clearfix">{this.renderGalleryItems()}</ul>
         </div>
         {/*conditional rendering again again! rendering the modal only when the following two conditions are met 1) user clicked on an image 2)user selected gifs from the dropdown. we are also passing the nicly packaged gallery item down */}
         {this.state.showModal && this.props.type === "gifs" && (

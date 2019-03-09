@@ -31,8 +31,12 @@ class SearchBar extends Component {
     return (
       <React.Fragment>
         <form onSubmit={this.formSubmit}>
+          <p>
+            Best place to create Memes and share them with your friends! Search
+            for gifs, click to create memes, and save it to your list!
+          </p>
           <label htmlFor="userInput">
-            Please enter a search term for your gifs:
+            <p>Please enter a search term for your gifs:</p>
           </label>
           <input
             type="text"

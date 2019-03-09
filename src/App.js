@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import createHistory from 'history/createBrowserHistory';
 import "./App.css";
-import SearchPage from './components/search-page/SearchPage';
-import Header from './components/header/Header';
+import SearchPage from "./components/search-page/SearchPage";
+import Header from "./components/header/Header";
 import SavedMemes from "./components/saved-memes/SavedMemes";
 import MemeDetails from "./components/meme-details/MemeDetails";
 import {Router, Route, Switch} from 'react-router-dom';
 import {provider, auth} from './components/firebase/firebase';
 import PrivateRoute from './routes/PrivateRoute';
-
 const history = createHistory();
+import Footer from "./components/footer/Footer";
 
 class App extends Component {
-	constructor() {
-        super();
-        this.state = {
-            auth: null
-        }
-    }
+  constructor() {
+    super();
+    this.state = {
+      auth: null
+    };
+  }
 
 	componentDidMount  () {
 		auth.onAuthStateChanged(( async user => {
@@ -35,15 +35,15 @@ class App extends Component {
 		))
   }
 
-	handleLogInClick = () => {
-		auth.signInWithPopup(provider) 
-	}
+  handleLogInClick = () => {
+    auth.signInWithPopup(provider);
+  };
 
-	handleLogOutClick = () => {
-		auth.signOut() 
-	}
+  handleLogOutClick = () => {
+    auth.signOut();
+  };
 
-	render() {
+  render() {
     return (
       <Router history={history}>
         <React.Fragment>
@@ -61,7 +61,8 @@ class App extends Component {
               />          */}
               <PrivateRoute path="/saved" component={SavedMemes} authId={this.state.auth}/>
               <Route path="/display/:memeId" component= {MemeDetails}/>
-            </Switch>
+            </Switch> 
+          <Footer />
         </React.Fragment>
       </Router>
     );

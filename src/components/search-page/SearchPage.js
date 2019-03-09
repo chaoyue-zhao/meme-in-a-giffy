@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import SearchBar from "./../search-bar/SearchBar";
 import GalleryList from "./../gallery-list/GalleryList";
-import database from './../firebase/firebase';
+import database from "./../firebase/firebase";
 
 class SearchPage extends Component {
     constructor() {
@@ -26,19 +26,36 @@ class SearchPage extends Component {
             }
         });
     }
+    
+  componentDidMount() {
+    this.getDataFromApi("trending");
+  }
 
-    getDataFromApi = async (query) => {
-        try {
-            const response = await this.apiCall('search', query);
+  apiCall = (endpoint, query) => {
+    //sweet proxy everyone love.
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+    const apiUrl = `http://api.giphy.com//v1/gifs/${endpoint}`;
 
-            this.setState({
-                displayedItems: response.data.data
-            });
+    return axios.get(proxyUrl + apiUrl, {
+      params: {
+        //still working on hiding this key
+        api_key: `${process.env.REACT_APP_API_KEY}`,
+        q: query
+      }
+    });
+  };
 
-        } catch (error) {
-            alert(error);
-        }
-    };
+  getDataFromApi = async query => {
+    try {
+      const response = await this.apiCall("search", query);
+      
+      this.setState({
+        displayedItems: response.data.data
+      });
+    } catch (error) {
+      alert(error);
+    }
+  };
 
     handleFormSubmit = async (query, type) => {
         this.setState({ type });
@@ -78,22 +95,24 @@ class SearchPage extends Component {
     componentWillUnmount() {
         database.ref().off();
     }
+  };
 
-    render() {
-        if (!this.state.displayedItems) return <div />
-        return (
-            <div className="App">
-                <SearchBar getHandleFormSubmit={this.handleFormSubmit} />
-                <GalleryList
-                    displayedItems={this.state.displayedItems}
-                    type={this.state.type}
-                    authId={this.props.authId}
-                    savedMeme={false}
-                    history={this.props.history}
-                />
-            </div>
-        );
-    }
+  render() {
+    console.log("state at SearchPage", this.state.displayedItems);
+    if (!this.state.displayedItems) return <div />;
+    return (
+      <div className="App">
+        <div className="wrapper">
+          <SearchBar getHandleFormSubmit={this.handleFormSubmit} />
+          <GalleryList
+            displayedItems={this.state.displayedItems}
+            type={this.state.type}
+            authId={this.props.authId}
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default SearchPage;
