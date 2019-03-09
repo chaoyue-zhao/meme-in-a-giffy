@@ -1,0 +1,21 @@
+.confirm-save {
+  top:50%;
+  left:50%;
+  right:auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  border-radius:20px;
+  border:5px solid $black;
+
+  &-content {
+    font-family: $body-font;
+    letter-spacing:1px;
+    text-align:center;
+    padding:1.5rem 3rem;
+  }
+
+  &-content p {
+    margin:.5rem 0;
+  }
+}
+
