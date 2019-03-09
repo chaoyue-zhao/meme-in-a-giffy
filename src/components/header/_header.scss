@@ -1,0 +1,54 @@
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+.header {
+  background: $black;
+  padding-top: $small-gap;
+}
+
+.header h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  clear: both;
+  padding-top: $small-gap;
+  padding-bottom: $medium-gap;
+}
+
+nav {
+  ul {
+    padding: 0;
+    margin: 0;
+    float: right;
+    li {
+      list-style: none;
+      margin: 0;
+      float: left;
+      margin-right: $small-gap;
+    }
+    button {
+      float: left;
+    }
+  }
+}
+
+nav a {
+  text-decoration: none;
+  color: $white;
+}
+
+label[for="userInput"] {
+  min-width: calc(100% - 253px);
+  p {
+    text-align: center;
+    margin: 0;
+    padding-top: $small-gap;
+    padding-bottom: $small-gap;
+  }
+}
