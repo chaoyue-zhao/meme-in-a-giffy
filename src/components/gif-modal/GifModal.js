@@ -10,7 +10,7 @@ class GifModal extends Component {
       inputTwo: "",
       inputFontSize: "font-big",
       tags: "",
-      error: "Enter text to continue"
+      error: null
     };
   }
 
@@ -32,50 +32,53 @@ class GifModal extends Component {
     }
     this.setState({ inputTwo: e.target.value });
   };
+
   handleInputTag = e => {
     this.setState({ tags: e.target.value });
   };
 
-  validateInput = () => {
-    if (this.state.inputOne === "" && this.state.inputTwo === "") {
-      this.setState({
+
+  validateInput = async () => {
+    if (!this.state.inputOne && !this.state.inputTwo) {
+     await this.setState({
         error: "Error enter text to continue"
       });
     } else {
-      this.setState({
-        error: ""
-      });
-    }
-  };
+    await this.setState({ 
+       error: null
+    })
+  }}
 
-
-  handleSubmit = e => {
-    // chao's fav form method. don't forget. please don't forget.
-    e.preventDefault();
-    // this is very nice also. PUSHING TO FIREBASE with a customized object to the meme ref
-    this.validateInput();
-    if (!this.state.error) {
-      database.ref("memes").push({
-        // with all of our things. all of them.
-        likes: 0,
-        dislikes: 0,
-        images: this.props.item.images,
-        title: this.props.item.title,
-        tags: this.state.tags,
-        inputOne: this.state.inputOne,
-        inputTwo: this.state.inputTwo,
-        subject: this.props.item.slug
-      });
-    }
-  };
+  handleSubmit =  async (e) => {
+      // chao's fav form method. don't forget. please don't forget.
+      e.preventDefault();
+      // this is very nice also. PUSHING TO FIREBASE with a customized object to the meme ref
+      await this.validateInput() 
+      
+      if(!this.state.error) {
+        database.ref('memes').push({
+          // with all of our things. all of them. 
+          likes: 0,
+          dislikes: 0,
+          images: this.props.item.images,
+          title: this.props.item.title,
+          tags: this.state.tags,
+          inputOne: this.state.inputOne,
+          inputTwo: this.state.inputTwo,
+          subject: this.props.item.slug
+      }) 
+      
+      this.props.handleToggleSaveModal();
+  }
+}
 
   render() {
     //very NOICE deconstructing here. Good job taking out those key (on the left) off the object (on the right)
     const { images, title } = this.props.item;
     return (
-      <section className="modal modal-background">
-        <div className="modal-body">
-          <div className="modal-image-container">
+      <section className="modal-background" onClick={this.props.handleToggleModal}>
+        <div className="modal-body" onClick={(e) => e.stopPropagation()}>
+         <div className="modal-image-container">
             <p
               className={`meme-text modal-text-top ${
                 this.state.inputFontSize
@@ -129,7 +132,11 @@ class GifModal extends Component {
               <button type="submit" className="modal-button">
                 Save
               </button>
-              <button type="button" className="modal-button">
+              <button 
+                type="button" 
+                className="modal-button" 
+                onClick={this.props.handleToggleModal}
+              >
                 Back
               </button>
             </div>
