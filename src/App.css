@@ -268,35 +268,6 @@ body {
   font-family: "Fjalla One", sans-serif;
 }
 
-
-form input {
-  height: 40px;
-  width: calc(100% - 20% - 40px);
-}
-
-form select {
-  width: 20%;
-  -webkit-appearance: none;
-  -webkit-border-radius: 0px;
-  height: 40px;
-  -webkit-appearance: none;
-  -webkit-border-radius: 0px;
-  background-position: 100% 50%;
-  background-repeat: no-repeat;
-}
-
-form button {
-  -webkit-appearance: none;
-  -webkit-border-radius: 0px;
-  padding: 0;
-  width: 40px;
-  height: 40px;
-}
-
-form .search-bar-icon {
-  width: 18px;
-}
-
 .modal {
   z-index: 10;
   position: fixed;
@@ -317,7 +288,7 @@ form .search-bar-icon {
   right: 10%;
   bottom: 10%;
   left: 10%;
-  background: #FAFAFA;
+  background: #fafafa;
 }
 
 .modal-image-container {
@@ -339,7 +310,7 @@ form .search-bar-icon {
 }
 
 .modal-meme-text {
-  color: #FAFAFA;
+  color: #fafafa;
   font-family: "Lato", sans-serif;
   font-weight: bold;
   line-height: 1.2;
@@ -377,6 +348,34 @@ form .search-bar-icon {
 
 .font-small {
   font-size: 1.2rem;
+}
+
+form input {
+  height: 40px;
+  width: calc(100% - 20% - 40px);
+}
+
+form select {
+  width: 20%;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  height: 40px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+}
+
+form button {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+}
+
+form .search-bar-icon {
+  width: 18px;
 }
 
 form p {
@@ -487,5 +486,27 @@ footer {
   text-align: center;
   background: #000000;
   color: #fafafa;
+}
+
+.confirm-save {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 20px;
+  border: 5px solid #232323;
+}
+
+.confirm-save-content {
+  font-family: "Lato", sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 1.5rem 3rem;
+}
+
+.confirm-save-content p {
+  margin: .5rem 0;
 }
 /*# sourceMappingURL=app.css.map */
