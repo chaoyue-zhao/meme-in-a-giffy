@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import database from '../firebase/firebase.js';
+import database from "../firebase/firebase.js";
 
 class GifModal extends Component {
   constructor() {
@@ -8,39 +8,53 @@ class GifModal extends Component {
       showModal: true,
       inputOne: "",
       inputTwo: "",
+      inputFontSize: "font-big",
       tags: "",
-      error: "Enter text to continue"
+      error: null
     };
   }
 
-  // these one liner setState are very sweet. they help us get the value from da inputs. 
+  // these one liner setState are very sweet. they help us get the value from da inputs.
   handleInputOneChange = e => {
+    if (e.target.value.length >= 22) {
+      this.setState ({ inputFontSize: "font-small" })
+    } else {
+      this.setState({ inputFontSize: "font-big" })
+    }
     this.setState({ inputOne: e.target.value });
-    
   };
+
   handleInputTwoChange = e => {
+    if (e.target.value.length >= 22) {
+      this.setState({ inputFontSize: "font-small" })
+    } else {
+      this.setState({ inputFontSize: "font-big" })
+    }
     this.setState({ inputTwo: e.target.value });
   };
+
   handleInputTag = e => {
     this.setState({ tags: e.target.value });
   };
 
-  validateInput = () => {
-    if (this.state.inputOne ==="" && this.state.inputTwo ==="") {
-     this.setState({
+
+  validateInput = async () => {
+    if (!this.state.inputOne && !this.state.inputTwo) {
+     await this.setState({
         error: "Error enter text to continue"
-      })
+      });
     } else {
-    this.setState({ 
-       error: ""
+    await this.setState({ 
+       error: null
     })
   }}
 
-  handleSubmit =  (e) => {
+  handleSubmit =  async (e) => {
       // chao's fav form method. don't forget. please don't forget.
       e.preventDefault();
       // this is very nice also. PUSHING TO FIREBASE with a customized object to the meme ref
-      this.validateInput() 
+      await this.validateInput() 
+      
       if(!this.state.error) {
         database.ref('memes').push({
           // with all of our things. all of them. 
@@ -52,7 +66,9 @@ class GifModal extends Component {
           inputOne: this.state.inputOne,
           inputTwo: this.state.inputTwo,
           subject: this.props.item.slug
-      })    
+      }) 
+      
+      this.props.handleToggleSaveModal();
   }
 }
 
@@ -60,22 +76,31 @@ class GifModal extends Component {
     //very NOICE deconstructing here. Good job taking out those key (on the left) off the object (on the right)
     const { images, title } = this.props.item;
     return (
-      <section className="modal-background">
-        <div className="modal-body">
-          <div className="modal-meme-container">
-            <p className="modal-textTop">
+      <section
+        className="modal-background"
+        onClick={this.props.handleToggleModal}
+      >
+        <div className="modal-body" onClick={e => e.stopPropagation()}>
+          <div className="modal-image-container">
+            <p
+              className={`modal-meme-text modal-text-top ${
+                this.state.inputFontSize
+              }`}
+            >
               {/* conditionally render if inputOne has content (trusly), show the result from inputOne in the DOM*/}
               {this.state.inputOne && this.state.inputOne}
             </p>
-            <div className="model-image-container">
+            <img
+              src={images.original.url}
+              alt={title}
+              className="modal-image"
+            />
             {/* referring to the deconstructing up top. also commenting in JSX is not fun. */}
-              <img
-                src={images.original.url}
-                alt={title}
-                className="modal-image"
-              />
-            </div>
-            <p className="modal-textBottom">
+            <p
+              className={`modal-meme-text modal-text-bottom ${
+                this.state.inputFontSize
+              }`}
+            >
               {this.state.inputTwo && this.state.inputTwo}
             </p>
           </div>
@@ -87,7 +112,7 @@ class GifModal extends Component {
               id="inputTop"
               onChange={this.handleInputOneChange}
               value={this.state.inputOne}
-
+              maxlength="100"
             />
             <label htmlFor="inputBottom">Bottom text:</label>
             <input
@@ -96,6 +121,7 @@ class GifModal extends Component {
               id="inputBottom"
               onChange={this.handleInputTwoChange}
               value={this.state.inputTwo}
+              maxlength="100"
             />
             <input
               type="text"
@@ -109,7 +135,11 @@ class GifModal extends Component {
               <button type="submit" className="modal-button">
                 Save
               </button>
-              <button type="button" className="modal-button">
+              <button
+                type="button"
+                className="modal-button"
+                onClick={this.props.handleToggleModal}
+              >
                 Back
               </button>
             </div>

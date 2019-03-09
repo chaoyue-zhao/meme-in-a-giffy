@@ -268,6 +268,7 @@ body {
   font-family: "Fjalla One", sans-serif;
 }
 
+
 form input {
   height: 40px;
   width: calc(100% - 20% - 40px);
@@ -294,6 +295,88 @@ form button {
 
 form .search-bar-icon {
   width: 18px;
+}
+
+.modal {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-background {
+  background: rgba(35, 35, 35, 0.8);
+}
+
+.modal-body {
+  z-index: 20;
+  position: fixed;
+  top: 10%;
+  right: 10%;
+  bottom: 10%;
+  left: 10%;
+  background: #FAFAFA;
+}
+
+.modal-image-container {
+  width: 70%;
+  height: 60vh;
+  margin: 1rem auto;
+  padding: 8vh 0;
+  position: relative;
+  background: #232323;
+  border: 5px solid #232323;
+}
+
+.modal-image {
+  display: block;
+  height: 300px;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.modal-meme-text {
+  color: #FAFAFA;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+.modal-text-top, .modal-text-bottom {
+  z-index: 30;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.modal-text-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-text-bottom {
+  position: absolute;
+  top: 85%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.font-big {
+  font-size: 2.4rem;
+}
+
+.font-small {
+  font-size: 1.2rem;
 }
 
 form p {
