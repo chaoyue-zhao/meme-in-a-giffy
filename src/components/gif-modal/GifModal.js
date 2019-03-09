@@ -70,6 +70,7 @@ class GifModal extends Component {
       }) 
       
       this.props.handleToggleSaveModal();
+      this.props.handleToggleModal();
   }
 }
 

@@ -7,7 +7,7 @@ const ConfirmSavedModal = ({handleToggleSaveModal}) => {
   }
 
   return (
-    <section className="modal-background" onClick={handleToggleSaveModal}>
+    <section className="modal-background modal" onClick={handleToggleSaveModal}>
       <div className="modal-body" onClick={(e) => e.stopPropagation()}>
         <p>Meme saved!</p>
         <button onClick={handleButtonClick}>Ok</button>
