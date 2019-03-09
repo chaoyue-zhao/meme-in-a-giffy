@@ -37,6 +37,7 @@ class MemeListItem extends Component {
     const isSaved = await this.checkForSavedMeme();
     if(this.props.authId && !isSaved) {
       database.ref(`users/${this.props.authId}/memes`).push(this.props.item);
+      this.props.history.push("/saved");
     } else if(this.props.authId) {
       this.setState({ error : "Meme already saved"})
     } else {

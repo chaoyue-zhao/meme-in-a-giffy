@@ -54,7 +54,9 @@ class GifModal extends Component {
           inputOne: this.state.inputOne,
           inputTwo: this.state.inputTwo,
           subject: this.props.item.slug
-      })    
+      }) 
+      
+      this.props.handleToggleSaveModal();
   }
 }
 

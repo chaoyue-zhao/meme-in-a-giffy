@@ -9,7 +9,7 @@ class SearchPage extends Component {
         super();
         this.state = {
             displayedItems: [],
-            type: "gifs"
+            type: "gifs",
         };
     }
 
@@ -42,12 +42,9 @@ class SearchPage extends Component {
 
     handleFormSubmit = async (query, type) => {
         this.setState({ type });
-        console.log('type', type);
         if (type === "gifs") {
-          console.log('getting gifs');
             await this.getDataFromApi(query);
         } else {
-          console.log('getting memes');
             //getting the snapshot of our api data. store it in the newState, along with the api Key
             database.ref('memes').on('value', (response) => {
                 const newState = [];
@@ -58,7 +55,6 @@ class SearchPage extends Component {
                         id: meme.key,
                     });
                 });
-                console.log('database memes', response.val());
                 //this is filtering our meme data from firebase based on the user query 
                 const filteredMemes = newState
                     .filter(meme => {
@@ -69,12 +65,14 @@ class SearchPage extends Component {
                         return meme.title.toLowerCase().includes(query.toLowerCase())
                             || meme.tags.toLowerCase().includes(query.toLowerCase())
                             || subjectWords.includes(query.toLowerCase());
-                    })
-
+                    })    
                 this.setState({ displayedItems: filteredMemes });
             });
         }
     };
+
+   
+    
 
     // tell the firebase to stop listen for changes so we can avoid potential async memory leaks
     componentWillUnmount() {
@@ -91,6 +89,7 @@ class SearchPage extends Component {
                     type={this.state.type}
                     authId={this.props.authId}
                     savedMeme={false}
+                    history={this.props.history}
                 />
             </div>
         );

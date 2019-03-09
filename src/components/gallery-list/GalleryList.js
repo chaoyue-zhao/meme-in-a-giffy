@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import GalleryListItem from "./../gallery-list-item/GalleryListItem.js";
 import MemeListItem from "./../meme-list-item/MemeListItem.js";
 import GifModal from "../gif-modal/GifModal.js";
+import ConfirmSavedModal from './../confirm-saved-modal/ConfirmSavedModal.js';
 
 class GalleryList extends Component {
   constructor() {
@@ -10,7 +11,8 @@ class GalleryList extends Component {
       //state to toggle modal on and off on click of each gallery list item
       showModal: false,
       //state to define the item being click on so the modal can render the current image
-      currentGalleryItem: ""
+      currentGalleryItem: "",
+      showSavedModal: false 
     };
   }
   
@@ -27,7 +29,7 @@ class GalleryList extends Component {
       });
     }
 
-    if(this.props.displayedItems.length === 0) {
+    if(this.props.displayedItems.length === 0 && this.props.displayedItems !== null) {
       return <p className="gallery-error">No Results Found</p>
     }
 
@@ -48,6 +50,7 @@ class GalleryList extends Component {
           item={item} 
           authId={this.props.authId}
           key={item.id}
+          history={this.props.history}
         />
       );
     });
@@ -68,10 +71,21 @@ class GalleryList extends Component {
     });
   };
 
+  handleToggleSaveModal = () => {
+    console.log('toggled');
+    this.setState(prevState =>{
+      return {
+        showSavedModal : !prevState.showSavedModal
+      }
+    })
+  }
+
   render() {
     //conditional rendering only if this.props.displayedItems(the array contains our data from api is NOT empty/falsy)
-    if (!this.props.displayedItems) return <div />;
+    // if (!this.props.displayedItems) return <div />;
+    console.log(this.props)
     return (
+     
       //conditional rendering again! we are choosing to display the title based on user's selection - linking to the dropdown
       <div>
         <h2>{this.props.type === "gifs" ? "Gifs List" : "Memes List"}</h2>
@@ -81,8 +95,17 @@ class GalleryList extends Component {
         </div>
         {/*conditional rendering again again! rendering the modal only when the following two conditions are met 1) user clicked on an image 2)user selected gifs from the dropdown. we are also passing the nicly packaged gallery item down */}
         {this.state.showModal && this.props.type === "gifs" && (
-          <GifModal item={this.state.currentGalleryItem} />
+          <GifModal 
+            item={this.state.currentGalleryItem} 
+            handleToggleSaveModal = {this.handleToggleSaveModal}
+          />
         )}
+
+        {this.state.showSavedModal &&
+          <ConfirmSavedModal 
+            handleToggleSaveModal = {this.handleToggleSaveModal}
+          />
+        }
       </div>
     );
   }
