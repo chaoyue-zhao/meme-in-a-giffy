@@ -1,5 +1,30 @@
 form {
+  input {
+    height: 40px;
+    width: calc(100% - 20% - 40px);
+  }
+  select {
+    width: 20%;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    height: 40px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+  }
+  button {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+  }
+  .search-bar-icon {
+    width: 18px;
+  }
   p {
     margin: 0;
+    font-family: $body-font;
   }
 }

@@ -6,7 +6,7 @@ class Header extends Component {
     return (
       <header className="header">
         <div className="wrapper">
-          <nav>
+          <nav className="header-nav">
             <ul className="clearfix">
               <li>
                 <NavLink to="/" exact>

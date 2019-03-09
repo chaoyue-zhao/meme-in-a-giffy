@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import searchIcon from "./../../assets/searchIcon.svg";
+import downArrow from "./../../assets/downArrow.svg";
 class SearchBar extends Component {
   constructor() {
     super();
@@ -48,7 +49,9 @@ class SearchBar extends Component {
             <option value="gifs">Gifs</option>
             <option value="memes">Memes</option>
           </select>
-          <button type="submit">Get your things!</button>
+          <button type="submit">
+            <img src={searchIcon} className="search-bar-icon" />
+          </button>
         </form>
       </React.Fragment>
     );
