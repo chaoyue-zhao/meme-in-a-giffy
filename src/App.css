@@ -268,12 +268,78 @@ body {
 }
 
 .modal {
-  border: 2px solid tomato;
   z-index: 10;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-background {
+  background: rgba(35, 35, 35, 0.8);
+}
+
+.modal-body {
+  z-index: 20;
+  position: fixed;
   top: 10%;
   right: 10%;
   bottom: 10%;
   left: 10%;
+  background: #FAFAFA;
+}
+
+.modal-image-container {
+  width: 70%;
+  height: 60vh;
+  margin: 1rem auto;
+  padding: 8vh 0;
+  position: relative;
+  background: #232323;
+  border: 5px solid #232323;
+}
+
+.modal-image {
+  display: block;
+  height: 300px;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.modal .memeText {
+  color: #FAFAFA;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 100%;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+.modal-textTop, .modal-textBottom {
+  z-index: 30;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.modal-textTop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-textBottom {
+  position: absolute;
+  top: 85%;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 /*# sourceMappingURL=app.css.map */

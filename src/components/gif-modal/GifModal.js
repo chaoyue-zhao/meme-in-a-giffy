@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import database from '../firebase/firebase.js';
+import database from "../firebase/firebase.js";
 
 class GifModal extends Component {
   constructor() {
@@ -13,10 +13,9 @@ class GifModal extends Component {
     };
   }
 
-  // these one liner setState are very sweet. they help us get the value from da inputs. 
+  // these one liner setState are very sweet. they help us get the value from da inputs.
   handleInputOneChange = e => {
     this.setState({ inputOne: e.target.value });
-    
   };
   handleInputTwoChange = e => {
     this.setState({ inputTwo: e.target.value });
@@ -26,35 +25,38 @@ class GifModal extends Component {
   };
 
   validateInput = () => {
-    if (this.state.inputOne ==="" && this.state.inputTwo ==="") {
-     this.setState({
+    if (this.state.inputOne === "" && this.state.inputTwo === "") {
+      this.setState({
         error: "Error enter text to continue"
-      })
+      });
     } else {
-    this.setState({ 
-       error: ""
-    })
-  }}
+      this.setState({
+        error: ""
+      });
+    }
+  };
 
-  handleSubmit =  (e) => {
-      // chao's fav form method. don't forget. please don't forget.
-      e.preventDefault();
-      // this is very nice also. PUSHING TO FIREBASE with a customized object to the meme ref
-      this.validateInput() 
-      if(!this.state.error) {
-        database.ref('memes').push({
-          // with all of our things. all of them. 
-          likes: 0,
-          dislikes: 0,
-          images: this.props.item.images,
-          title: this.props.item.title,
-          tags: this.state.tags,
-          inputOne: this.state.inputOne,
-          inputTwo: this.state.inputTwo,
-          subject: this.props.item.slug
-      })    
-  }
-}
+  handleSubmit = e => {
+    // chao's fav form method. don't forget. please don't forget.
+    e.preventDefault();
+    // this is very nice also. PUSHING TO FIREBASE with a customized object to the meme ref
+    this.validateInput();
+    if (!this.state.error) {
+      database.ref("memes").push({
+        // with all of our things. all of them.
+        likes: 0,
+        dislikes: 0,
+        images: this.props.item.images,
+        title: this.props.item.title,
+        tags: this.state.tags,
+        inputOne: this.state.inputOne,
+        inputTwo: this.state.inputTwo,
+        subject: this.props.item.slug
+      });
+    }
+  };
+
+
 
   render() {
     //very NOICE deconstructing here. Good job taking out those key (on the left) off the object (on the right)
@@ -62,20 +64,18 @@ class GifModal extends Component {
     return (
       <section className="modal modal-background">
         <div className="modal-body">
-          <div className="modal-meme-container">
-            <p className="modal-textTop">
+          <div className="modal-image-container">
+            <p className="modal-textTop memeText">
               {/* conditionally render if inputOne has content (trusly), show the result from inputOne in the DOM*/}
               {this.state.inputOne && this.state.inputOne}
             </p>
-            <div className="model-image-container">
-            {/* referring to the deconstructing up top. also commenting in JSX is not fun. */}
-              <img
+            <img
                 src={images.original.url}
                 alt={title}
                 className="modal-image"
-              />
-            </div>
-            <p className="modal-textBottom">
+            />
+            {/* referring to the deconstructing up top. also commenting in JSX is not fun. */}
+            <p className="modal-textBottom memeText">
               {this.state.inputTwo && this.state.inputTwo}
             </p>
           </div>
@@ -87,7 +87,6 @@ class GifModal extends Component {
               id="inputTop"
               onChange={this.handleInputOneChange}
               value={this.state.inputOne}
-
             />
             <label htmlFor="inputBottom">Bottom text:</label>
             <input
