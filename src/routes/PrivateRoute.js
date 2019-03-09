@@ -9,7 +9,7 @@ const PrivateRoute = ({authId, component: Component, ...rest}) => {
       }
     />
   ) : (
-    <Redirect to="/" />
+    <Redirect to="/saved" />
   )
 }
 
