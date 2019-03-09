@@ -308,12 +308,10 @@ body {
      object-fit: contain;
 }
 
-.modal .memeText {
+.modal .meme-text {
   color: #FAFAFA;
   font-family: "Lato", sans-serif;
   font-weight: bold;
-  font-size: 100%;
-  letter-spacing: 2px;
   line-height: 1.2;
   text-transform: uppercase;
   text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
@@ -321,13 +319,13 @@ body {
   margin: 0;
 }
 
-.modal-textTop, .modal-textBottom {
+.modal-text-top, .modal-text-bottom {
   z-index: 30;
   margin: 0;
   padding: 0 10px;
 }
 
-.modal-textTop {
+.modal-text-top {
   position: absolute;
   top: 0;
   right: 0;
@@ -335,11 +333,19 @@ body {
   left: 0;
 }
 
-.modal-textBottom {
+.modal-text-bottom {
   position: absolute;
   top: 85%;
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+.font-big {
+  font-size: 2.4rem;
+}
+
+.font-small {
+  font-size: 1.2rem;
 }
 /*# sourceMappingURL=app.css.map */
