@@ -3,27 +3,49 @@ import Twitter from "../twitter/Twitter";
 import database, {auth, provider} from '../firebase/firebase';
 
 class MemeListItem extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      error : ''
+    }
+  }
+
+
+  checkForSavedMeme = async () => {
+    const response = await database.ref(`users/${this.props.authId}/memes`).once('value');
+    const savedMemeIds = [];
+    response.forEach(meme => {
+      savedMemeIds.push(meme.val().id);
+    });
+    return savedMemeIds.includes(this.props.item.id);
+  }
 
   handleLikes = () => {
     this.props.item.likes = this.props.item.likes + 1
     database.ref(`memes/${this.props.item.id}`).update(this.props.item)
+    database.ref(`users/${this.props.authId}/memes/${this.props.item.savedMemeId}`).update(this.props.item);
   }
 
   handleDislikes = () => {
     this.props.item.dislikes = this.props.item.dislikes + 1
-    database.ref(`memes/${this.props.item.id}`).update(this.props.item)
+    database.ref(`memes/${this.props.item.id}`).update(this.props.item);
+    database.ref(`users/${this.props.authId}/memes/${this.props.item.savedMemeId}`).update(this.props.item);
   }
-  onSaveClick = () => {
-    if(this.props.authId) {
+
+  onSaveClick = async () => {
+    const isSaved = await this.checkForSavedMeme();
+    if(this.props.authId && !isSaved) {
       database.ref(`users/${this.props.authId}/memes`).push(this.props.item);
+    } else if(this.props.authId) {
+      this.setState({ error : "Meme already saved"})
     } else {
       auth.signInWithPopup(provider);
     }
   }
 
   onDeleteClick = () => {
-      console.log('delete, damnit!')
-        database.ref(`users/${this.props.authId}/memes/${this.props.item.savedMemeId}`).remove();
+    database.ref(`users/${this.props.authId}/memes/${this.props.item.savedMemeId}`).remove();
   }
   
 
@@ -45,8 +67,9 @@ class MemeListItem extends Component {
         Save
     </button>
     )
-    
   }
+
+  
 
   render() {
     console.log(this.props)
@@ -65,8 +88,9 @@ class MemeListItem extends Component {
                 <button type='button' className='down-arrow' onClick={this.handleDislikes}>Dislike</button>
                 <span>{this.props.item.dislikes}</span>
             </div>
-            <div>
-            {this.renderButtons()}
+            <div>  
+              {this.renderButtons()}
+              {this.state.error && <p>{this.state.error}</p>}
             </div>
             <div>
               <Twitter memeId={this.props.item.id}/>

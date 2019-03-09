@@ -73,7 +73,6 @@ class SearchPage extends Component {
 
                 this.setState({ displayedItems: filteredMemes });
             });
-            console.log('database maybe?', database.ref('memes'))
         }
     };
 
@@ -83,7 +82,6 @@ class SearchPage extends Component {
     }
 
     render() {
-        console.log('state at SearchPage', this.state.displayedItems)
         if (!this.state.displayedItems) return <div />
         return (
             <div className="App">
@@ -92,6 +90,7 @@ class SearchPage extends Component {
                     displayedItems={this.state.displayedItems}
                     type={this.state.type}
                     authId={this.props.authId}
+                    savedMeme={false}
                 />
             </div>
         );

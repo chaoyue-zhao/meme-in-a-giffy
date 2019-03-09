@@ -27,10 +27,14 @@ class GalleryList extends Component {
       });
     }
 
+    if(this.props.displayedItems.length === 0) {
+      return <p className="gallery-error">No Results Found</p>
+    }
+
     return this.props.displayedItems.map((item, i) => {
       return this.props.type === "gifs" ? (
         <GalleryListItem
-          key={i}
+          key={item.id}
           //passing the entire item down instead of individual key/value pairs so we can get them all!!!!
           item={item}
           //passing the function down so we can trigger the render for modal on button click
@@ -39,7 +43,12 @@ class GalleryList extends Component {
           handleGalleryItem={this.handleGalleryItem}
         />
       ) : (
-        <MemeListItem savedMeme = {this.props.savedMeme} item={item} authId={this.props.authId}/>
+        <MemeListItem 
+          savedMeme = {this.props.savedMeme} 
+          item={item} 
+          authId={this.props.authId}
+          key={item.id}
+        />
       );
     });
   };
@@ -60,7 +69,6 @@ class GalleryList extends Component {
   };
 
   render() {
-    console.log('displayedItems', this.props);
     //conditional rendering only if this.props.displayedItems(the array contains our data from api is NOT empty/falsy)
     if (!this.props.displayedItems) return <div />;
     return (

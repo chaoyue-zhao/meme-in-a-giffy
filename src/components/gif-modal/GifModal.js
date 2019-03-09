@@ -9,38 +9,40 @@ class GifModal extends Component {
       inputOne: "",
       inputTwo: "",
       tags: "",
-      error: "Enter text to continue"
+      error: null
     };
   }
 
   // these one liner setState are very sweet. they help us get the value from da inputs. 
   handleInputOneChange = e => {
     this.setState({ inputOne: e.target.value });
-    
   };
+
   handleInputTwoChange = e => {
     this.setState({ inputTwo: e.target.value });
   };
+
   handleInputTag = e => {
     this.setState({ tags: e.target.value });
   };
 
-  validateInput = () => {
-    if (this.state.inputOne ==="" && this.state.inputTwo ==="") {
-     this.setState({
+  validateInput = async () => {
+    if (!this.state.inputOne && !this.state.inputTwo) {
+     await this.setState({
         error: "Error enter text to continue"
       })
     } else {
-    this.setState({ 
-       error: ""
+    await this.setState({ 
+       error: null
     })
   }}
 
-  handleSubmit =  (e) => {
+  handleSubmit =  async (e) => {
       // chao's fav form method. don't forget. please don't forget.
       e.preventDefault();
       // this is very nice also. PUSHING TO FIREBASE with a customized object to the meme ref
-      this.validateInput() 
+      await this.validateInput() 
+      
       if(!this.state.error) {
         database.ref('memes').push({
           // with all of our things. all of them. 
