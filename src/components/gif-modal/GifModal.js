@@ -8,7 +8,8 @@ class GifModal extends Component {
       showModal: true,
       inputOne: "",
       inputTwo: "",
-      inputFontSize: "font-big",
+      inputOneFontSize: "font-big",
+      inputTwoFontSize: "font-big",
       tags: "",
       error: null
     };
@@ -17,18 +18,18 @@ class GifModal extends Component {
   // these one liner setState are very sweet. they help us get the value from da inputs.
   handleInputOneChange = e => {
     if (e.target.value.length >= 22) {
-      this.setState ({ inputFontSize: "font-small" })
+      this.setState ({ inputOneFontSize: "font-small" })
     } else {
-      this.setState({ inputFontSize: "font-big" })
+      this.setState({ inputOneFontSize: "font-big" })
     }
     this.setState({ inputOne: e.target.value });
   };
 
   handleInputTwoChange = e => {
     if (e.target.value.length >= 22) {
-      this.setState({ inputFontSize: "font-small" })
+      this.setState({ inputTwoFontSize: "font-small" })
     } else {
-      this.setState({ inputFontSize: "font-big" })
+      this.setState({ inputTwoFontSize: "font-big" })
     }
     this.setState({ inputTwo: e.target.value });
   };
@@ -77,14 +78,14 @@ class GifModal extends Component {
     const { images, title } = this.props.item;
     return (
       <section
-        className="modal-background"
+        className="modal-background modal"
         onClick={this.props.handleToggleModal}
       >
         <div className="modal-body" onClick={e => e.stopPropagation()}>
           <div className="modal-image-container">
             <p
               className={`modal-meme-text modal-text-top ${
-                this.state.inputFontSize
+                this.state.inputOneFontSize
               }`}
             >
               {/* conditionally render if inputOne has content (trusly), show the result from inputOne in the DOM*/}
@@ -98,7 +99,7 @@ class GifModal extends Component {
             {/* referring to the deconstructing up top. also commenting in JSX is not fun. */}
             <p
               className={`modal-meme-text modal-text-bottom ${
-                this.state.inputFontSize
+                this.state.inputTwoFontSize
               }`}
             >
               {this.state.inputTwo && this.state.inputTwo}
