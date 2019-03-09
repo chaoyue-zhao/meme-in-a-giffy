@@ -76,11 +76,14 @@ class GifModal extends Component {
     //very NOICE deconstructing here. Good job taking out those key (on the left) off the object (on the right)
     const { images, title } = this.props.item;
     return (
-      <section className="modal-background" onClick={this.props.handleToggleModal}>
-        <div className="modal-body" onClick={(e) => e.stopPropagation()}>
-         <div className="modal-image-container">
+      <section
+        className="modal-background"
+        onClick={this.props.handleToggleModal}
+      >
+        <div className="modal-body" onClick={e => e.stopPropagation()}>
+          <div className="modal-image-container">
             <p
-              className={`meme-text modal-text-top ${
+              className={`modal-meme-text modal-text-top ${
                 this.state.inputFontSize
               }`}
             >
@@ -94,7 +97,7 @@ class GifModal extends Component {
             />
             {/* referring to the deconstructing up top. also commenting in JSX is not fun. */}
             <p
-              className={`meme-text modal-text-bottom ${
+              className={`modal-meme-text modal-text-bottom ${
                 this.state.inputFontSize
               }`}
             >
@@ -109,7 +112,7 @@ class GifModal extends Component {
               id="inputTop"
               onChange={this.handleInputOneChange}
               value={this.state.inputOne}
-              maxlength = "100"
+              maxlength="100"
             />
             <label htmlFor="inputBottom">Bottom text:</label>
             <input
@@ -132,9 +135,9 @@ class GifModal extends Component {
               <button type="submit" className="modal-button">
                 Save
               </button>
-              <button 
-                type="button" 
-                className="modal-button" 
+              <button
+                type="button"
+                className="modal-button"
                 onClick={this.props.handleToggleModal}
               >
                 Back

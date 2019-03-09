@@ -8,8 +8,9 @@ import MemeDetails from "./components/meme-details/MemeDetails";
 import {Router, Route, Switch} from 'react-router-dom';
 import {provider, auth} from './components/firebase/firebase';
 import PrivateRoute from './routes/PrivateRoute';
-const history = createHistory();
 import Footer from "./components/footer/Footer";
+
+const history = createHistory();
 
 class App extends Component {
   constructor() {

@@ -309,7 +309,7 @@ body {
      object-fit: contain;
 }
 
-.modal .meme-text {
+.modal-meme-text {
   color: #FAFAFA;
   font-family: "Lato", sans-serif;
   font-weight: bold;

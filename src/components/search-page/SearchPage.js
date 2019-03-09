@@ -88,14 +88,10 @@ class SearchPage extends Component {
         }
     };
 
-   
-    
-
     // tell the firebase to stop listen for changes so we can avoid potential async memory leaks
     componentWillUnmount() {
         database.ref().off();
     }
-  };
 
   render() {
     console.log("state at SearchPage", this.state.displayedItems);
@@ -113,6 +109,6 @@ class SearchPage extends Component {
       </div>
     );
   }
-}
+};
 
 export default SearchPage;
