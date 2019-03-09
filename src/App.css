@@ -261,9 +261,110 @@ body {
 .wrapper {
   max-width: 1600px;
   width: 80%;
+  margin: 0 auto;
 }
 
 .heading {
   font-family: "Fjalla One", sans-serif;
+}
+
+form p {
+  margin: 0;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+.header {
+  background: #232323;
+  padding-top: 1rem;
+}
+
+.header h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  clear: both;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0;
+  float: left;
+  margin-right: 1rem;
+}
+
+nav ul button {
+  float: left;
+}
+
+nav a {
+  text-decoration: none;
+  color: #FAFAFA;
+}
+
+label[for="userInput"] {
+  min-width: calc(100% - 253px);
+}
+
+label[for="userInput"] p {
+  text-align: center;
+  margin: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#userInput {
+  min-width: calc(100% - 253px);
+}
+
+#userInput p {
+  margin: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.App {
+  background: #232323;
+}
+
+.gallery ul {
+  padding: 0;
+  list-style: none;
+}
+
+ul.clearfix li {
+  width: calc(20% - 4px);
+  float: left;
+  margin: 2px;
+}
+
+ul.clearfix li img {
+  width: 100%;
+  height: 200px;
+}
+
+ul.clearfix li:nth-of-type(5n) {
+  margin-right: 0;
+}
+
+footer {
+  text-align: center;
+  background: #232323;
+  color: #FAFAFA;
 }
 /*# sourceMappingURL=app.css.map */
