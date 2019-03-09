@@ -34,10 +34,6 @@ class App extends Component {
 		}
 		))
   }
-  
-  componentDidUpdate(){
-    console.log(this.state.auth);
-  }
 
 	handleLogInClick = () => {
 		auth.signInWithPopup(provider) 
@@ -51,13 +47,12 @@ class App extends Component {
     return (
       <Router history={history}>
         <React.Fragment>
-              <Header 
-                isAuth={this.state.auth}
-                handleLogInClick={this.handleLogInClick}
-                handleLogOutClick={this.handleLogOutClick}
-              />
+            <Header 
+              isAuth={this.state.auth}
+              handleLogInClick={this.handleLogInClick}
+              handleLogOutClick={this.handleLogOutClick}
+            />
             <Switch>
-              
               <Route path="/" render={(props) => <SearchPage authId={this.state.auth} {...props} />} exact={true} />
               {/* <Route path="/saved"
               render={
