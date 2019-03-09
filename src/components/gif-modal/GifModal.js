@@ -64,8 +64,8 @@ class GifModal extends Component {
     //very NOICE deconstructing here. Good job taking out those key (on the left) off the object (on the right)
     const { images, title } = this.props.item;
     return (
-      <section className="modal-background">
-        <div className="modal-body">
+      <section className="modal-background" onClick={this.props.handleToggleModal}>
+        <div className="modal-body" onClick={(e) => e.stopPropagation()}>
           <div className="modal-meme-container">
             <p className="modal-textTop">
               {/* conditionally render if inputOne has content (trusly), show the result from inputOne in the DOM*/}
@@ -113,7 +113,11 @@ class GifModal extends Component {
               <button type="submit" className="modal-button">
                 Save
               </button>
-              <button type="button" className="modal-button">
+              <button 
+                type="button" 
+                className="modal-button" 
+                onClick={this.props.handleToggleModal}
+              >
                 Back
               </button>
             </div>

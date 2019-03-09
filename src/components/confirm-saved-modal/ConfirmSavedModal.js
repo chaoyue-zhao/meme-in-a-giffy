@@ -7,8 +7,8 @@ const ConfirmSavedModal = ({handleToggleSaveModal}) => {
   }
 
   return (
-    <section className="modal-background">
-      <div className="modal-body">
+    <section className="modal-background" onClick={handleToggleSaveModal}>
+      <div className="modal-body" onClick={(e) => e.stopPropagation()}>
         <p>Meme saved!</p>
         <button onClick={handleButtonClick}>Ok</button>
       </div>
@@ -17,3 +17,4 @@ const ConfirmSavedModal = ({handleToggleSaveModal}) => {
 }
 
 export default ConfirmSavedModal;
+

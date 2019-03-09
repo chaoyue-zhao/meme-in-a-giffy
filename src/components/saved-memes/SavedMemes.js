@@ -42,10 +42,14 @@ class SavedMemes extends Component {
     }  
 
     render() {
-        console.log(this.props)
         if(this.state.savedMemes.length ===0 ) return <div>No Saved Memes</div>
         return(
-            <GalleryList displayedItems={this.state.savedMemes} type="memes" authId={this.props.authId} savedMeme={true} />
+          <GalleryList 
+            displayedItems={this.state.savedMemes} 
+            type="memes" 
+            authId={this.props.authId} 
+            savedMeme={true} 
+          />
         )
     }
 }

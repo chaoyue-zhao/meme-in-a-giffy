@@ -63,6 +63,7 @@ class GalleryList extends Component {
   };
 
   handleToggleModal = () => {
+    console.log('toggle');
     this.setState(prevState => {
       //very very sweet syntax alert! we are toggling the state of showModal on click of the image. remember we have access to prevState in this.setState({}). so if the previous state of showModal is true, this will change it to false and vice versa.
       return {
@@ -98,6 +99,7 @@ class GalleryList extends Component {
           <GifModal 
             item={this.state.currentGalleryItem} 
             handleToggleSaveModal = {this.handleToggleSaveModal}
+            handleToggleModal = {this.handleToggleModal}
           />
         )}
 
