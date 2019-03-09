@@ -1,0 +1,14 @@
+ul.clearfix {
+  li {
+    width: calc(20% - 4px);
+    float: left;
+    margin: 2px;
+    img {
+      width: 100%;
+      height: 200px;
+    }
+  }
+  li:nth-of-type(5n) {
+    margin-right: 0;
+  }
+}
