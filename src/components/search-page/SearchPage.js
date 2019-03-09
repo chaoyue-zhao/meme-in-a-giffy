@@ -104,6 +104,7 @@ class SearchPage extends Component {
             displayedItems={this.state.displayedItems}
             type={this.state.type}
             authId={this.props.authId}
+            history={this.props.history}
           />
         </div>
       </div>

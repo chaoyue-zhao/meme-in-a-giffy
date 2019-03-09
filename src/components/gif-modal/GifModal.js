@@ -69,6 +69,7 @@ class GifModal extends Component {
       }) 
       
       this.props.handleToggleSaveModal();
+      this.props.handleToggleModal();
   }
 }
 
@@ -77,7 +78,7 @@ class GifModal extends Component {
     const { images, title } = this.props.item;
     return (
       <section
-        className="modal-background"
+        className="modal-background modal"
         onClick={this.props.handleToggleModal}
       >
         <div className="modal-body" onClick={e => e.stopPropagation()}>
