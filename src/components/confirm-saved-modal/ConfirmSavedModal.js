@@ -1,5 +1,4 @@
 import React from 'react';
-
 const ConfirmSavedModal = ({handleToggleSaveModal}) => {
 
   const handleButtonClick = () => {
@@ -8,9 +7,11 @@ const ConfirmSavedModal = ({handleToggleSaveModal}) => {
 
   return (
     <section className="modal-background modal" onClick={handleToggleSaveModal}>
-      <div className="modal-body" onClick={(e) => e.stopPropagation()}>
-        <p>Meme saved!</p>
-        <button onClick={handleButtonClick}>Ok</button>
+      <div className="modal-body confirm-save" onClick={(e) => e.stopPropagation()}>
+        <div className="confirm-save-content">
+          <p>Meme saved!</p>
+          <button onClick={handleButtonClick}>Ok</button>
+        </div> 
       </div>
     </section>
   )

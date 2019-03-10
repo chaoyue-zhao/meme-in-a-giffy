@@ -124,6 +124,7 @@ class GifModal extends Component {
               value={this.state.inputTwo}
               maxlength="100"
             />
+            <label htmlFor="inputTag">Tags:</label>
             <input
               type="text"
               className="modal-inputTag"
@@ -133,12 +134,12 @@ class GifModal extends Component {
             />
             <div className="modal-button-container">
               <p>{this.state.error ? this.state.error : ""}</p>
-              <button type="submit" className="modal-button">
+              <button type="submit" className="modal-button modal-save-button">
                 Save
               </button>
               <button
                 type="button"
-                className="modal-button"
+                className="modal-button modal-back-button"
                 onClick={this.props.handleToggleModal}
               >
                 Back

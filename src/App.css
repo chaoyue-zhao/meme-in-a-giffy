@@ -265,6 +265,7 @@ body {
   margin: 0 auto;
 }
 
+
 .visuallyhidden:not(:focus):not(:active) {
   position: absolute;
   width: 1px;
@@ -365,6 +366,7 @@ body {
   font-size: 1.2rem;
 }
 
+
 form input {
   height: 40px;
   width: calc(100% - 100px - 40px);
@@ -395,6 +397,7 @@ form .select-menu {
   appearance: none;
   height: 40px;
   background: url("assets/downArrow.svg") 96%/30px no-repeat #eee;
+
 }
 
 form button {
@@ -508,16 +511,36 @@ label[for="userInput"] p {
   padding-bottom: 1rem;
 }
 
+
 .gallery-error {
   min-height: 50vh;
+
+h2 {
+  text-align: center;
+  font-family: "Fjalla One", sans-serif;
+  font-size: 3rem;
+}
+
+ul.gallery-container {
+  text-align: center;
+  margin: 0 auto;
 }
 
 ul.gallery-container li {
   float: left;
-  margin: 2px;
   position: relative;
+}
+
+ul.gallery-container li .gallery-item {
   height: 200px;
   width: calc(20% - 4px);
+  margin: 2px;
+}
+
+ul.gallery-container li .meme-list-item {
+  height: 200px;
+  margin: 20px;
+  width: calc(25% - 40px);
 }
 
 ul.gallery-container li .overlay {
@@ -540,5 +563,27 @@ footer {
   background: #000000;
   color: #fafafa;
   height: 59px;
+}
+
+.confirm-save {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 20px;
+  border: 5px solid #232323;
+}
+
+.confirm-save-content {
+  font-family: "Lato", sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 1.5rem 3rem;
+}
+
+.confirm-save-content p {
+  margin: .5rem 0;
 }
 /*# sourceMappingURL=app.css.map */
