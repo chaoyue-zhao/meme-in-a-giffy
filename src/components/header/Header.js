@@ -19,13 +19,22 @@ class Header extends Component {
                 </li>
               )}
               {this.props.isAuth ? (
-                <button onClick={this.props.handleLogOutClick}>Log Out</button>
+                <button onClick={this.props.handleLogOutClick}>
+                  Log Out
+                </button>
               ) : (
-                <button onClick={this.props.handleLogInClick}>Log In</button>
+                <button onClick={this.props.handleLogInClick}>
+                  Log In
+                </button>
               )}
             </ul>
           </nav>
-          <h1 className="header-title clearfix">Meme in a Giffy</h1>
+          <h1 className="header-title clearfix heading heading-primary">
+            Meme in a Giffy
+          </h1>
+          <h2 className="heading heading-secondary">
+            Best place to create Memes and share them with your friends!
+          </h2>
         </div>
       </header>
     );

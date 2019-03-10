@@ -34,8 +34,7 @@ class SearchBar extends Component {
       <React.Fragment>
         <form onSubmit={this.formSubmit}>
           <div className="form-description">
-            <p>Best place to create Memes and share them with your friends!</p>
-            <p>
+            <p className="paragraph paragraph-title">
               Search for gifs, click to create memes, and save it to your list!
             </p>
           </div>
