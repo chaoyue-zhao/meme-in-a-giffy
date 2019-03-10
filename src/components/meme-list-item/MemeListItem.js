@@ -70,13 +70,11 @@ class MemeListItem extends Component {
     )
   }
 
-  
-
   render() {
     console.log(this.props)
     const { images, title, inputOne, inputTwo } = this.props.item;
     return (
-      <li>
+      <li className='meme-list-item'>
         <div>
             <p>{inputOne}</p>
             <img src={images.original.url} alt={title} />
