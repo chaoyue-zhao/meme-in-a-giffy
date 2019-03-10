@@ -256,10 +256,24 @@ body {
   font-size: 1rem;
   font-family: $body-font;
   line-height: 1.6;
+  background: $black;
 }
 
 .wrapper {
   max-width: 1600px;
   width: 80%;
   margin: 0 auto;
+}
+
+.visuallyhidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(00 0 0);
+  overflow: hidden;
 }
