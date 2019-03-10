@@ -29,46 +29,24 @@ nav.header-nav {
     padding: 0;
     margin: 0;
     float: right;
-    li:hover,
-    li:focus,
-    button:hover,
-    button:focus {
-      background: $dark-yellow;
-    }
+    margin: 1rem 0;
 
     li {
       list-style: none;
       margin: 0;
       float: left;
       margin-right: 10px;
-      font-family: $body-font;
-      height: 42px;
-      padding: 5px;
-      background: $green;
-      border: 1px solid $white;
-      font-size: 20px;
     }
 
-    button {
-      background: $green;
-      height: 42px;
+    &-button {
       float: left;
-      color: $black;
-      font-family: $body-font;
-      font-size: 20px;
-      padding: 5px;
     }
   }
 }
 
-nav a {
-  text-decoration: none;
-  color: $black;
-  font-size: 20px;
-}
-
 label[for="userInput"] {
   min-width: calc(100% - 253px);
+
   p {
     text-align: center;
     margin: 0;

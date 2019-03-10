@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import SuperNiceButton from '../button/Button';
 
 class Header extends Component {
   render() {
@@ -10,22 +11,20 @@ class Header extends Component {
             <ul className="clearfix">
               <li>
                 <NavLink to="/" exact>
-                  Search
+                  <SuperNiceButton text="Search" />
                 </NavLink>
               </li>
               {this.props.isAuth && (
                 <li>
-                  <NavLink to="/saved">Saved</NavLink>
+                  <NavLink to="/saved">
+                  <SuperNiceButton text="Saved" />
+                  </NavLink>
                 </li>
               )}
               {this.props.isAuth ? (
-                <button onClick={this.props.handleLogOutClick}>
-                  Log Out
-                </button>
+                <SuperNiceButton onClick={this.props.handleLogOutClick} text="Log Out"/>
               ) : (
-                <button onClick={this.props.handleLogInClick}>
-                  Log In
-                </button>
+                <SuperNiceButton onClick={this.props.handleLogInClick} text="Log In"/>
               )}
             </ul>
           </nav>

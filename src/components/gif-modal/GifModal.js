@@ -113,36 +113,45 @@ class GifModal extends Component {
             </p>
           </div>
           <form action="" onSubmit={this.handleSubmit}>
-            <label htmlFor="inputTop">Top text:</label>
+            <label htmlFor="inputTop" className="visuallyhidden">
+              Top text:
+            </label>
             <input
-              className="modal-inputTop"
+              className="modal-input"
               type="text"
               id="inputTop"
               onChange={this.handleInputOneChange}
               value={this.state.inputOne}
               maxlength="100"
               ref={this.inputText}
+              placeholder="Top Text:"
             />
-            <label htmlFor="inputBottom">Bottom text:</label>
+            <label htmlFor="inputBottom" className="visuallyhidden">
+              Bottom text:
+            </label>
             <input
-              className="modal-inputBottom"
+              className="modal-input"
               type="text"
               id="inputBottom"
               onChange={this.handleInputTwoChange}
               value={this.state.inputTwo}
               maxlength="100"
+              placeholder="Bottom Text:"
             />
             <label htmlFor="inputTag">Tags:</label>
             <input
               type="text"
-              className="modal-inputTag"
+              className="modal-input"
               placeholder="Tags here"
               onChange={this.handleInputTag}
               value={this.state.tags}
             />
             <div className="modal-button-container">
               <p>{this.state.error ? this.state.error : ""}</p>
-              <button type="submit" className="modal-button modal-save-button">
+              <button
+                type="submit"
+                className="modal-button modal-save-button"
+              >
                 Save
               </button>
               <button
