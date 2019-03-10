@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { TimelineLite, Elastic, SlowMo, Power3 } from "gsap/TweenMax";
 
+// BUTTON STYLING ADOPTED FROM https://github.com/codrops/DistortedButtonEffects/
+
 class SuperNiceButton extends Component {
   constructor(props) {
     super(props);
