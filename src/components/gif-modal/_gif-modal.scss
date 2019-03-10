@@ -1,6 +1,7 @@
 .modal {
     z-index: 10;
     @include position (fixed, 0, 0, 0, 0);
+    text-align: center;
 
     &-background {
         background: rgba(35,35,35,.8);
@@ -8,7 +9,7 @@
 
     &-body {
         z-index: 20;
-        @include position (fixed, 10%, 10%, 10%, 10%);
+        @include position (fixed, 5%, 5%, 5%, 5%);
         background: $white;
     }
 
@@ -53,6 +54,22 @@
     &-text-bottom{
         @include position (absolute, 85%, 0, 0, 0);
     }
+
+    &-input {
+        width: 40%;
+        margin-left: 5%;
+
+        &:last-of-type {
+            width: 75%;
+            margin: 10px 0;
+        }
+    }
+
+    &-button {
+        width: 100px;
+        margin-right: 1rem;
+        margin-top: 0;
+    }
 }
 
 .font-big {
@@ -63,18 +80,7 @@
     font-size: 1.2rem;
 }
 
-form {
-  width: 100%;
-  text-align:center;
-}
 
-.modal-button-container {
-  text-align: center;
-}
-
-.modal-button {
-   width:100px;
-}
 
 
 
