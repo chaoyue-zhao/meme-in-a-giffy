@@ -47,6 +47,7 @@ class SearchBar extends Component {
             id="userInput"
             onChange={this.handleSearchChange}
             value={this.state.query}
+            placeholder="Search all the GIFs and Memes"
           />
           <select className="select-menu" name="type" id="type" onChange={this.handleSelectChange}>
             <option value="gifs">Gifs</option>
