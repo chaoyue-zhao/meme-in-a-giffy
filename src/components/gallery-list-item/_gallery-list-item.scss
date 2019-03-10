@@ -1,6 +1,7 @@
 ul.gallery-container {
   text-align: center;
   margin: 0 auto;
+
   li {
     float: left;
     position: relative;
@@ -16,7 +17,6 @@ ul.gallery-container {
       margin: 20px;
       width: calc(25% - 40px);
     }
-  
 
     .overlay {
       background: linear-gradient(
@@ -30,6 +30,7 @@ ul.gallery-container {
       bottom: 0;
       left: 0;
     }
+    
     img {
       width: 100%;
       height: 100%;
