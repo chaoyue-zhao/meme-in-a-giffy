@@ -367,7 +367,7 @@ body {
 
 form input {
   height: 40px;
-  width: calc(100% - 20% - 40px);
+  width: calc(100% - 100px - 40px);
 }
 
 form input:hover,
@@ -377,15 +377,24 @@ form button:focus {
   background: #dad706;
 }
 
+form .select-menu:hover,
+form .select-menu:focus {
+  background: url("assets/downArrow.svg") 96%/30px no-repeat #dad706;
+}
+
 form select {
-  width: 20%;
-  -webkit-appearance: none;
-  -webkit-border-radius: 0px;
   height: 40px;
+  width: 100px;
+}
+
+form .select-menu {
   -webkit-appearance: none;
+  border-radius: none;
+  -moz-appearance: none;
   -webkit-border-radius: 0px;
-  background-position: 100% 50%;
-  background-repeat: no-repeat;
+  appearance: none;
+  height: 40px;
+  background: url("assets/downArrow.svg") 96%/30px no-repeat #eee;
 }
 
 form button {

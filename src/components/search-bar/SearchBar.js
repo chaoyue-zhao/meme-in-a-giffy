@@ -48,7 +48,7 @@ class SearchBar extends Component {
             onChange={this.handleSearchChange}
             value={this.state.query}
           />
-          <select name="type" id="type" onChange={this.handleSelectChange}>
+          <select className="select-menu" name="type" id="type" onChange={this.handleSelectChange}>
             <option value="gifs">Gifs</option>
             <option value="memes">Memes</option>
           </select>

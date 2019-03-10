@@ -1,7 +1,7 @@
 form {
   input {
     height: 40px;
-    width: calc(100% - 20% - 40px);
+    width: calc(100% - 100px - 40px);
   }
   input:hover,
   input:focus,
@@ -9,15 +9,22 @@ form {
   button:focus {
     background: $dark-yellow;
   }
+  .select-menu:hover,
+  .select-menu:focus {
+    background: url("assets/downArrow.svg") 96% / 30px no-repeat $dark-yellow;
+  }
   select {
-    width: 20%;
-    -webkit-appearance: none;
-    -webkit-border-radius: 0px;
     height: 40px;
+    width: 100px;
+  }
+  .select-menu {
     -webkit-appearance: none;
+    border-radius: none;
+    -moz-appearance: none;
     -webkit-border-radius: 0px;
-    background-position: 100% 50%;
-    background-repeat: no-repeat;
+    appearance: none;
+    height: 40px;
+    background: url("assets/downArrow.svg") 96% / 30px no-repeat #eee;
   }
   button {
     -webkit-appearance: none;
