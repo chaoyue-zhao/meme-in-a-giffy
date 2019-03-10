@@ -256,12 +256,28 @@ body {
   font-size: 1rem;
   font-family: "Lato", sans-serif;
   line-height: 1.6;
+  background: #232323;
 }
 
 .wrapper {
   max-width: 1600px;
   width: 80%;
   margin: 0 auto;
+}
+
+
+.visuallyhidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0);
+  overflow: hidden;
 }
 
 .heading {
@@ -350,33 +366,38 @@ body {
   font-size: 1.2rem;
 }
 
-form {
-  width: 100%;
-  text-align: center;
-}
-
-.modal-button-container {
-  text-align: center;
-}
-
-.modal-button {
-  width: 100px;
-}
 
 form input {
   height: 40px;
-  width: calc(100% - 20% - 40px);
+  width: calc(100% - 100px - 40px);
+}
+
+form input:hover,
+form input:focus,
+form button:hover,
+form button:focus {
+  background: #dad706;
+}
+
+form .select-menu:hover,
+form .select-menu:focus {
+  background: url("assets/downArrow.svg") 96%/30px no-repeat #dad706;
 }
 
 form select {
-  width: 20%;
-  -webkit-appearance: none;
-  -webkit-border-radius: 0px;
   height: 40px;
+  width: 100px;
+}
+
+form .select-menu {
   -webkit-appearance: none;
+  border-radius: none;
+  -moz-appearance: none;
   -webkit-border-radius: 0px;
-  background-position: 100% 50%;
-  background-repeat: no-repeat;
+  appearance: none;
+  height: 40px;
+  background: url("assets/downArrow.svg") 96%/30px no-repeat #eee;
+
 }
 
 form button {
@@ -385,6 +406,7 @@ form button {
   padding: 0;
   width: 40px;
   height: 40px;
+  border: none;
 }
 
 form .search-bar-icon {
@@ -394,6 +416,11 @@ form .search-bar-icon {
 form p {
   margin: 0;
   font-family: "Lato", sans-serif;
+  text-align: center;
+}
+
+.form-description {
+  margin-bottom: 1rem;
 }
 
 .clearfix:after {
@@ -426,22 +453,40 @@ nav.header-nav ul.clearfix {
   float: right;
 }
 
+nav.header-nav ul.clearfix li:hover,
+nav.header-nav ul.clearfix li:focus,
+nav.header-nav ul.clearfix button:hover,
+nav.header-nav ul.clearfix button:focus {
+  background: #dad706;
+}
+
 nav.header-nav ul.clearfix li {
   list-style: none;
   margin: 0;
   float: left;
-  margin-right: 1rem;
+  margin-right: 10px;
   font-family: "Lato", sans-serif;
+  height: 42px;
+  padding: 5px;
+  background: #589b69;
+  border: 1px solid #fafafa;
+  font-size: 20px;
 }
 
 nav.header-nav ul.clearfix button {
+  background: #589b69;
+  height: 42px;
   float: left;
+  color: #232323;
   font-family: "Lato", sans-serif;
+  font-size: 20px;
+  padding: 5px;
 }
 
 nav a {
   text-decoration: none;
-  color: #fafafa;
+  color: #232323;
+  font-size: 20px;
 }
 
 label[for="userInput"] {
@@ -450,12 +495,6 @@ label[for="userInput"] {
 
 label[for="userInput"] p {
   text-align: center;
-  margin: 0;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-#userInput p {
   margin: 0;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -471,6 +510,10 @@ label[for="userInput"] p {
   list-style: none;
   padding-bottom: 1rem;
 }
+
+
+.gallery-error {
+  min-height: 50vh;
 
 h2 {
   text-align: center;
@@ -519,6 +562,7 @@ footer {
   text-align: center;
   background: #000000;
   color: #fafafa;
+  height: 59px;
 }
 
 .confirm-save {
