@@ -12,6 +12,12 @@ class GifModal extends Component {
       tags: "",
       error: null
     };
+
+    this.inputText = React.createRef();
+  }
+
+  componentDidMount(){
+      this.inputText.current.focus();
   }
 
   // these one liner setState are very sweet. they help us get the value from da inputs.
@@ -114,6 +120,7 @@ class GifModal extends Component {
               onChange={this.handleInputOneChange}
               value={this.state.inputOne}
               maxlength="100"
+              ref={this.inputText}
             />
             <label htmlFor="inputBottom">Bottom text:</label>
             <input
