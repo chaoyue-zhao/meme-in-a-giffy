@@ -1,10 +1,23 @@
 ul.gallery-container {
+  text-align: center;
+  margin: 0 auto;
+
   li {
     float: left;
-    margin: 2px;
     position: relative;
-    height: 200px;
-    width: calc(20% - 4px);
+
+    .gallery-item{
+      height: 200px;
+      width: calc(20% - 4px);
+      margin: 2px;
+    }
+
+    .meme-list-item{
+      height: 200px;
+      margin: 20px;
+      width: calc(25% - 40px);
+    }
+
     .overlay {
       background: linear-gradient(
         to bottom,
@@ -17,9 +30,11 @@ ul.gallery-container {
       bottom: 0;
       left: 0;
     }
+    
     img {
       width: 100%;
       height: 100%;
     }
   }
+
 }

@@ -1,7 +1,17 @@
 form {
   input {
     height: 40px;
-    width: calc(100% - 20% - 40px);
+    width: calc(100% - 100px - 40px);
+  }
+  input:hover,
+  input:focus,
+  button:hover,
+  button:focus {
+    background: $dark-yellow;
+  }
+  .select-menu:hover,
+  .select-menu:focus {
+    background: url("assets/downArrow.svg") 96% / 30px no-repeat $dark-yellow;
   }
   select {
     width: 20%;
@@ -9,10 +19,15 @@ form {
     -webkit-border-radius: 0px;
     border-radius: 0px;
     height: 40px;
+  }
+  .select-menu {
     -webkit-appearance: none;
+    border-radius: none;
+    -moz-appearance: none;
     -webkit-border-radius: 0px;
-    background-position: 100% 50%;
-    background-repeat: no-repeat;
+    appearance: none;
+    height: 40px;
+    background: url("assets/downArrow.svg") 96% / 30px no-repeat #eee;
   }
   button {
     -webkit-appearance: none;
@@ -21,6 +36,7 @@ form {
     padding: 0;
     width: 40px;
     height: 40px;
+    border: none;
   }
   .search-bar-icon {
     width: 18px;
@@ -28,5 +44,10 @@ form {
   p {
     margin: 0;
     font-family: $body-font;
+    text-align: center;
   }
+}
+
+.form-description {
+  margin-bottom: $small-gap;
 }

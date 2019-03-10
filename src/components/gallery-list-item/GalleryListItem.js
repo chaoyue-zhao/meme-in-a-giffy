@@ -30,6 +30,7 @@ class GalleryListItem extends Component {
     const { images, title } = this.props.item;
     return (
       <li
+        className='gallery-item'
         onClick={this.onItemClick}
         onKeyPress={this.onKeyPress}
         onMouseEnter={this.onMouseEnterHandler}
