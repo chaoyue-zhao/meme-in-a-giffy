@@ -257,6 +257,7 @@ body {
   font-family: "Lato", sans-serif;
   line-height: 1.6;
   background: #232323;
+  color: #fafafa;
 }
 
 .wrapper {
@@ -264,7 +265,6 @@ body {
   width: 80%;
   margin: 0 auto;
 }
-
 
 .visuallyhidden:not(:focus):not(:active) {
   position: absolute;
@@ -282,6 +282,25 @@ body {
 
 .heading {
   font-family: "Fjalla One", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.heading-primary {
+  font-size: 4rem;
+}
+
+.heading-secondary {
+  font-size: 1.8rem;
+}
+
+.paragraph {
+  margin: 0;
+  padding: 0;
+}
+
+.paragraph-title {
+  font-size: 1.5rem;
 }
 
 .modal {
@@ -366,10 +385,26 @@ body {
   font-size: 1.2rem;
 }
 
+form {
+  width: 100%;
+  text-align: center;
+}
+
+.modal-button-container {
+  text-align: center;
+}
+
+.modal-button {
+  width: 100px;
+}
+
+form {
+  margin-bottom: 4rem;
+}
 
 form input {
   height: 40px;
-  width: calc(100% - 100px - 40px);
+  width: calc(100% - 100px - 40px - 20%);
 }
 
 form input:hover,
@@ -387,7 +422,6 @@ form .select-menu:focus {
 form select {
   width: 20%;
   -webkit-appearance: none;
-  -webkit-border-radius: 0px;
   border-radius: 0px;
   height: 40px;
 }
@@ -400,12 +434,10 @@ form .select-menu {
   appearance: none;
   height: 40px;
   background: url("assets/downArrow.svg") 96%/30px no-repeat #eee;
-
 }
 
 form button {
   -webkit-appearance: none;
-  -webkit-border-radius: 0px;
   border-radius: 0px;
   padding: 0;
   width: 40px;
@@ -418,8 +450,6 @@ form .search-bar-icon {
 }
 
 form p {
-  margin: 0;
-  font-family: "Lato", sans-serif;
   text-align: center;
 }
 
@@ -447,8 +477,10 @@ form p {
   text-align: center;
   clear: both;
   padding-top: 1rem;
+}
+
+.header h2 {
   padding-bottom: 2rem;
-  font-family: "Fjalla One", sans-serif;
 }
 
 nav.header-nav ul.clearfix {
@@ -515,9 +547,9 @@ label[for="userInput"] p {
   padding-bottom: 1rem;
 }
 
-
 .gallery-error {
   min-height: 50vh;
+}
 
 h2 {
   text-align: center;
@@ -535,13 +567,13 @@ ul.gallery-container li {
   position: relative;
 }
 
-ul.gallery-container li .gallery-item {
+ul.gallery-container li.gallery-item {
   height: 200px;
   width: calc(20% - 4px);
   margin: 2px;
 }
 
-ul.gallery-container li .meme-list-item {
+ul.gallery-container li.meme-list-item {
   height: 200px;
   margin: 20px;
   width: calc(25% - 40px);

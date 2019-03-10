@@ -87,9 +87,9 @@ class GalleryList extends Component {
     return (   
       //conditional rendering again! we are choosing to display the title based on user's selection - linking to the dropdown
       <div>
-        <h2>{this.props.type === "gifs" ? "Gifs List" : "Memes List"}</h2>
+        <h2 className="heading heading-secondary">{this.props.type === "gifs" ? "Gifs List" : "Memes List"}</h2>
         {/* ??? what is this for??? {this.props.displayedItems} */}
-        <div className="gallery ">
+        <div className="gallery">
           <ul className="clearfix gallery-container wrapper">{this.renderGalleryItems()}</ul>
         </div>
         {/*conditional rendering again again! rendering the modal only when the following two conditions are met 1) user clicked on an image 2)user selected gifs from the dropdown. we are also passing the nicly packaged gallery item down */}

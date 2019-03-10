@@ -10,16 +10,18 @@
 .header {
   background: $black;
   padding-top: $small-gap;
-}
 
-.header h1 {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  clear: both;
-  padding-top: $small-gap;
-  padding-bottom: $medium-gap;
-  font-family: $heading-font;
+  h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    clear: both;
+    padding-top: $small-gap;
+  }
+
+  h2 {
+    padding-bottom: $medium-gap;
+  }
 }
 
 nav.header-nav {
@@ -33,6 +35,7 @@ nav.header-nav {
     button:focus {
       background: $dark-yellow;
     }
+
     li {
       list-style: none;
       margin: 0;
@@ -45,6 +48,7 @@ nav.header-nav {
       border: 1px solid $white;
       font-size: 20px;
     }
+
     button {
       background: $green;
       height: 42px;
