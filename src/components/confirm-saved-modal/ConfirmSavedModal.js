@@ -1,20 +1,30 @@
 import React from 'react';
-const ConfirmSavedModal = ({handleToggleSaveModal}) => {
+class ConfirmSavedModal extends React.Component {
+  constructor(){
+      super();
 
-  const handleButtonClick = () => {
-    handleToggleSaveModal();
+      this.button = React.createRef();
   }
 
-  return (
-    <section className="modal-background modal" onClick={handleToggleSaveModal}>
-      <div className="modal-body confirm-save" onClick={(e) => e.stopPropagation()}>
-        <div className="confirm-save-content">
-          <p>Meme saved!</p>
-          <button onClick={handleButtonClick}>Ok</button>
-        </div> 
-      </div>
-    </section>
-  )
+  componentDidMount() {
+    this.button.current.focus();
+  }
+
+  handleButtonClick = () => {
+    this.props.handleToggleSaveModal();
+  }
+  render(){
+      return (
+        <section className="modal-background modal" onClick={this.props.handleToggleSaveModal}>
+            <div className="modal-body confirm-save" onClick={(e) => e.stopPropagation()}>
+                <div className="confirm-save-content">
+                    <p>Meme saved!</p>
+                    <button onClick={this.handleButtonClick} ref={this.button}>Ok</button>
+                </div> 
+            </div>
+        </section>
+    )
+  }
 }
 
 export default ConfirmSavedModal;
