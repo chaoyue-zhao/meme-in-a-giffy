@@ -112,18 +112,19 @@ label[for="userInput"] {
   .header {
     padding-top:0;
   }
-    nav.header-nav {
-      position:fixed;
-      top:3%;
-      right:3%;
-      height: .1rem;
-      width: .1rem;
-      border-radius:50%;
-      background: rgba(35,35,35,.95);
-      font-size:2.5rem;
-      z-index: 1000;
-    ul.clearfix {
-      
+  
+  nav.header-nav {
+    position:fixed;
+    top:3%;
+    right:3%;
+    height: .1rem;
+    width: .1rem;
+    border-radius:50%;
+    background: rgba(35,35,35,.95);
+    font-size:2.5rem;
+    z-index: 1000;
+    
+    ul.clearfix {  
       position:relative;
       top:50%;
       transform: scale(0);
