@@ -1,9 +1,7 @@
 @import "abstracts/variable";
 @import "abstracts/mixins";
-
 @import "base/setup";
 @import "base/typography";
-
 @import "components/button/button";
 @import "components/gif-modal/gif-modal";
 @import "components/search-bar/search-bar";
@@ -13,4 +11,3 @@
 @import "components/gallery-list-item/gallery-list-item";
 @import "components/footer/footer";
 @import "components/confirm-saved-modal/confirm-saved-modal";
-

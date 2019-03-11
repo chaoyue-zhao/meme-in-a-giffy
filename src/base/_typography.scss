@@ -1,28 +1,22 @@
 .heading {
-    font-family: $heading-font;
-    margin: 0;
-    padding: 0;
-    
-    &-primary {
-        //h1
-        font-size: 4rem;
-        
-    }
-
-    &-secondary{
-        //h2
-        font-size: 1.8rem;
-    }
-
+  font-family: $heading-font;
+  margin: 0;
+  padding: 0;
+  &-primary {
+    //h1
+    font-size: 8rem;
+  }
+  &-secondary {
+    //h2
+    font-size: 1.8rem;
+  }
 }
-
 .paragraph {
-    //p 
-    margin: 0;
-    padding: 0;
-
-    &-title{
-        font-size: 1.5rem;
-    }
+  //p
+  margin: 0;
+  padding: 0;
+  &-title {
+    font-size: 1.5rem;
+  }
 }
 

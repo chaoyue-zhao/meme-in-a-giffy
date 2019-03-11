@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import GalleryListItem from "./../gallery-list-item/GalleryListItem.js";
 import MemeListItem from "./../meme-list-item/MemeListItem.js";
 import GifModal from "../gif-modal/GifModal.js";
-import ConfirmSavedModal from './../confirm-saved-modal/ConfirmSavedModal.js';
+import ConfirmSavedModal from "./../confirm-saved-modal/ConfirmSavedModal.js";
 
 class GalleryList extends Component {
   constructor() {
@@ -12,7 +12,7 @@ class GalleryList extends Component {
       showModal: false,
       //state to define the item being click on so the modal can render the current image
       currentGalleryItem: "",
-      showSavedModal: false 
+      showSavedModal: false
     };
   }
 
@@ -29,8 +29,11 @@ class GalleryList extends Component {
       });
     }
 
-    if(this.props.displayedItems.length === 0 && this.props.displayedItems !== null) {
-      return <p className="gallery-error">No Results Found</p>
+    if (
+      this.props.displayedItems.length === 0 &&
+      this.props.displayedItems !== null
+    ) {
+      return <p className="gallery-error">No Results Found</p>;
     }
 
     return this.props.displayedItems.map((item, i) => {
@@ -45,9 +48,9 @@ class GalleryList extends Component {
           handleGalleryItem={this.handleGalleryItem}
         />
       ) : (
-        <MemeListItem 
-          savedMeme = {this.props.savedMeme} 
-          item={item} 
+        <MemeListItem
+          savedMeme={this.props.savedMeme}
+          item={item}
           authId={this.props.authId}
           key={item.id}
           history={this.props.history}
@@ -63,7 +66,7 @@ class GalleryList extends Component {
   };
 
   handleToggleModal = () => {
-    console.log('toggle');
+    console.log("toggle");
     this.setState(prevState => {
       //very very sweet syntax alert! we are toggling the state of showModal on click of the image. remember we have access to prevState in this.setState({}). so if the previous state of showModal is true, this will change it to false and vice versa.
       return {
@@ -73,39 +76,43 @@ class GalleryList extends Component {
   };
 
   handleToggleSaveModal = () => {
-    console.log('toggled');
-    this.setState(prevState =>{
+    console.log("toggled");
+    this.setState(prevState => {
       return {
-        showSavedModal : !prevState.showSavedModal
-      }
-    })
-  }
+        showSavedModal: !prevState.showSavedModal
+      };
+    });
+  };
 
   render() {
     //conditional rendering only if this.props.displayedItems(the array contains our data from api is NOT empty/falsy)
     // if (!this.props.displayedItems) return <div />;
-    return (   
+    return (
       //conditional rendering again! we are choosing to display the title based on user's selection - linking to the dropdown
       <div>
-        <h2 className="heading heading-secondary">{this.props.type === "gifs" ? "Gifs List" : "Memes List"}</h2>
+        <h2 className="heading heading-secondary">
+          {this.props.type === "gifs" ? "Gifs List" : "Memes List"}
+        </h2>
         {/* ??? what is this for??? {this.props.displayedItems} */}
         <div className="gallery">
-          <ul className="clearfix gallery-container wrapper">{this.renderGalleryItems()}</ul>
+          <ul className="clearfix gallery-container">
+            {this.renderGalleryItems()}
+          </ul>
         </div>
         {/*conditional rendering again again! rendering the modal only when the following two conditions are met 1) user clicked on an image 2)user selected gifs from the dropdown. we are also passing the nicly packaged gallery item down */}
         {this.state.showModal && this.props.type === "gifs" && (
-          <GifModal 
-            item={this.state.currentGalleryItem} 
-            handleToggleSaveModal = {this.handleToggleSaveModal}
-            handleToggleModal = {this.handleToggleModal}
+          <GifModal
+            item={this.state.currentGalleryItem}
+            handleToggleSaveModal={this.handleToggleSaveModal}
+            handleToggleModal={this.handleToggleModal}
           />
         )}
 
-        {this.state.showSavedModal &&
-          <ConfirmSavedModal 
-            handleToggleSaveModal = {this.handleToggleSaveModal}
+        {this.state.showSavedModal && (
+          <ConfirmSavedModal
+            handleToggleSaveModal={this.handleToggleSaveModal}
           />
-        }
+        )}
       </div>
     );
   }
