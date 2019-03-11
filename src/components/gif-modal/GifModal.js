@@ -25,6 +25,7 @@ class GifModal extends Component {
 
   // these one liner setState are very sweet. they help us get the value from da inputs.
   handleInputOneChange = e => {
+
     if (e.target.value.length >= 22) {
       this.setState({ inputOneFontSize: "font-small" });
     } else {
@@ -63,7 +64,7 @@ class GifModal extends Component {
   validateInput = async () => {
     if (!this.state.inputOne && !this.state.inputTwo) {
       await this.setState({
-        error: "Error enter text to continue"
+        error: "Please enter text to continue"
       });
     } else {
       await this.setState({
@@ -145,10 +146,15 @@ class GifModal extends Component {
                 maxlength="90"
                 ref={this.inputText}
                 placeholder="Enter top meme text:"
+                onInput={this.validateInput}
               />
               <label htmlFor="inputTop" className="modal-label">
                 Enter top meme text:
               </label>
+              {this.state.error && <p className="error">
+                {this.state.error}
+              </p>}
+              
             </div>
 
             <div className="modal-input-container">
@@ -160,6 +166,7 @@ class GifModal extends Component {
                 value={this.state.inputTwo}
                 maxlength="90"
                 placeholder="Enter bottom meme text"
+                onInput={this.validateInput}
               />
               <label htmlFor="inputBottom" className="modal-label">
                 Enter bottom meme text
@@ -180,8 +187,6 @@ class GifModal extends Component {
             </div>
 
             <div className="modal-button-container">
-              <p>{this.state.error ? this.state.error : ""}</p>
-
               <SuperNiceButton
                 text="Save"
                 type="submit"
