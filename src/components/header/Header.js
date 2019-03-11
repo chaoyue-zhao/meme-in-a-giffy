@@ -4,13 +4,19 @@ import SuperNiceButton from '../button/Button';
 
 class Header extends Component {
   render() {
+    console.log(this.props);
     return (
       <header className="header">
         <div className="wrapper">
-          <nav className="header-nav">
+
+          <input type="checkbox" className="header-nav-checkbox" id="checkbox"/>
+          <label htmlFor="checkbox" className="header-nav-button">
+            <span className="header-nav-icon"></span>
+          </label>
+          <nav className="header-nav clearfix">
             <ul className="clearfix">
               <li>
-                <NavLink to="/" exact>
+                <NavLink to="/" exact >
                   <SuperNiceButton
                     text="Search"
                   />
@@ -24,15 +30,19 @@ class Header extends Component {
                 </li>
               )}
               {this.props.isAuth ? (
+                <li>
                 <SuperNiceButton
                   click={this.props.handleLogOutClick}
                   text="Log Out"
                 />
+                </li>
               ) : (
+                <li>
                 <SuperNiceButton
                   click={this.props.handleLogInClick}
                   text="Log In"
                 />
+                </li>
               )}
             </ul>
           </nav>
@@ -40,7 +50,8 @@ class Header extends Component {
             Meme in a Giffy
           </h1>
           <h2 className="heading heading-secondary">
-            Best place to create Memes and share them with your friends!
+           {this.props.history.location.pathname !=='/saved' &&
+             'Best place to create Memes and share them with your friends!' } 
           </h2>
         </div>
       </header>

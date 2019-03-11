@@ -278,3 +278,9 @@ body {
   clip: rect(00 0 0);
   overflow: hidden;
 }
+
+@media (max-width: 650px) {
+  .wrapper {
+    width: 90%;
+  }
+}

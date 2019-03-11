@@ -18,8 +18,14 @@ class ConfirmSavedModal extends React.Component {
         <section className="modal-background modal" onClick={this.props.handleToggleSaveModal}>
             <div className="modal-body confirm-save" onClick={(e) => e.stopPropagation()}>
                 <div className="confirm-save-content">
-                    <p>Meme saved!</p>
-                    <button onClick={this.handleButtonClick} ref={this.button}>Ok</button>
+                    <p className="confirm-save-text">Meme saved!</p>
+                    <button 
+                      onClick={this.handleButtonClick} 
+                      ref={this.button}
+                      className="confirm-save-button"
+                    >
+                      Ok
+                    </button>
                 </div> 
             </div>
         </section>
