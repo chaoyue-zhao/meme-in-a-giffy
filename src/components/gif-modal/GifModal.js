@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import database from "../firebase/firebase.js";
-import SuperNiceButton from '../button/Button';
+import SuperNiceButton from "../button/Button";
 
 class GifModal extends Component {
   constructor() {
@@ -11,6 +11,7 @@ class GifModal extends Component {
       inputTwo: "",
       inputOneFontSize: "font-big",
       inputTwoFontSize: "font-big",
+      valid: "modal-input-not-valid",
       tags: "",
       error: null
     };
@@ -18,77 +19,96 @@ class GifModal extends Component {
     this.inputText = React.createRef();
   }
 
-  componentDidMount(){
-      this.inputText.current.focus();
+  componentDidMount() {
+    this.inputText.current.focus();
   }
 
   // these one liner setState are very sweet. they help us get the value from da inputs.
-  handleInputOneChange = e => {
+  handleInputOneChange =async e => {
+
     if (e.target.value.length >= 22) {
-      this.setState ({ inputOneFontSize: "font-small" })
+      this.setState({ inputOneFontSize: "font-small" });
     } else {
-      this.setState({ inputOneFontSize: "font-big" })
+      this.setState({ inputOneFontSize: "font-big" });
     }
-    this.setState({ inputOne: e.target.value });
+
+    if (e.target.value.length >= 1) {
+      this.setState({ valid: "modal-input-valid" });
+    } else {
+      this.setState({ valid: "modal-input-not-valid" });
+    }
+
+    await this.setState({ inputOne: e.target.value });
+    await this.validateInput();
   };
 
-  handleInputTwoChange = e => {
+  handleInputTwoChange = async e => {
     if (e.target.value.length >= 22) {
-      this.setState({ inputTwoFontSize: "font-small" })
+      this.setState({ inputTwoFontSize: "font-small" });
     } else {
-      this.setState({ inputTwoFontSize: "font-big" })
+      this.setState({ inputTwoFontSize: "font-big" });
     }
-    this.setState({ inputTwo: e.target.value });
+
+    if (e.target.value.length >= 1) {
+      this.setState({ valid: "modal-input-valid" });
+    } else {
+      this.setState({ valid: "modal-input-not-valid" });
+    }
+
+    await this.setState({ inputTwo: e.target.value });
+    await this.validateInput();
   };
 
   handleInputTag = e => {
     this.setState({ tags: e.target.value });
   };
 
-
   validateInput = async () => {
     if (!this.state.inputOne && !this.state.inputTwo) {
-     await this.setState({
-        error: "Error enter text to continue"
+      await this.setState({
+        error: "Please enter text to continue"
       });
     } else {
-    await this.setState({ 
-       error: null
-    })
-  }}
+      await this.setState({
+        error: null
+      });
+    }
+  };
 
-  handleSubmit =  async (e) => {
-      // chao's fav form method. don't forget. please don't forget.
-      e.preventDefault();
-      // this is very nice also. PUSHING TO FIREBASE with a customized object to the meme ref
-      await this.validateInput() 
-      
-      if(!this.state.error) {
-        database.ref('memes').push({
-          // with all of our things. all of them. 
-          likes: 0,
-          dislikes: 0,
-          images: this.props.item.images,
-          title: this.props.item.title,
-          tags: this.state.tags,
-          inputOne: this.state.inputOne,
-          inputTwo: this.state.inputTwo,
-          subject: this.props.item.slug
-      }) 
-      
+  handleSubmit = async e => {
+    // chao's fav form method. don't forget. please don't forget.
+    e.preventDefault();
+    // this is very nice also. PUSHING TO FIREBASE with a customized object to the meme ref
+    await this.validateInput();
+
+    if (!this.state.error) {
+      database.ref("memes").push({
+        // with all of our things. all of them.
+        likes: 0,
+        dislikes: 0,
+        images: this.props.item.images,
+        title: this.props.item.title,
+        tags: this.state.tags,
+        inputOne: this.state.inputOne,
+        inputTwo: this.state.inputTwo,
+        subject: this.props.item.slug
+      });
+
       this.props.handleToggleSaveModal();
       this.props.handleToggleModal();
-  }
-}
+    }
+  };
 
   render() {
     //very NOICE deconstructing here. Good job taking out those key (on the left) off the object (on the right)
     const { images, title } = this.props.item;
+    console.log("item details for Chao", this.props.item);
     return (
       <section
         className="modal-background modal"
         onClick={this.props.handleToggleModal}
       >
+        {/* this onClick is linked with the handleToggleModal function, which closes/opens the modal. However, due to event bubbling, we need to add e.stopPropagation to the event object inside. So we stop the function bubbles within the background. */}
         <div className="modal-body" onClick={e => e.stopPropagation()}>
           <div className="modal-image-container">
             <p
@@ -113,48 +133,60 @@ class GifModal extends Component {
               {this.state.inputTwo && this.state.inputTwo}
             </p>
           </div>
-          <form action="#" onSubmit={this.handleSubmit} className="modal-form clearfix">     
+          <form
+            action="#"
+            onSubmit={this.handleSubmit}
+            className="modal-form clearfix"
+          >
             <div className="modal-input-container">
               <input
-                className="modal-input"
+                className={`modal-input ${this.state.valid}`}
                 type="text"
                 id="inputTop"
                 onChange={this.handleInputOneChange}
                 value={this.state.inputOne}
                 maxlength="90"
                 ref={this.inputText}
-                placeholder="Top Text:"
+                placeholder="Enter top meme text:"
               />
-              <label htmlFor="inputTop" className="modal-label">Top text:</label>
-            </div>
+              <label htmlFor="inputTop" className="modal-label">
+                Enter top meme text:
+              </label>
+              {this.state.error && <p className="error">
+                {this.state.error}
+              </p>}
               
+            </div>
+
             <div className="modal-input-container">
               <input
-                className="modal-input"
+                className={`modal-input ${this.state.valid}`}
                 type="text"
                 id="inputBottom"
                 onChange={this.handleInputTwoChange}
                 value={this.state.inputTwo}
                 maxlength="90"
-                placeholder="Bottom Text:"
+                placeholder="Enter bottom meme text"
               />
-              <label htmlFor="inputBottom" className="modal-label">Bottom text:</label>
+              <label htmlFor="inputBottom" className="modal-label">
+                Enter bottom meme text
+              </label>
             </div>
 
             <div className="modal-input-container">
               <input
                 type="text"
-                className="modal-input"
-                placeholder="Tags here"
+                className="modal-input modal-input-valid"
+                placeholder="Enter associated search terms. Such as: dogs, funny..."
                 onChange={this.handleInputTag}
                 value={this.state.tags}
               />
-              <label htmlFor="inputTag" className="modal-label">Tags:</label>
+              <label htmlFor="inputTag" className="modal-label">
+                Enter associated search terms.
+              </label>
             </div>
-            
-            <div className="modal-button-container">
-              <p>{this.state.error ? this.state.error : ""}</p>
 
+            <div className="modal-button-container">
               <SuperNiceButton
                 text="Save"
                 type="submit"
@@ -169,6 +201,10 @@ class GifModal extends Component {
               />
             </div>
           </form>
+          <button
+            className="close"
+            onClick={this.props.handleToggleModal}
+          />
         </div>
       </section>
     );
