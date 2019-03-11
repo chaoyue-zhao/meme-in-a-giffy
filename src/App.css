@@ -495,7 +495,9 @@ body {
   border: none;
   border-bottom: 3px solid #589b69;
   border-radius: 2px;
-  background: url("./assets/fatPencil.svg");
+  background: url("./assets/fatPencil.svg") no-repeat;
+  background-size: 1rem;
+  background-position: 100% 80%;
 }
 
 .modal-input:focus {
