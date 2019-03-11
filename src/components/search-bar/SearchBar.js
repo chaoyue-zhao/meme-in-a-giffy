@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import searchIcon from "./../../assets/searchIcon.svg";
-// import downArrow from "./../../assets/downArrow.svg";
+import { constants } from "crypto";
+// import blackDownArrow from "./../../assets/blackDownArrow.svg";
 
 class SearchBar extends Component {
   constructor() {
@@ -8,7 +9,8 @@ class SearchBar extends Component {
     this.state = {
       query: "",
       //setting the default to gifs so when page first load, there is something for the api call if the user did not select anything
-      type: "gifs"
+      type: "gifs",
+      placeholder: "Search GIFs and Memes"
     };
   }
 
@@ -23,6 +25,18 @@ class SearchBar extends Component {
       [e.target.name]: e.target.value
     });
   };
+
+  updateDimensions = () => {
+    if (window.innerWidth < 600) {
+      this.setState({ placeholder: "Search" });
+      console.log("what ?", window.innerWidth);
+    }
+    console.log("what dimension", window.innerWidth);
+  };
+  componentDidMount() {
+    this.updateDimensions();
+    console.log("updatedimension", window.innerWidth);
+  }
 
   formSubmit = e => {
     e.preventDefault();
@@ -47,7 +61,7 @@ class SearchBar extends Component {
               id="userInput"
               onChange={this.handleSearchChange}
               value={this.state.query}
-              placeholder="Search GIFs and Memes"
+              placeholder={this.state.placeholder}
             />
             <label htmlFor="userInput" className="modal-label">
               Search all the GIFs and Memes
