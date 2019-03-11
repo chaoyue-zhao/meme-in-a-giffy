@@ -25,11 +25,13 @@
 }
 
 nav.header-nav {
+  transition: .2s all;
   ul.clearfix {
     padding: 0;
     margin: 0;
     float: right;
     margin: 1rem 0;
+    transition: opacity .3s 1s;
 
     li {
       list-style: none;
@@ -52,5 +54,150 @@ label[for="userInput"] {
     margin: 0;
     padding-top: $small-gap;
     padding-bottom: $small-gap;
+  }
+}
+
+//Checkbox Nav styles
+.header-nav {
+  &-checkbox {
+    visibility:hidden;
+  }
+
+  &-checkbox:checked ~ nav.header-nav {
+    width:100vw;
+    height:100vh;
+    border-radius:0;
+    top:0;
+    right:0;
+  }
+
+  &-checkbox:checked ~ nav.header-nav ul.clearfix {
+    display: block;
+    transform: scale(1) translateY(-60%);
+    opacity: 1;
+
+  }
+
+  &-checkbox:checked ~ .header-nav-button .header-nav-icon {
+    background: transparent;
+
+    &::before {
+      transform: rotate(45deg); 
+      top:0;
+    }
+
+    &::after {
+      transform: rotate(-45deg); 
+      top:0;
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+    nav.header-nav {
+      text-align: center;
+    ul.clearfix {
+      float: none;
+      display: inline-block;
+
+      &-button {
+        margin:0; 
+        float:none;
+      }
+    }  
+  }
+}
+
+@media (max-width: 720px) {
+  .header {
+    padding-top:0;
+  }
+  
+  nav.header-nav {
+    position:fixed;
+    top:3%;
+    right:3%;
+    height: .1rem;
+    width: .1rem;
+    border-radius:50%;
+    background: rgba(35,35,35,.95);
+    font-size:2.5rem;
+    z-index: 1000;
+    
+    ul.clearfix {  
+      position:relative;
+      top:50%;
+      transform: scale(0);
+      opacity:0;
+      
+      li {
+        float: none;
+      }
+  
+      &-button {
+        margin:0; 
+        float:none;
+      }
+    }
+  }
+
+  //Styles for the mobile nav appearance
+  .header-nav {
+    &-button {
+      display:block;
+      height:3rem;
+      width:3rem;
+      background:transparent;
+      border:2px solid $white;
+      position: fixed;
+      top:2%;
+      right:2%; 
+      border-radius:50%;  
+      z-index:1001;
+    }
+    
+    &-icon {
+      display:block;
+      width:2rem;
+      height: 2px;
+      background: $white;
+      position:relative;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      transition: background-color 1s;
+
+      &::before, &::after {
+        content: "";
+        display:block;
+        width:2rem;
+        height: 2px;
+        background: currentColor;
+        position: absolute;
+        transition: transform 1s;
+      }
+
+      &::before {
+        top:-10px;
+      }
+
+      &::after {
+        top:10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    h1 {
+      margin-bottom:.5rem;
+    }
+  }
+}
+
+@media(max-width: 420px) {
+  nav.header-nav {
+    font-size:2rem;
   }
 }
