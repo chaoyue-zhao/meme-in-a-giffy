@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Twitter from "../twitter/Twitter";
 import database, {auth, provider} from '../firebase/firebase';
 import './_meme-list-item.scss';
-import upArrow from "../../assets/upArrow.png";
-import downArrow from "../../assets/downArrow.png";
+import upArrow from '../../assets/thick-up-arrow.svg';
+import downArrow from '../../assets/thick-down-arrow.svg';
 
 
 class MemeListItem extends Component {
@@ -14,7 +14,7 @@ class MemeListItem extends Component {
       error : ''
     };
   }
-  
+
   checkForSavedMeme = async () => {
     const response = await database.ref(`users/${this.props.authId}/memes`).once('value');
     const savedMemeIds = [];
@@ -85,17 +85,17 @@ class MemeListItem extends Component {
         </div>
         <div className='meme-list-item-bar clearfix'>
             <div className='like-dislike-container'>
-                <button type='button' className='up-arrow' onClick={this.handleLikes}><img src={upArrow}/></button>
+                <button type='button' className='up-arrow' onClick={this.handleLikes}><img src={upArrow} /></button>
                 <span>{this.props.item.likes}</span>
                 <button type='button' className='down-arrow' onClick={this.handleDislikes}><img src={downArrow}/></button>
                 <span>{this.props.item.dislikes}</span>
             </div>
+            <div>
+              <Twitter memeId={this.props.item.id}/> 
+            </div>
             <div className='meme-delete-button'>  
               {this.renderButtons()}
               {this.state.error && <p>{this.state.error}</p>}
-            </div>
-            <div>
-              <Twitter memeId={this.props.item.id}/>
             </div>
         </div>
       </li>

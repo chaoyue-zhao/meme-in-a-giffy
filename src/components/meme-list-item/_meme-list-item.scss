@@ -1,29 +1,40 @@
+$black: #232323;
+$green: #589b69;
+$red: #9b5d58;
+
 .like-dislike-container,
 .meme-delete-button,
 .twitter-share-icon {
     float: left;
-    padding: 10px;
+    padding: 5px;
 }
 
 .meme-list-item {
     background: rgba(250, 250, 250, 0.9);
-    box-shadow: 0px 0px 40px 10px rgba(250, 250, 250, 0.1);
+    box-shadow: 0px 0px 15px 10px rgba(250, 250, 250, 0.3);
+}
 
+.meme-text-image-container {
+    p {
+        color: $black;
+        font-weight: bold;
+    }
 }
 
 .meme-list-item-bar {
-    background-color: #589b69;
-
-    .like-dislike-container {
-        button {
-            margin: 0 10px;
-        }
-    }
+    background-color: #232323;
+    padding: 10px;
+    margin: 0px;
 
     .up-arrow,
     .down-arrow {
-        padding: 0px;
-        height: 30px;
+        height: 40px;
+        background: transparent;
+        border: none;
+    }
+
+    span {
+        font-size: 45px;
     }
 
     .up-arrow,
@@ -35,10 +46,53 @@
         }
     }
 
+    .meme-delete-button {
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+        
+    }
+
 }
 
-.meme-list-item {
-    background: black;
-    position: relative;
-}
-
+// .button {
+//     -webkit-font-smoothing: antialiased;
+//     color: $white;
+//     background-color: transparent;
+//     font-family: $body-font;
+//     text-decoration: none;
+//     text-transform: uppercase;
+//     user-select: none;
+//     padding: 10px 1rem;
+//     margin-left: 3rem;
+//     outline: 90px solid transparent;
+//     border: 1px solid $green;
+//     display: inline-block;
+//     position: relative;
+//     z-index: 0;
+//     transition: background-color 0.3s ease-out;
+  
+//     &-black {
+//       color: $black;
+  
+//       &:hover {
+//         color: $white;
+//       }
+  
+//       &:first-of-type {
+//         margin-left: 0;
+//       }
+//     }
+  
+//     &:hover {
+//       background-color: $green;
+      
+//       &:before, span {
+//         background-color: $green;
+//       }
+//     }
+  
+//     &:focus {
+//       outline: none;
+//     }
+//   }

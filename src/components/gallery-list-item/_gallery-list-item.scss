@@ -15,6 +15,10 @@ ul.gallery-container {
     &.meme-list-item{
       margin: 20px;
       width: calc(25% - 40px);
+
+      img {
+        width: 80%;
+      }
     }
 
     .overlay {
