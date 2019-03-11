@@ -504,6 +504,7 @@ ul.gallery-container li .overlay {
 ul.gallery-container li img {
   width: 100%;
   height: 100%;
+}
 
 @media (max-width: 720px) {
   .button {
