@@ -86,9 +86,10 @@ class GifModal extends Component {
     const { images, title } = this.props.item;
     return (
       <section
-        className="modal-background modal"
-        onClick={this.props.handleToggleModal}
+      className="modal-background modal"
+      onClick={this.props.handleToggleModal}
       >
+      {/* this onClick is linked with the handleToggleModal function, which closes/opens the modal. However, due to event bubbling, we need to add e.stopPropagation to the event object inside. So we stop the function bubbles within the background. */}
         <div className="modal-body" onClick={e => e.stopPropagation()}>
           <div className="modal-image-container">
             <p
