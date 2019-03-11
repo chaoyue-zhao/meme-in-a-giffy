@@ -420,6 +420,91 @@ body {
   right: 0;
 }
 
+.confirm-save {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 20px;
+  border: 5px solid #232323;
+}
+
+.confirm-save-content {
+  font-family: "Lato", sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 1.5rem 3rem;
+}
+
+.confirm-save-content p {
+  margin: .5rem 0;
+}
+
+footer {
+  text-align: center;
+  background: #000000;
+  color: #fafafa;
+  height: 59px;
+}
+
+.gallery ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  padding-bottom: 1rem;
+}
+
+.gallery-error {
+  min-height: 50vh;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Fjalla One", sans-serif;
+  font-size: 3rem;
+}
+
+ul.gallery-container {
+  text-align: center;
+  margin: 0 auto;
+}
+
+ul.gallery-container li {
+  float: left;
+  position: relative;
+}
+
+ul.gallery-container li.gallery-item {
+  height: 200px;
+  width: calc(20% - 4px);
+  margin: 2px;
+}
+
+ul.gallery-container li.meme-list-item {
+  margin: 20px;
+  width: calc(25% - 40px);
+}
+
+ul.gallery-container li.meme-list-item img {
+  width: 80%;
+}
+
+ul.gallery-container li .overlay {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(255, 255, 255, 0.3)), to(#f8fb90));
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 50%, #f8fb90 100%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+ul.gallery-container li img {
+  width: 100%;
+  height: 100%;
+
 @media (max-width: 720px) {
   .button {
     margin: .5rem 0;
@@ -435,6 +520,7 @@ body {
     width: 85%;
     margin-bottom: 2rem;
   }
+
 }
 
 .modal {
@@ -795,6 +881,12 @@ label[for="userInput"] p {
   padding-bottom: 1rem;
 }
 
+.like-dislike-container,
+.meme-delete-button {
+  float: left;
+  padding: 5px;
+  }
+  
 .header-nav-checkbox {
   visibility: hidden;
 }
@@ -934,67 +1026,111 @@ label[for="userInput"] p {
   background: #232323;
 }
 
-.gallery ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  padding-bottom: 1rem;
+.meme-list-item {
+  background: rgba(250, 250, 250, 0.9);
+  -webkit-box-shadow: 0px 0px 15px 10px rgba(250, 250, 250, 0.3);
+          box-shadow: 0px 0px 15px 10px rgba(250, 250, 250, 0.3);
 }
 
-.gallery-error {
-  min-height: 50vh;
+.meme-text-image-container p {
+  color: #232323;
+  font-weight: bold;
 }
 
-h2 {
+.meme-list-item-bar {
+  background-color: #232323;
+  padding: 10px;
+  margin: 0px;
+}
+
+.meme-list-item-bar .up-arrow,
+.meme-list-item-bar .down-arrow {
+  height: 40px;
+  background: transparent;
+  border: none;
+}
+
+.meme-list-item-bar span {
+  font-size: 45px;
+  padding: 0 10px;
+}
+
+.meme-list-item-bar .up-arrow:hover,
+.meme-list-item-bar .down-arrow:hover,
+.meme-list-item-bar .delete-button:hover,
+.meme-list-item-bar .share-meme:hover {
+  cursor: pointer;
+}
+
+.meme-list-item-bar .meme-delete-button {
+  display: inline-block;
   text-align: center;
-  font-family: "Fjalla One", sans-serif;
-  font-size: 3rem;
+  margin: 0 auto;
+  width: 65%;
 }
 
-ul.gallery-container {
+.like-dislike-container {
+  width: 100%;
   text-align: center;
   margin: 0 auto;
 }
 
-ul.gallery-container li {
+.share-meme {
+  padding-top: 5px;
+  display: inline-block;
   float: left;
+  width: 3%;
+  border: none;
+  background: transparent;
+}
+
+.delete-button {
+  -webkit-font-smoothing: antialiased;
+  background-color: #fffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 8px 1rem;
+  border: 1px solid #589b69;
+  border-radius: 20px;
+  display: inline-block;
   position: relative;
+  -webkit-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
 }
 
-ul.gallery-container li.gallery-item {
-  height: 200px;
-  width: calc(20% - 4px);
-  margin: 2px;
+.delete-button:hover {
+  background-color: #589b69;
 }
 
-ul.gallery-container li.meme-list-item {
-  height: 200px;
-  margin: 20px;
-  width: calc(25% - 40px);
+.delete-button:focus {
+  outline: none;
 }
 
-ul.gallery-container li .overlay {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(255, 255, 255, 0.3)), to(#f8fb90));
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 50%, #f8fb90 100%);
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-ul.gallery-container li img {
-  width: 100%;
-  height: 100%;
-}
-
-footer {
+.tweet-and-delete {
   text-align: center;
-  background: #000000;
-  color: #fafafa;
-  height: 59px;
+  margin: 0 auto;
 }
 
+.tweet-and-delete .twitter-share-button img.twitter-share-image {
+  display: block;
+  height: 80px;
+  width: 80px;
+  border: 2px solid tomato;
+}
+
+form.search-bar {
+  margin-bottom: 4rem;
+}
+
+form.search-bar input {
+  height: 40px;
+  width: calc(100% - 100px - 40px - 20%);
+ }
+  
 .confirm-save {
   top: 50%;
   left: 50%;
@@ -1009,10 +1145,58 @@ footer {
           box-shadow: 0px 0px 40px 10px rgba(250, 250, 250, 0.1);
 }
 
-.confirm-save-content {
-  font-family: "Lato", sans-serif;
-  letter-spacing: 1px;
+form.search-bar input:hover,
+form.search-bar input:focus,
+form.search-bar button:hover,
+form.search-bar button:focus {
+  background: #dad706;
+}
+
+form.search-bar .select-menu:hover,
+form.search-bar .select-menu:focus {
+  background: url("assets/downArrow.svg") 96%/30px no-repeat #dad706;
+}
+
+form.search-bar select {
+  width: 20%;
+  -webkit-appearance: none;
+  border-radius: 0px;
+  height: 40px;
+}
+
+form.search-bar .select-menu {
+  -webkit-appearance: none;
+  border-radius: none;
+  -moz-appearance: none;
+  -webkit-border-radius: 0px;
+  appearance: none;
+  height: 40px;
+  background: url("assets/downArrow.svg") 96%/30px no-repeat #eee;
+}
+
+form.search-bar button {
+  -webkit-appearance: none;
+  border-radius: 0px;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+}
+
+form.search-bar .search-bar-icon {
+  width: 18px;
+}
+
+form.search-bar p {
   text-align: center;
+}
+
+.form-description {
+  margin-bottom: 1rem;
+}
+
+.App {
+  background: #232323;
   padding: 2rem 5rem;
 }
 
