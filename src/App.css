@@ -684,8 +684,8 @@ form.search-bar p {
 }
 
 nav.header-nav {
-  -webkit-transition: .1s all;
-  transition: .1s all;
+  -webkit-transition: .2s all;
+  transition: .2s all;
 }
 
 nav.header-nav ul.clearfix {
@@ -693,6 +693,8 @@ nav.header-nav ul.clearfix {
   margin: 0;
   float: right;
   margin: 1rem 0;
+  -webkit-transition: opacity .3s 1s;
+  transition: opacity .3s 1s;
 }
 
 nav.header-nav ul.clearfix li {
@@ -731,6 +733,9 @@ label[for="userInput"] p {
 
 .header-nav-checkbox:checked ~ nav.header-nav ul.clearfix {
   display: block;
+  -webkit-transform: scale(1) translateY(-60%);
+          transform: scale(1) translateY(-60%);
+  opacity: 1;
 }
 
 .header-nav-checkbox:checked ~ .header-nav-button .header-nav-icon {
@@ -779,12 +784,11 @@ label[for="userInput"] p {
     z-index: 1000;
   }
   nav.header-nav ul.clearfix {
-    display: block;
     position: relative;
     top: 50%;
-    -webkit-transform: translateY(-60%);
-            transform: translateY(-60%);
-    display: none;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
   }
   nav.header-nav ul.clearfix li {
     float: none;
