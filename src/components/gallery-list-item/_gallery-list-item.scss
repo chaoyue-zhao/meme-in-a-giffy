@@ -1,18 +1,17 @@
 ul.gallery-container {
   text-align: center;
   margin: 0 auto;
-
   li {
     float: left;
     position: relative;
-
-    &.gallery-item{
-      height: 200px;
+    &.gallery-item {
+      height: 300px;
       width: calc(20% - 4px);
       margin: 2px;
     }
 
     &.meme-list-item{
+      height: 200px;
       margin: 20px;
       width: calc(25% - 40px);
 
@@ -20,24 +19,88 @@ ul.gallery-container {
         width: 80%;
       }
     }
-
     .overlay {
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.3) 50%,
-        $light-yellow 100%
-      );
+      background: linear-gradient( to bottom, rgba(255, 255, 255, 0.3) 50%, $light-yellow 100%);
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
       left: 0;
     }
-    
     img {
       width: 100%;
       height: 100%;
     }
   }
+}
 
+@media (max-width: 1500px) {
+  ul.gallery-container {
+    li {
+      &.gallery-item {
+        height: 300px;
+        width: calc(20% - 4px);
+        margin: 2px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  ul.gallery-container {
+    li {
+      &.gallery-item {
+        height: 250px;
+        width: calc(25% - 4px);
+        margin: 2px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  ul.gallery-container {
+    li {
+      &.gallery-item {
+        height: 220px;
+        margin: 2px;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  ul.gallery-container {
+    li {
+      &.gallery-item {
+        height: 200px;
+        width: calc(33% - 4px);
+        margin: 2px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  ul.gallery-container {
+    li {
+      &.gallery-item {
+        height: 200px;
+        width: calc(50% - 4px);
+        margin: 2px;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  ul.gallery-container {
+    li {
+      &.gallery-item {
+        height: 200px;
+        width: calc(100% - 4px);
+        margin: 2px;
+      }
+    }
+  }
 }

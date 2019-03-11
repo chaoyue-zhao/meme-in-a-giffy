@@ -2,5 +2,15 @@ footer {
   text-align: center;
   background: $dark-black;
   color: $white;
-  height: 59px;
+  position: relative;
+  a {
+    text-decoration: none;
+    color: $white;
+  }
+  p {
+    margin: 0;
+    padding-top: $small-gap;
+    text-align: center;
+    font-family: $body-font;
+  }
 }
