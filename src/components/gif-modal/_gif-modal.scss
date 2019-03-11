@@ -49,11 +49,15 @@
     }
     
     &-text-top {
-        @include position (absolute, 0, 0, 0, 0);
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     &-text-bottom{
-        @include position (absolute, 85%, 0, 0, 0);
+      position: absolute;
+      top: 85%;
+      left: 0;
     }
 
     &-input-container {
@@ -84,13 +88,32 @@
         border: none;
         border-bottom: 3px solid $green;
         border-radius: 2px;
-        background: url('./assets/fatPencil.svg') no-repeat;
-        background-size: 1rem;
-        background-position: 100% 80%;
+
+        &-not-valid {
+          background: url('./assets/new-pencil.png') no-repeat;
+          background-size: 2rem;
+          background-position: 100% 80%;
+
+          &:active, &:focus {
+            background: url('./assets/new-pencil.png') no-repeat;
+            background-size: 2rem;
+            background-position: 100% 80%;
+          }
+        }
         
+        &-valid {
+          background: url('./assets/green-checkmark.png') no-repeat;
+          background-size: 2rem;
+          background-position: 100% 80%;
+
+          &:active, &:focus {
+            background: url('./assets/green-checkmark.png') no-repeat;
+            background-size: 2rem;
+            background-position: 100% 80%;
+          }
+        }
 
         &:focus {
-          background: transparent;
           border-bottom: 3px solid $dark-yellow;
           box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
           outline: none;
@@ -125,6 +148,35 @@
     font-size: 1.2rem;
 }
 
+.close {
+  height: 2rem;
+  width: 2rem;
+  background: transparent;
+  border: 3px solid $white;
+  border-radius: 50%;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 5;
+
+  &:before, &:after {
+    content: "";
+    width: 1rem;
+    height: 3px;
+    background-color: $white;
+    position: absolute;
+    top: 0.8rem;
+    right: 0.3rem;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(135deg);
+  }
+}
 
 
 
