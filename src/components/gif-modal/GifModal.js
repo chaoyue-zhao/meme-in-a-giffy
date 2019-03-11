@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import database from "../firebase/firebase.js";
+import SuperNiceButton from '../button/Button';
 
 class GifModal extends Component {
   constructor() {
@@ -112,55 +113,60 @@ class GifModal extends Component {
               {this.state.inputTwo && this.state.inputTwo}
             </p>
           </div>
-          <form action="" onSubmit={this.handleSubmit}>
-            <label htmlFor="inputTop" className="visuallyhidden">
-              Top text:
-            </label>
-            <input
-              className="modal-input"
-              type="text"
-              id="inputTop"
-              onChange={this.handleInputOneChange}
-              value={this.state.inputOne}
-              maxlength="100"
-              ref={this.inputText}
-              placeholder="Top Text:"
-            />
-            <label htmlFor="inputBottom" className="visuallyhidden">
-              Bottom text:
-            </label>
-            <input
-              className="modal-input"
-              type="text"
-              id="inputBottom"
-              onChange={this.handleInputTwoChange}
-              value={this.state.inputTwo}
-              maxlength="100"
-              placeholder="Bottom Text:"
-            />
-            <label htmlFor="inputTag">Tags:</label>
-            <input
-              type="text"
-              className="modal-input"
-              placeholder="Tags here"
-              onChange={this.handleInputTag}
-              value={this.state.tags}
-            />
+          <form action="#" onSubmit={this.handleSubmit} className="modal-form clearfix">     
+            <div className="modal-input-container">
+              <input
+                className="modal-input"
+                type="text"
+                id="inputTop"
+                onChange={this.handleInputOneChange}
+                value={this.state.inputOne}
+                maxlength="90"
+                ref={this.inputText}
+                placeholder="Top Text:"
+              />
+              <label htmlFor="inputTop" className="modal-label">Top text:</label>
+            </div>
+              
+            <div className="modal-input-container">
+              <input
+                className="modal-input"
+                type="text"
+                id="inputBottom"
+                onChange={this.handleInputTwoChange}
+                value={this.state.inputTwo}
+                maxlength="90"
+                placeholder="Bottom Text:"
+              />
+              <label htmlFor="inputBottom" className="modal-label">Bottom text:</label>
+            </div>
+
+            <div className="modal-input-container">
+              <input
+                type="text"
+                className="modal-input"
+                placeholder="Tags here"
+                onChange={this.handleInputTag}
+                value={this.state.tags}
+              />
+              <label htmlFor="inputTag" className="modal-label">Tags:</label>
+            </div>
+            
             <div className="modal-button-container">
               <p>{this.state.error ? this.state.error : ""}</p>
-              <button
+
+              <SuperNiceButton
+                text="Save"
                 type="submit"
-                className="modal-button modal-save-button"
-              >
-                Save
-              </button>
-              <button
+                fontColor="black"
+              />
+
+              <SuperNiceButton
+                text="Back"
                 type="button"
-                className="modal-button modal-back-button"
-                onClick={this.props.handleToggleModal}
-              >
-                Back
-              </button>
+                fontColor="black"
+                click={this.props.handleToggleModal}
+              />
             </div>
           </form>
         </div>

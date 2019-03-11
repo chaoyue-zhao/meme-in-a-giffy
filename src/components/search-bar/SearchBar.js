@@ -32,7 +32,7 @@ class SearchBar extends Component {
   render() {
     return (
       <React.Fragment>
-        <form onSubmit={this.formSubmit}>
+        <form onSubmit={this.formSubmit} className="search-bar">
           <div className="form-description">
             <p className="paragraph paragraph-title">
               Search for gifs, click to create memes, and save it to your list!

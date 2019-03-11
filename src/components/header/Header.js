@@ -11,20 +11,28 @@ class Header extends Component {
             <ul className="clearfix">
               <li>
                 <NavLink to="/" exact>
-                  <SuperNiceButton text="Search" />
+                  <SuperNiceButton
+                    text="Search"
+                  />
                 </NavLink>
               </li>
               {this.props.isAuth && (
                 <li>
                   <NavLink to="/saved">
-                  <SuperNiceButton text="Saved" />
+                    <SuperNiceButton text="Saved" />
                   </NavLink>
                 </li>
               )}
               {this.props.isAuth ? (
-                <SuperNiceButton onClick={this.props.handleLogOutClick} text="Log Out"/>
+                <SuperNiceButton
+                  click={this.props.handleLogOutClick}
+                  text="Log Out"
+                />
               ) : (
-                <SuperNiceButton onClick={this.props.handleLogInClick} text="Log In"/>
+                <SuperNiceButton
+                  click={this.props.handleLogInClick}
+                  text="Log In"
+                />
               )}
             </ul>
           </nav>

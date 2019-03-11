@@ -13,6 +13,11 @@ class SuperNiceButton extends Component {
   }
 
   handleButtonClick = () => {
+    this.props.click && this.props.click();
+    this.clickAnimation();
+  } 
+
+  clickAnimation = () => {
     const button = this.buttonRef.current
     const filter = this.filterRef.current;
     const bg = this.bgRef.current;
@@ -94,9 +99,7 @@ class SuperNiceButton extends Component {
           className="svg-filters"
         >
           <defs>
-            <filter 
-            id="filter" 
-            >
+            <filter id="filter">
               >
               <feGaussianBlur
                 in="SourceGraphic"
@@ -114,17 +117,29 @@ class SuperNiceButton extends Component {
             </filter>
           </defs>
         </svg>
-        <button
-          className="button button--2"
-          style={style}
-          onClick={this.handleButtonClick}
-          ref={this.buttonRef}
-        >
-          {this.props.text}
-          <span 
-          className="button__bg"
-          ref={this.bgRef} />
-        </button>
+        {this.props.fontColor === "black" ? (
+          <button
+            className="button button-black"
+            style={style}
+            onClick={this.handleButtonClick}
+            ref={this.buttonRef}
+            type={this.props.type}
+          >
+            {this.props.text}
+            <span className="button__bg" ref={this.bgRef} />
+          </button>
+        ) : (
+          <button
+            className="button"
+            style={style}
+            onClick={this.handleButtonClick}
+            ref={this.buttonRef}
+            type={this.props.type}
+          >
+            {this.props.text}
+            <span className="button__bg" ref={this.bgRef} />
+          </button>
+        )}
       </React.Fragment>
     );
   }
