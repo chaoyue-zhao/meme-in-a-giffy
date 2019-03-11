@@ -332,6 +332,18 @@ body {
   transition: background-color 0.3s ease-out;
 }
 
+.button-black {
+  color: #232323;
+}
+
+.button-black:hover {
+  color: #fafafa;
+}
+
+.button-black:first-of-type {
+  margin-left: 0;
+}
+
 .button:hover {
   background-color: #589b69;
 }
@@ -396,16 +408,18 @@ body {
   z-index: 20;
   position: fixed;
   top: 5%;
-  right: 5%;
+  right: 20%;
   bottom: 5%;
-  left: 5%;
-  background: #fafafa;
+  left: 20%;
+  background: rgba(250, 250, 250, 0.9);
+  -webkit-box-shadow: 0px 0px 40px 10px rgba(250, 250, 250, 0.1);
+          box-shadow: 0px 0px 40px 10px rgba(250, 250, 250, 0.1);
 }
 
 .modal-image-container {
-  width: 70%;
-  height: 60vh;
-  margin: 1rem auto;
+  width: 100%;
+  height: 50vh;
+  margin: 0 auto;
   padding: 8vh 0;
   position: relative;
   background: #232323;
@@ -414,7 +428,7 @@ body {
 
 .modal-image {
   display: block;
-  height: 300px;
+  height: 34vh;
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
@@ -453,20 +467,80 @@ body {
   left: 0;
 }
 
+.modal-input-container {
+  margin: 1rem 2rem;
+  text-align: left;
+}
+
+.modal-input-container:first-child {
+  width: calc(50% - (2rem * 2));
+  float: left;
+}
+
+.modal-input-container:nth-child(2) {
+  width: calc(50% - (2rem * 2));
+  float: right;
+}
+
+.modal-input-container:nth-child(3) {
+  width: calc(100% - (2rem * 2));
+  margin: 0 2rem;
+  clear: both;
+}
+
 .modal-input {
-  width: 40%;
-  margin-left: 5%;
+  padding: 10px 1rem;
+  background: transparent;
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid #589b69;
+  border-radius: 2px;
+  background: url("./assets/fatPencil.svg") no-repeat;
+  background-size: 1rem;
+  background-position: 100% 80%;
 }
 
-.modal-input:last-of-type {
-  width: 75%;
-  margin: 10px 0;
+.modal-input:focus {
+  background: transparent;
+  border-bottom: 3px solid #dad706;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  outline: none;
 }
 
-.modal-button {
-  width: 100px;
-  margin-right: 1rem;
-  margin-top: 0;
+.modal-input::-webkit-input-placeholder {
+  color: #232323;
+  font-family: "Lato", sans-serif;
+}
+
+.modal-input:-ms-input-placeholder {
+  color: #232323;
+  font-family: "Lato", sans-serif;
+}
+
+.modal-input::-ms-input-placeholder {
+  color: #232323;
+  font-family: "Lato", sans-serif;
+}
+
+.modal-input::placeholder {
+  color: #232323;
+  font-family: "Lato", sans-serif;
+}
+
+.modal-label {
+  color: #232323;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.modal-input:placeholder-shown + .modal-label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+          transform: translateY(-4rem);
 }
 
 .font-big {
@@ -477,35 +551,35 @@ body {
   font-size: 1.2rem;
 }
 
-form {
+form.search-bar {
   margin-bottom: 4rem;
 }
 
-form input {
+form.search-bar input {
   height: 40px;
   width: calc(100% - 100px - 40px - 20%);
 }
 
-form input:hover,
-form input:focus,
-form button:hover,
-form button:focus {
+form.search-bar input:hover,
+form.search-bar input:focus,
+form.search-bar button:hover,
+form.search-bar button:focus {
   background: #dad706;
 }
 
-form .select-menu:hover,
-form .select-menu:focus {
+form.search-bar .select-menu:hover,
+form.search-bar .select-menu:focus {
   background: url("assets/downArrow.svg") 96%/30px no-repeat #dad706;
 }
 
-form select {
+form.search-bar select {
   width: 20%;
   -webkit-appearance: none;
   border-radius: 0px;
   height: 40px;
 }
 
-form .select-menu {
+form.search-bar .select-menu {
   -webkit-appearance: none;
   border-radius: none;
   -moz-appearance: none;
@@ -515,7 +589,7 @@ form .select-menu {
   background: url("assets/downArrow.svg") 96%/30px no-repeat #eee;
 }
 
-form button {
+form.search-bar button {
   -webkit-appearance: none;
   border-radius: 0px;
   padding: 0;
@@ -524,11 +598,11 @@ form button {
   border: none;
 }
 
-form .search-bar-icon {
+form.search-bar .search-bar-icon {
   width: 18px;
 }
 
-form p {
+form.search-bar p {
   text-align: center;
 }
 
