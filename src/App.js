@@ -52,6 +52,7 @@ class App extends Component {
               isAuth={this.state.auth}
               handleLogInClick={this.handleLogInClick}
               handleLogOutClick={this.handleLogOutClick}
+              history={history}
             />
             <Switch>
               <Route path="/" render={(props) => <SearchPage authId={this.state.auth} {...props} />} exact={true} />
