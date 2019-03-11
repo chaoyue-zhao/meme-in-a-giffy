@@ -1,10 +1,10 @@
 $black: #232323;
 $green: #589b69;
 $red: #9b5d58;
+$white: #fffff;
 
 .like-dislike-container,
-.meme-delete-button,
-.twitter-share-icon {
+.meme-delete-button {
     float: left;
     padding: 5px;
 }
@@ -35,11 +35,12 @@ $red: #9b5d58;
 
     span {
         font-size: 45px;
+        padding: 0 10px;
     }
 
     .up-arrow,
     .down-arrow,
-    .meme-delete-button,
+    .delete-button,
     .share-meme {
         &:hover {
             cursor: pointer;
@@ -47,52 +48,60 @@ $red: #9b5d58;
     }
 
     .meme-delete-button {
+        display: inline-block;
         text-align: center;
         margin: 0 auto;
-        width: 100%;
-        
+        width: 65%;
     }
-
 }
 
-// .button {
-//     -webkit-font-smoothing: antialiased;
-//     color: $white;
-//     background-color: transparent;
-//     font-family: $body-font;
-//     text-decoration: none;
-//     text-transform: uppercase;
-//     user-select: none;
-//     padding: 10px 1rem;
-//     margin-left: 3rem;
-//     outline: 90px solid transparent;
-//     border: 1px solid $green;
-//     display: inline-block;
-//     position: relative;
-//     z-index: 0;
-//     transition: background-color 0.3s ease-out;
+.like-dislike-container {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.share-meme {
+    padding-top: 5px;
+    display: inline-block;
+    float: left;
+    width: 3%;
+    border: none;
+    background:transparent;
+}
+
+.delete-button {
+    -webkit-font-smoothing: antialiased;
+    background-color: $white;
+    text-decoration: none;
+    text-transform: uppercase;
+    user-select: none;
+    padding: 8px 1rem;
+    border: 1px solid $green;
+    border-radius: 20px;
+    display: inline-block;
+    position: relative;
+    transition: background-color 0.3s ease-out;
+ 
+    &:hover {
+      background-color: $green;
+    }
   
-//     &-black {
-//       color: $black;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .tweet-and-delete {
+      text-align: center;
+      margin: 0 auto;
+
+      .twitter-share-button img.twitter-share-image {
+        display: block; 
+        height: 80px;
+        width: 80px;
+        border: 2px solid tomato;
+    }
+  }
+
   
-//       &:hover {
-//         color: $white;
-//       }
-  
-//       &:first-of-type {
-//         margin-left: 0;
-//       }
-//     }
-  
-//     &:hover {
-//       background-color: $green;
-      
-//       &:before, span {
-//         background-color: $green;
-//       }
-//     }
-  
-//     &:focus {
-//       outline: none;
-//     }
-//   }

@@ -693,8 +693,7 @@ label[for="userInput"] p {
 }
 
 .like-dislike-container,
-.meme-delete-button,
-.twitter-share-icon {
+.meme-delete-button {
   float: left;
   padding: 5px;
 }
@@ -725,19 +724,74 @@ label[for="userInput"] p {
 
 .meme-list-item-bar span {
   font-size: 45px;
+  padding: 0 10px;
 }
 
 .meme-list-item-bar .up-arrow:hover,
 .meme-list-item-bar .down-arrow:hover,
-.meme-list-item-bar .meme-delete-button:hover,
+.meme-list-item-bar .delete-button:hover,
 .meme-list-item-bar .share-meme:hover {
   cursor: pointer;
 }
 
 .meme-list-item-bar .meme-delete-button {
+  display: inline-block;
   text-align: center;
   margin: 0 auto;
+  width: 65%;
+}
+
+.like-dislike-container {
   width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.share-meme {
+  padding-top: 5px;
+  display: inline-block;
+  float: left;
+  width: 3%;
+  border: none;
+  background: transparent;
+}
+
+.delete-button {
+  -webkit-font-smoothing: antialiased;
+  background-color: #fffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 8px 1rem;
+  border: 1px solid #589b69;
+  border-radius: 20px;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
+}
+
+.delete-button:hover {
+  background-color: #589b69;
+}
+
+.delete-button:focus {
+  outline: none;
+}
+
+.tweet-and-delete {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.tweet-and-delete .twitter-share-button img.twitter-share-image {
+  display: block;
+  height: 80px;
+  width: 80px;
+  border: 2px solid tomato;
 }
 
 form.search-bar {

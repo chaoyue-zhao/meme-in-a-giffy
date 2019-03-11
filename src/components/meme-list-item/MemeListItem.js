@@ -85,17 +85,19 @@ class MemeListItem extends Component {
         </div>
         <div className='meme-list-item-bar clearfix'>
             <div className='like-dislike-container'>
-                <button type='button' className='up-arrow' onClick={this.handleLikes}><img src={upArrow} /></button>
+                <button type='button' className='up-arrow' onClick={this.handleLikes}><img src={upArrow} alt="upvote" /></button>
                 <span>{this.props.item.likes}</span>
-                <button type='button' className='down-arrow' onClick={this.handleDislikes}><img src={downArrow}/></button>
+                <button type='button' className='down-arrow' onClick={this.handleDislikes}><img src={downArrow} alt="downvote"/></button>
                 <span>{this.props.item.dislikes}</span>
             </div>
-            <div>
-              <Twitter memeId={this.props.item.id}/> 
-            </div>
+            <div className='tweet-and-delete'>
+              <div>
+                <Twitter memeId={this.props.item.id} className="clearfix"/> 
+              </div>
             <div className='meme-delete-button'>  
               {this.renderButtons()}
               {this.state.error && <p>{this.state.error}</p>}
+            </div>
             </div>
         </div>
       </li>
