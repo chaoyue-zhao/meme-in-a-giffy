@@ -24,7 +24,7 @@ class GifModal extends Component {
   }
 
   // these one liner setState are very sweet. they help us get the value from da inputs.
-  handleInputOneChange = e => {
+  handleInputOneChange =async e => {
 
     if (e.target.value.length >= 22) {
       this.setState({ inputOneFontSize: "font-small" });
@@ -38,10 +38,11 @@ class GifModal extends Component {
       this.setState({ valid: "modal-input-not-valid" });
     }
 
-    this.setState({ inputOne: e.target.value });
+    await this.setState({ inputOne: e.target.value });
+    await this.validateInput();
   };
 
-  handleInputTwoChange = e => {
+  handleInputTwoChange = async e => {
     if (e.target.value.length >= 22) {
       this.setState({ inputTwoFontSize: "font-small" });
     } else {
@@ -54,7 +55,8 @@ class GifModal extends Component {
       this.setState({ valid: "modal-input-not-valid" });
     }
 
-    this.setState({ inputTwo: e.target.value });
+    await this.setState({ inputTwo: e.target.value });
+    await this.validateInput();
   };
 
   handleInputTag = e => {
@@ -146,7 +148,6 @@ class GifModal extends Component {
                 maxlength="90"
                 ref={this.inputText}
                 placeholder="Enter top meme text:"
-                onInput={this.validateInput}
               />
               <label htmlFor="inputTop" className="modal-label">
                 Enter top meme text:
@@ -166,7 +167,6 @@ class GifModal extends Component {
                 value={this.state.inputTwo}
                 maxlength="90"
                 placeholder="Enter bottom meme text"
-                onInput={this.validateInput}
               />
               <label htmlFor="inputBottom" className="modal-label">
                 Enter bottom meme text
