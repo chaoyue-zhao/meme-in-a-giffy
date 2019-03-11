@@ -1,11 +1,17 @@
 import React, { Component } from "react";
-import poweredByGiphy from "./../../assets/poweredByGiphy.gif";
+import giphy from "./../../assets/giphy.gif";
 
 class Footer extends Component {
   render() {
     return (
       <footer>
-        <img src={poweredByGiphy} alt="Powered by Giphy" />
+        <p>
+          Made by <a href="#">Chao</a>&nbsp;
+          <a href="#">Jonathan</a> &nbsp;
+          <a href="#">Jeannette</a> &nbsp;
+          <a href="#">Moe</a>
+        </p>
+        <img src={giphy} alt="Powered by Giphy" />
       </footer>
     );
   }
