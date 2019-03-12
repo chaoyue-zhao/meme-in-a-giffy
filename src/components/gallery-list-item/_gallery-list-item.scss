@@ -13,9 +13,12 @@ ul.gallery-container {
     }
 
     &.meme-list-item{
-      height: 200px;
       margin: 20px;
       width: calc(25% - 40px);
+
+      img {
+        width: 80%;
+      }
     }
 
     .overlay {
