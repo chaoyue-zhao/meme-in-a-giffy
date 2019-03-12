@@ -129,6 +129,7 @@ h2.heading {
     }
   } //Styles for the mobile nav appearance
   .header-nav {
+    
     &-button {
       display: block;
       height: 3rem;
@@ -139,6 +140,7 @@ h2.heading {
       top: 2%;
       right: 2%;
       border-radius: 50%;
+      cursor: pointer;
       z-index: 1001;
     }
     &-icon {

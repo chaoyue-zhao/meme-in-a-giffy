@@ -34,10 +34,12 @@ class SearchBar extends Component {
       this.setState({ placeholder: "Search GIFs and Memes" });
     }
   };
+
   componentDidMount() {
     this.updateDimensions();
     window.addEventListener("resize", this.updateDimensions.bind(this));
-    var granimInstance = new Granim({
+    // eslint-disable-next-line 
+    const granimInstance = new Granim({
       element: "#canvas-complex",
       direction: "diagonal",
       isPausedWhenNotInView: true,

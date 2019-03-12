@@ -392,6 +392,7 @@ body {
   display: inline-block;
   position: relative;
   z-index: 0;
+  cursor: pointer;
   -webkit-transition: background-color 0.3s ease-out;
   transition: background-color 0.3s ease-out;
 }
@@ -418,7 +419,7 @@ body {
   background-color: #589b69;
 }
 
-.button:focus {
+.button:focus, .button:before:focus {
   outline: none;
 }
 
@@ -600,6 +601,7 @@ ul.gallery-container {
 ul.gallery-container li {
   float: left;
   position: relative;
+  cursor: pointer;
 }
 
 ul.gallery-container li.gallery-item {
@@ -1239,6 +1241,7 @@ h2.heading {
     top: 2%;
     right: 2%;
     border-radius: 50%;
+    cursor: pointer;
     z-index: 1001;
   }
   .header-nav-icon {
@@ -1400,7 +1403,6 @@ form.search-bar input {
 }
 
 form.search-bar .modal {
-  z-index: 10;
   position: fixed;
   top: 0;
   right: 0;
@@ -1410,10 +1412,8 @@ form.search-bar .modal {
 }
 
 form.search-bar .modal-input-container {
-  margin: 1rem 2rem;
   text-align: left;
   width: 100%;
-  margin: 1rem 0;
   float: left;
   position: relative;
 }
@@ -1423,18 +1423,20 @@ form.search-bar .modal-input {
   background: #ffffff;
   float: left;
   border: none;
+  outline: none;
+  border: 1px solid #232323;
   border-bottom: 3px solid #589b69;
   border-radius: 2px;
   background-size: 1rem;
   background-position: 100% 80%;
+  margin: 0;
 }
 
 form.search-bar .modal-input:focus {
   background: #ffffff;
-  border-bottom: 3px solid #dad706;
+  border-bottom: 3px solid #589b69;
   -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
           box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-  outline: none;
 }
 
 form.search-bar .modal-input::-webkit-input-placeholder {
@@ -1477,9 +1479,17 @@ form.search-bar .modal-input:placeholder-shown + form.search-bar .modal-label {
 form.search-bar select {
   width: 100px;
   -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  border: 1px solid #232323;
   border-radius: 0px;
   height: 50px;
   font-family: "Lato", sans-serif;
+}
+
+form.search-bar select:focus {
+  border-bottom: 3px solid #589b69;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 form.search-bar .select-menu {
@@ -1489,6 +1499,7 @@ form.search-bar .select-menu {
   -webkit-border-radius: 0px;
   appearance: none;
   height: 50px;
+  padding: 10px;
   background: url("assets/blackDownArrow.svg") 96%/30px no-repeat #ffffff;
 }
 
@@ -1498,7 +1509,13 @@ form.search-bar button {
   padding: 0;
   width: 100%;
   height: 50px;
-  border: none;
+  border: 1px solid #232323;
+}
+
+form.search-bar button:focus {
+  border-bottom: 3px solid #589b69;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 form.search-bar .search-bar-icon {

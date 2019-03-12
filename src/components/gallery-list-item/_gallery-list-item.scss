@@ -4,6 +4,8 @@ ul.gallery-container {
   li {
     float: left;
     position: relative;
+    cursor: pointer; 
+    
     &.gallery-item {
       height: 300px;
       width: calc(20% - 4px);
