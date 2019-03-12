@@ -919,7 +919,6 @@ nav.header-nav ul.clearfix {
   margin: 0;
   float: right;
   margin: 1rem 0;
- opacity 0.3s 1s;
   -webkit-transition: opacity .3s .5s;
   transition: opacity .3s .5s;
 }
