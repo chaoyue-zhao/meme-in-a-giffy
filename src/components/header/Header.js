@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import SuperNiceButton from '../button/Button';
+import SuperNiceButton from "../button/Button";
 
 class Header extends Component {
   render() {
@@ -8,18 +8,19 @@ class Header extends Component {
     return (
       <header className="header">
         <div className="wrapper">
-
-          <input type="checkbox" className="header-nav-checkbox" id="checkbox"/>
+          <input
+            type="checkbox"
+            className="header-nav-checkbox"
+            id="checkbox"
+          />
           <label htmlFor="checkbox" className="header-nav-button">
-            <span className="header-nav-icon"></span>
+            <span className="header-nav-icon" />
           </label>
           <nav className="header-nav clearfix">
             <ul className="clearfix">
               <li>
-                <NavLink to="/" exact >
-                  <SuperNiceButton
-                    text="Search"
-                  />
+                <NavLink to="/" exact>
+                  <SuperNiceButton text="Search" />
                 </NavLink>
               </li>
               {this.props.isAuth && (
@@ -31,17 +32,17 @@ class Header extends Component {
               )}
               {this.props.isAuth ? (
                 <li>
-                <SuperNiceButton
-                  click={this.props.handleLogOutClick}
-                  text="Log Out"
-                />
+                  <SuperNiceButton
+                    click={this.props.handleLogOutClick}
+                    text="Log Out"
+                  />
                 </li>
               ) : (
                 <li>
-                <SuperNiceButton
-                  click={this.props.handleLogInClick}
-                  text="Log In"
-                />
+                  <SuperNiceButton
+                    click={this.props.handleLogInClick}
+                    text="Log In"
+                  />
                 </li>
               )}
             </ul>
@@ -50,8 +51,8 @@ class Header extends Component {
             Meme in a Giffy
           </h1>
           <h2 className="heading heading-secondary">
-           {this.props.history.location.pathname !=='/saved' &&
-             'Best place to create Memes and share them with your friends!' } 
+            {this.props.history.location.pathname !== "/saved" &&
+              "Best place to create Memes and share them with your friends!"}
           </h2>
         </div>
       </header>
