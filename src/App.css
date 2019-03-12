@@ -438,10 +438,9 @@ body {
 }
 
 .confirm-save {
+  position: absolute;
   top: 50%;
   left: 50%;
-  right: auto;
-  bottom: auto;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   border-radius: 20px;
@@ -461,6 +460,7 @@ body {
 .confirm-save-text {
   margin: .5rem 0;
   padding-bottom: 1rem;
+  font-family: "Fjalla One", sans-serif;
   font-size: 1.2rem;
   color: #232323;
 }
@@ -641,9 +641,8 @@ ul.gallery-container li img {
 
 .modal-image-container {
   width: 100%;
-  height: 50vh;
+  height: 55vh;
   margin: 0 auto;
-  padding: 8vh 0;
   position: relative;
   background: #232323;
   border: 5px solid #232323;
@@ -666,24 +665,8 @@ ul.gallery-container li img {
   text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
   word-wrap: break-word;
   margin: 0;
-}
-
-.modal-text-top, .modal-text-bottom {
-  z-index: 30;
-  margin: 0;
-  padding: 0 10px;
-}
-
-.modal-text-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.modal-text-bottom {
-  position: absolute;
-  top: 85%;
-  left: 0;
+  padding: 3vh 0;
+  text-align: center;
 }
 
 .modal-input-container {
@@ -709,7 +692,7 @@ ul.gallery-container li img {
 }
 
 .modal-input {
-  padding: 10px 1rem;
+  padding: 10px 2rem 10px 1rem;
   background: transparent;
   width: 100%;
   border: none;
