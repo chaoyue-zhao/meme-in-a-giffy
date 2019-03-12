@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import searchIcon from "./../../assets/searchIcon.svg";
-// import blackDownArrow from "./../../assets/blackDownArrow.svg";
+import Granim from "granim";
 
 class SearchBar extends Component {
   constructor() {
@@ -37,7 +37,22 @@ class SearchBar extends Component {
   componentDidMount() {
     this.updateDimensions();
     window.addEventListener("resize", this.updateDimensions.bind(this));
+    var granimInstance = new Granim({
+      element: "#canvas-complex",
+      direction: "diagonal",
+      isPausedWhenNotInView: true,
+      states: {
+        "default-state": {
+          gradients: [
+            ["#589b69", "#dad706"],
+            ["#f8fb90", "#ff9966"],
+            ["#e1eec3", "#f05053"]
+          ]
+        }
+      }
+    });
   }
+
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateDimensions.bind(this));
   }
@@ -67,6 +82,7 @@ class SearchBar extends Component {
               value={this.state.query}
               placeholder={this.state.placeholder}
             />
+
             <label htmlFor="userInput" className="modal-label">
               Search all the GIFs and Memes
             </label>
@@ -79,14 +95,20 @@ class SearchBar extends Component {
               <option value="gifs">Gifs</option>
               <option value="memes">Memes</option>
             </select>
-            <button type="submit">
-              <img src={searchIcon} className="search-bar-icon" alt="search" />
-            </button>
+            <div className="button-canvas">
+              <button type="submit">
+                <canvas id="canvas-complex" />
+                <img
+                  src={searchIcon}
+                  className="search-bar-icon"
+                  alt="search"
+                />
+              </button>
+            </div>
           </div>
         </form>
       </React.Fragment>
     );
   }
 }
-
 export default SearchBar;
