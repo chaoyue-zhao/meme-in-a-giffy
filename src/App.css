@@ -589,7 +589,6 @@ h2 {
   font-size: 3rem;
 }
 
-
 .loading-container {
   text-align: center;
 }
@@ -624,10 +623,10 @@ h2 {
 
 .loading-container .loading-text {
   color: white;
+}
 
-h2.heading-tertiary {
+.loading-container h2.heading-tertiary {
   text-shadow: 5px 5px #589b69;
-
 }
 
 ul.gallery-container {
@@ -1176,6 +1175,24 @@ label[for="userInput"] p {
   padding-bottom: 1rem;
 }
 
+@media (max-width: 1080px) {
+  .heading-primary {
+    font-size: 6rem;
+  }
+  .heading-secondary {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .heading-primary {
+    font-size: 4rem;
+  }
+  .heading-secondary {
+    font-size: 1rem;
+  }
+}
+
 .header-nav-checkbox {
   visibility: hidden;
 }
@@ -1362,6 +1379,13 @@ h2.heading {
   margin: 0 auto;
 }
 
+.meme-delete-button {
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+  width: 65%;
+}
+
 .like-dislike-container {
   width: 100%;
   float: left;
@@ -1518,7 +1542,6 @@ form.search-bar .modal-input-container {
 form.search-bar .modal-input {
   padding: 10px 1rem;
   background: #ffffff;
-  width: calc(100% - 40px - 120px);
   float: left;
   border: none;
   outline: none;
@@ -1626,7 +1649,7 @@ form.search-bar .search-bar-icon {
 }
 
 form.search-bar p {
-  text-align: center;
+  text-align: left;
 }
 
 .form-description {
