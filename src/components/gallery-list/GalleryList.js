@@ -84,7 +84,7 @@ class GalleryList extends Component {
 
   render() {
     //conditional rendering only if this.props.displayedItems(the array contains our data from api is NOT empty/falsy)
-    // if (!this.props.displayedItems) return <div />;
+    if (!this.props.displayedItems) return <div />;
     return (
       //conditional rendering again! we are choosing to display the title based on user's selection - linking to the dropdown
       <div>

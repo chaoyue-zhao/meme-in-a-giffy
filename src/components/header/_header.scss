@@ -52,6 +52,25 @@ label[for="userInput"] {
   }
 }
 
+
+@media (max-width: 1080px) {
+  .heading-primary {
+    font-size: 6rem;
+  }
+  .heading-secondary {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .heading-primary {
+    font-size: 4rem;
+  }
+  .heading-secondary {
+    font-size: 1rem;
+  }
+}
+
 //Checkbox Nav styles
 .header-nav {
   &-checkbox {

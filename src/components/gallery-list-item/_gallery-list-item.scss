@@ -11,16 +11,7 @@ ul.gallery-container {
       width: calc(20% - 4px);
       margin: 2px;
     }
-
-    &.meme-list-item {
-      height: 200px;
-      margin: 20px;
-      width: calc(25% - 40px);
     
-      img {
-        width: 80%;
-      }
-    }
     .overlay {
       background: linear-gradient( to bottom, rgba(255, 255, 255, 0.3) 50%, $light-yellow 100%);
       position: absolute;
