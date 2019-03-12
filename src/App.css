@@ -646,6 +646,7 @@ ul.gallery-container li img {
   position: relative;
   background: #232323;
   border: 5px solid #232323;
+  padding: 9vh 0;
 }
 
 .modal-image {
@@ -665,8 +666,22 @@ ul.gallery-container li img {
   text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
   word-wrap: break-word;
   margin: 0;
-  padding: 3vh 0;
   text-align: center;
+}
+
+.modal-text-top, .modal-text-bottom {
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.modal-text-top {
+  top: 0;
+  padding-right: 2rem;
+}
+
+.modal-text-bottom {
+  top: 85%;
 }
 
 .modal-input-container {

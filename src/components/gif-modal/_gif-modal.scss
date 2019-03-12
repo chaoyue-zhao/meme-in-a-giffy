@@ -21,6 +21,7 @@
     position: relative;
     background: $black;
     border: 5px solid $black;
+    padding: 9vh 0;
   }
 
   &-image {
@@ -41,8 +42,23 @@
       0px 2px 0 $dark-black, -2px 0px 0 $dark-black, 0px -2px 0 $dark-black;
     word-wrap: break-word;
     margin: 0;
-    padding: 3vh 0;
     text-align: center;
+  }
+
+  &-text-top, 
+  &-text-bottom {
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+
+  &-text-top{
+    top: 0;
+    padding-right: 2rem;
+  }
+
+  &-text-bottom {
+    top: 85%;
   }
 
   &-input-container {
