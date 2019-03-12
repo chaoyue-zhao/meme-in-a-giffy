@@ -25,7 +25,8 @@
   &-black {
     color: $black;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: $white;
     }
 
@@ -34,10 +35,12 @@
     }
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $green;
-    
-    &:before, span {
+
+    &:before,
+    span {
       background-color: $green;
     }
   }
@@ -59,7 +62,8 @@
   transition: background-color 0.3s ease-out;
 }
 
-.left, .right {
+.left,
+.right {
   position: absolute;
   width: 25px;
   height: 25px;
@@ -79,20 +83,50 @@
   }
 }
 
-@media (max-width:720px) {
+@media (max-width: 720px) {
   .button {
-    margin:.5rem 0;
-    width:65%;
-    margin-bottom:2rem;
-   border:none;
+    margin: 0.5rem 0;
+    width: 65%;
+    margin-bottom: 2rem;
+    border: none;
+
+    &-black {
+      margin: 0 5%;
+      width: 40%;
+      float: left;
+      padding: 10px 0;
+      border: 2px solid $green;
+
+      &:first-of-type {
+        margin: 0 5%;
+      }
+    }
   }
 }
 
-@media(max-width: 420px) {
+@media (max-width: 500px) {
   .button {
-    margin:.5rem 0;
-    width:85%;
-    margin-bottom:2rem;
+
+    &-black {
+      width: 80%;    
+      clear: both;
+      
+      &:first-of-type {
+        margin: 0 10%;  
+        margin-bottom: $tiny-gap;
+      }
+
+      &:nth-of-type(2){
+        margin: 0 10%;
+      }
+    }
   }
-  
+}
+
+@media (max-width: 420px) {
+  .button {
+    margin: 0.5rem 0;
+    width: 85%;
+    margin-bottom: 2rem;
+  }
 }
