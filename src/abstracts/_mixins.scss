@@ -1,4 +1,4 @@
- @mixin media($screen-size) {
+@mixin media($screen-size) {
   @media (max-width: $screen-size) {
     @content;
   }
