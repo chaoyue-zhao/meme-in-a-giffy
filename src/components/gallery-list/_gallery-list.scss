@@ -17,6 +17,28 @@ h2 {
   font-size: 3rem;
 }
 
+.loading-container {
+  text-align: center;
+
+  .rotate-center {
+    animation: rotate-center 1s linear infinite reverse both;
+    width: 30%;
+    text-align: center;
+  }
+
+  @keyframes rotate-center {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .loading-text {
+    color: white;
+  }
+
 h2.heading-tertiary {
   text-shadow: 5px 5px #589b69;
 }

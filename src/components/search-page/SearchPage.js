@@ -3,6 +3,8 @@ import axios from "axios";
 import SearchBar from "./../search-bar/SearchBar";
 import GalleryList from "./../gallery-list/GalleryList";
 import database from "./../firebase/firebase";
+import LoadingImage from './../../assets/loading-image-green.svg';
+
 
 class SearchPage extends Component {
     constructor() {
@@ -10,6 +12,7 @@ class SearchPage extends Component {
         this.state = {
             displayedItems: [],
             type: "gifs",
+            loading: true
         };
     }
 
@@ -27,8 +30,9 @@ class SearchPage extends Component {
         });
     }
     
-  componentDidMount() {
-    this.getDataFromApi("trending");
+  async componentDidMount() {
+    await this.getDataFromApi("trending");
+    await this.setState({loading : false})
   }
 
   apiCall = (endpoint, query) => {
@@ -48,17 +52,19 @@ class SearchPage extends Component {
   getDataFromApi = async query => {
     try {
       const response = await this.apiCall("search", query);
-      
-      this.setState({
+    
+      await this.setState({
         displayedItems: response.data.data
       });
+      await this.setState({ loading: false})
     } catch (error) {
       alert(error);
     }
   };
 
     handleFormSubmit = async (query, type) => {
-        this.setState({ type });
+        await this.setState({ loading: true});
+        await this.setState({ type });
         if (type === "gifs") {
             await this.getDataFromApi(query);
         } else {
@@ -84,6 +90,7 @@ class SearchPage extends Component {
                             || subjectWords.includes(query.toLowerCase());
                     })    
                 this.setState({ displayedItems: filteredMemes });
+                this.setState({ loading : false})
             });
         }
     };
@@ -94,7 +101,14 @@ class SearchPage extends Component {
     }
 
   render() {
-    if (!this.state.displayedItems) return <div />;
+    if (this.state.loading) {
+      return(
+        <div className="loading-container">
+          <img src={LoadingImage} alt="rotating hamster wheel" className="rotate-center" />
+          <p className="loading-text">Please wait! We're running in circles trying to find you the best gifs.</p>
+        </div>
+      )
+    }
     return (
       <div className="App">
         <div className="wrapper">

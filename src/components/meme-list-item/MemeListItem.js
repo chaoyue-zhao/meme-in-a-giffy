@@ -90,13 +90,13 @@ class MemeListItem extends Component {
                 <span>{this.props.item.dislikes}</span>
             </div>
             <div className='tweet-and-delete'>
-              <div>
+              <div className='twitter-share-button'>
                 <Twitter memeId={this.props.item.id} className="clearfix"/> 
               </div>
-            <div className='meme-delete-button'>  
-              {this.renderButtons()}
-              {this.state.error && <p>{this.state.error}</p>}
-            </div>
+              <div className='meme-delete-button'>  
+                {this.renderButtons()}
+                {this.state.error && <p>{this.state.error}</p>}
+              </div>
             </div>
         </div>
       </li>
