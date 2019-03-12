@@ -300,6 +300,10 @@ body {
   font-size: 1.8rem;
 }
 
+.heading-tertiary {
+  font-size: 3rem;
+}
+
 .paragraph {
   margin: 0;
   padding: 0;
@@ -309,9 +313,36 @@ body {
   font-size: 1.5rem;
 }
 
+@media (max-width: 1080px) {
+  .heading-primary {
+    font-size: 5rem;
+  }
+  .heading-secondary {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .heading-primary {
+    font-size: 5rem;
+  }
+  .heading-secondary {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 650px) {
   .heading-primary {
     font-size: 3.5rem;
+  }
+  .heading-secondary {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .heading-primary {
+    font-size: 3rem;
   }
 }
 
@@ -319,17 +350,20 @@ body {
   .heading-primary {
     font-size: 2.7rem;
   }
-  .heading-secondary {
-    font-size: 1.1rem;
+  .heading-tertiary {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .heading-primary {
+    font-size: 2.2rem;
   }
 }
 
 @media (max-width: 375px) {
   .heading-primary {
     font-size: 2.2rem;
-  }
-  .heading-secondary {
-    font-size: 1rem;
   }
 }
 
@@ -523,6 +557,10 @@ h2 {
   text-align: center;
   font-family: "Fjalla One", sans-serif;
   font-size: 3rem;
+}
+
+h2.heading-tertiary {
+  text-shadow: 5px 5px #589b69;
 }
 
 ul.gallery-container {
@@ -872,8 +910,8 @@ ul.gallery-container li img {
 }
 
 nav.header-nav {
-  -webkit-transition: .2s all;
-  transition: .2s all;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
 }
 
 nav.header-nav ul.clearfix {
@@ -881,6 +919,7 @@ nav.header-nav ul.clearfix {
   margin: 0;
   float: right;
   margin: 1rem 0;
+ opacity 0.3s 1s;
   -webkit-transition: opacity .3s .5s;
   transition: opacity .3s .5s;
 }
@@ -906,24 +945,6 @@ label[for="userInput"] p {
   padding-top: 1rem;
   font-family: "Lato", sans-serif;
   padding-bottom: 1rem;
-}
-
-@media (max-width: 1080px) {
-  .heading-primary {
-    font-size: 6rem;
-  }
-  .heading-secondary {
-    font-size: 1.4rem;
-  }
-}
-
-@media (max-width: 800px) {
-  .heading-primary {
-    font-size: 4rem;
-  }
-  .heading-secondary {
-    font-size: 1rem;
-  }
 }
 
 .header-nav-checkbox {
@@ -961,6 +982,10 @@ label[for="userInput"] p {
   top: 0;
 }
 
+h2.heading {
+  margin-bottom: 10px;
+}
+
 @media (max-width: 1600px) {
   nav.header-nav {
     text-align: center;
@@ -983,8 +1008,8 @@ label[for="userInput"] p {
     position: fixed;
     top: 3%;
     right: 3%;
-    height: .1rem;
-    width: .1rem;
+    height: 0.1rem;
+    width: 0.1rem;
     border-radius: 50%;
     background: rgba(35, 35, 35, 0.95);
     font-size: 2.5rem;
@@ -1051,7 +1076,8 @@ label[for="userInput"] p {
 
 @media (max-width: 500px) {
   .header h1 {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
   }
 }
 
@@ -1127,7 +1153,7 @@ label[for="userInput"] p {
 
 .delete-button {
   -webkit-font-smoothing: antialiased;
-  background-color: #fffff;
+  background-color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
   -webkit-user-select: none;
@@ -1191,8 +1217,8 @@ form.search-bar .modal-input-container {
 
 form.search-bar .modal-input {
   padding: 10px 1rem;
-  background: #fffff;
-  width: calc(100% - 40px - 120px);
+  background: #ffffff;
+  width: calc(100% - 40px - 100px);
   float: left;
   border: none;
   border-bottom: 3px solid #589b69;
@@ -1202,7 +1228,7 @@ form.search-bar .modal-input {
 }
 
 form.search-bar .modal-input:focus {
-  background: #fffff;
+  background: #ffffff;
   border-bottom: 3px solid #dad706;
   -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
           box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
@@ -1230,7 +1256,7 @@ form.search-bar .modal-input::placeholder {
 }
 
 form.search-bar .modal-label {
-  color: #fffff;
+  color: #ffffff;
   font-size: 0.8rem;
   margin-left: 1rem;
   -webkit-transition: all 0.3s;
@@ -1247,7 +1273,7 @@ form.search-bar .modal-input:placeholder-shown + form.search-bar .modal-label {
 }
 
 form.search-bar select {
-  width: 120px;
+  width: 100px;
   -webkit-appearance: none;
   border-radius: 0px;
   height: 50px;
@@ -1261,7 +1287,7 @@ form.search-bar .select-menu {
   -webkit-border-radius: 0px;
   appearance: none;
   height: 50px;
-  background: url("assets/blackDownArrow.svg") 96%/30px no-repeat #eee;
+  background: url("assets/blackDownArrow.svg") 96%/30px no-repeat #ffffff;
 }
 
 form.search-bar button {

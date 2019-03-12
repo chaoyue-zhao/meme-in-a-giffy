@@ -88,7 +88,7 @@ class GalleryList extends Component {
     return (
       //conditional rendering again! we are choosing to display the title based on user's selection - linking to the dropdown
       <div>
-        <h2 className="heading heading-secondary">
+        <h2 className="heading heading-tertiary">
           {this.props.type === "gifs" ? "Gifs List" : "Memes List"}
         </h2>
         {/* ??? what is this for??? {this.props.displayedItems} */}

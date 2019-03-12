@@ -9,7 +9,8 @@ class SearchBar extends Component {
       query: "",
       //setting the default to gifs so when page first load, there is something for the api call if the user did not select anything
       type: "gifs",
-      placeholder: "Search GIFs and Memes"
+      placeholder: "",
+      width: null
     };
   }
 
@@ -26,12 +27,19 @@ class SearchBar extends Component {
   };
 
   updateDimensions = () => {
-    if (window.innerWidth < 600) {
+    this.setState({ width: window.innerWidth });
+    if (this.state.width < 600) {
       this.setState({ placeholder: "Search" });
+    } else {
+      this.setState({ placeholder: "Search GIFs and Memes" });
     }
   };
   componentDidMount() {
     this.updateDimensions();
+    window.addEventListener("resize", this.updateDimensions.bind(this));
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions.bind(this));
   }
 
   formSubmit = e => {

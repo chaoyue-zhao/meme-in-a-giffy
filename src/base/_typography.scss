@@ -10,7 +10,11 @@
     //h2
     font-size: 1.8rem;
   }
+  &-tertiary {
+    font-size: 3rem;
+  }
 }
+
 .paragraph {
   //p
   margin: 0;
@@ -20,10 +24,43 @@
   }
 }
 
+@media (max-width: 1080px) {
+  .heading {
+    &-primary {
+      font-size: 5rem;
+    }
+    &-secondary {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .heading {
+    &-primary {
+      font-size: 5rem;
+    }
+    &-secondary {
+      font-size: 1rem;
+    }
+  }
+}
+
 @media (max-width: 650px) {
   .heading {
     &-primary {
-      font-size:3.5rem;
+      font-size: 3.5rem;
+    }
+    &-secondary {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .heading {
+    &-primary {
+      font-size: 3rem;
     }
   }
 }
@@ -31,23 +68,26 @@
 @media (max-width: 500px) {
   .heading {
     &-primary {
-      font-size:2.7rem;
+      font-size: 2.7rem;
     }
-
-    &-secondary {
-      font-size:1.1rem;
+    &-tertiary {
+      font-size: 2rem;
     }
   }
 }
 
-@media (max-width:375px) {
+@media (max-width: 450px) {
   .heading {
     &-primary {
-      font-size:2.2rem;
+      font-size: 2.2rem;
     }
+  }
+}
 
-    &-secondary {
-      font-size:1rem;
+@media (max-width: 375px) {
+  .heading {
+    &-primary {
+      font-size: 2.2rem;
     }
   }
 }
