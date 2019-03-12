@@ -102,7 +102,6 @@ class GifModal extends Component {
   render() {
     //very NOICE deconstructing here. Good job taking out those key (on the left) off the object (on the right)
     const { images, title } = this.props.item;
-    console.log("item details for Chao", this.props.item);
     return (
       <section
         className="modal-background modal"

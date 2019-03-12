@@ -14,5 +14,9 @@ footer {
     padding-top: $small-gap;
     text-align: center;
     font-family: $body-font;
+
+    .space {
+      margin-right: $tiny-gap;
+    }
   }
 }

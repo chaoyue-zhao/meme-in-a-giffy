@@ -4,7 +4,6 @@ import SuperNiceButton from '../button/Button';
 
 class Header extends Component {
   render() {
-    console.log(this.props);
     return (
       <header className="header">
         <div className="wrapper">
