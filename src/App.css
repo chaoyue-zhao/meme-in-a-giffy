@@ -420,6 +420,23 @@ body {
   right: 0;
 }
 
+@media (max-width: 720px) {
+  .button {
+    margin: .5rem 0;
+    width: 65%;
+    margin-bottom: 2rem;
+    border: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .button {
+    margin: .5rem 0;
+    width: 85%;
+    margin-bottom: 2rem;
+  }
+}
+
 .confirm-save {
   top: 50%;
   left: 50%;
@@ -429,17 +446,43 @@ body {
           transform: translate(-50%, -50%);
   border-radius: 20px;
   border: 5px solid #232323;
+  background: rgba(250, 250, 250, 0.9);
+  -webkit-box-shadow: 0px 0px 40px 10px rgba(250, 250, 250, 0.1);
+          box-shadow: 0px 0px 40px 10px rgba(250, 250, 250, 0.1);
 }
 
 .confirm-save-content {
   font-family: "Lato", sans-serif;
   letter-spacing: 1px;
   text-align: center;
-  padding: 1.5rem 3rem;
+  padding: 2rem 5rem;
 }
 
-.confirm-save-content p {
+.confirm-save-text {
   margin: .5rem 0;
+  padding-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #232323;
+}
+
+.confirm-save-button {
+  background: transparent;
+  border: 3px solid #589b69;
+  outline: none;
+  padding: .5rem 2rem;
+  -webkit-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.confirm-save-button:hover {
+  color: #fafafa;
+  background-color: #589b69;
+}
+
+.confirm-save-button:focus {
+  border: 3px solid #232323;
 }
 
 footer {
@@ -504,23 +547,6 @@ ul.gallery-container li .overlay {
 ul.gallery-container li img {
   width: 100%;
   height: 100%;
-
-@media (max-width: 720px) {
-  .button {
-    margin: .5rem 0;
-    width: 65%;
-    margin-bottom: 2rem;
-    border: none;
-  }
-}
-
-@media (max-width: 420px) {
-  .button {
-    margin: .5rem 0;
-    width: 85%;
-    margin-bottom: 2rem;
-  }
-
 }
 
 .modal {
@@ -760,65 +786,6 @@ ul.gallery-container li img {
   border-bottom: 16px solid #589b69;
 }
 
-form.search-bar {
-  margin-bottom: 4rem;
-}
-
-form.search-bar input {
-  height: 40px;
-  width: calc(100% - 100px - 40px - 20%);
-}
-
-form.search-bar input:hover,
-form.search-bar input:focus,
-form.search-bar button:hover,
-form.search-bar button:focus {
-  background: #dad706;
-}
-
-form.search-bar .select-menu:hover,
-form.search-bar .select-menu:focus {
-  background: url("assets/downArrow.svg") 96%/30px no-repeat #dad706;
-}
-
-form.search-bar select {
-  width: 20%;
-  -webkit-appearance: none;
-  border-radius: 0px;
-  height: 40px;
-}
-
-form.search-bar .select-menu {
-  -webkit-appearance: none;
-  border-radius: none;
-  -moz-appearance: none;
-  -webkit-border-radius: 0px;
-  appearance: none;
-  height: 40px;
-  background: url("assets/downArrow.svg") 96%/30px no-repeat #eee;
-}
-
-form.search-bar button {
-  -webkit-appearance: none;
-  border-radius: 0px;
-  padding: 0;
-  width: 40px;
-  height: 40px;
-  border: none;
-}
-
-form.search-bar .search-bar-icon {
-  width: 18px;
-}
-
-form.search-bar p {
-  text-align: center;
-}
-
-.form-description {
-  margin-bottom: 1rem;
-}
-
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -881,12 +848,6 @@ label[for="userInput"] p {
   padding-bottom: 1rem;
 }
 
-.like-dislike-container,
-.meme-delete-button {
-  float: left;
-  padding: 5px;
-  }
-  
 .header-nav-checkbox {
   visibility: hidden;
 }
@@ -1022,8 +983,10 @@ label[for="userInput"] p {
   }
 }
 
-.App {
-  background: #232323;
+.like-dislike-container,
+.meme-delete-button {
+  float: left;
+  padding: 5px;
 }
 
 .meme-list-item {
@@ -1129,20 +1092,6 @@ form.search-bar {
 form.search-bar input {
   height: 40px;
   width: calc(100% - 100px - 40px - 20%);
- }
-  
-.confirm-save {
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  border-radius: 20px;
-  border: 5px solid #232323;
-  background: rgba(250, 250, 250, 0.9);
-  -webkit-box-shadow: 0px 0px 40px 10px rgba(250, 250, 250, 0.1);
-          box-shadow: 0px 0px 40px 10px rgba(250, 250, 250, 0.1);
 }
 
 form.search-bar input:hover,
@@ -1197,33 +1146,5 @@ form.search-bar p {
 
 .App {
   background: #232323;
-  padding: 2rem 5rem;
-}
-
-.confirm-save-text {
-  margin: .5rem 0;
-  padding-bottom: 1rem;
-  font-size: 1.2rem;
-  color: #232323;
-}
-
-.confirm-save-button {
-  background: transparent;
-  border: 3px solid #589b69;
-  outline: none;
-  padding: .5rem 2rem;
-  -webkit-transition: background-color 0.3s ease-out;
-  transition: background-color 0.3s ease-out;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.confirm-save-button:hover {
-  color: #fafafa;
-  background-color: #589b69;
-}
-
-.confirm-save-button:focus {
-  border: 3px solid #232323;
 }
 /*# sourceMappingURL=app.css.map */
