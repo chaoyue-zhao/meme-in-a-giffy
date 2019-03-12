@@ -262,7 +262,7 @@ body {
 
 .wrapper {
   max-width: 1600px;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -293,7 +293,7 @@ body {
 }
 
 .heading-primary {
-  font-size: 4rem;
+  font-size: 8rem;
 }
 
 .heading-secondary {
@@ -708,15 +708,15 @@ ul.gallery-container li img {
   color: #232323;
   font-size: 0.8rem;
   margin-left: 1rem;
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .modal-input:placeholder-shown + .modal-label {
   opacity: 0;
   visibility: hidden;
-  -webkit-transform: translateY(-4rem);
-          transform: translateY(-4rem);
+  -webkit-transform: translateY(-1rem);
+          transform: translateY(-1rem);
 }
 
 .font-big {
@@ -725,6 +725,39 @@ ul.gallery-container li img {
 
 .font-small {
   font-size: 1.2rem;
+}
+
+.close {
+  height: 2rem;
+  width: 2rem;
+  background: transparent;
+  border: 3px solid #fafafa;
+  border-radius: 50%;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 5;
+}
+
+.close:before, .close:after {
+  content: "";
+  width: 1rem;
+  height: 3px;
+  background-color: #fafafa;
+  position: absolute;
+  top: 0.8rem;
+  right: 0.35rem;
+}
+
+.close:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.close:after {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+
 }
 
 .close {
@@ -786,6 +819,124 @@ ul.gallery-container li img {
   border-bottom: 16px solid #589b69;
 }
 
+
+form.search-bar {
+  margin-bottom: 4rem;
+}
+
+form.search-bar input {
+  height: 50px;
+}
+
+form.search-bar .modal {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+form.search-bar .modal-input-container {
+  margin: 1rem 2rem;
+  text-align: left;
+  width: 100%;
+  margin: 1rem 0;
+  float: left;
+}
+
+form.search-bar .modal-input {
+  padding: 10px 1rem;
+  background: #fafafa;
+  width: calc(100% - 40px - 120px);
+  float: left;
+  border: none;
+  border-bottom: 3px solid #589b69;
+  border-radius: 2px;
+  background-size: 1rem;
+  background-position: 100% 80%;
+}
+
+form.search-bar .modal-input:focus {
+  background: #fafafa;
+  border-bottom: 3px solid #dad706;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+form.search-bar .modal-input::-webkit-input-placeholder {
+  color: #232323;
+  font-family: "Lato", sans-serif;
+}
+
+form.search-bar .modal-input:-ms-input-placeholder {
+  color: #232323;
+  font-family: "Lato", sans-serif;
+}
+
+form.search-bar .modal-input::-ms-input-placeholder {
+  color: #232323;
+  font-family: "Lato", sans-serif;
+}
+
+form.search-bar .modal-input::placeholder {
+  color: #232323;
+  font-family: "Lato", sans-serif;
+}
+
+form.search-bar .modal-label {
+  color: #fafafa;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 50%;
+  float: left;
+}
+
+form.search-bar .modal-input:placeholder-shown + form.search-bar .modal-label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-1rem);
+          transform: translateY(-1rem);
+}
+
+form.search-bar select {
+  width: 120px;
+  -webkit-appearance: none;
+  border-radius: 0px;
+  height: 50px;
+  font-family: "Lato", sans-serif;
+}
+
+form.search-bar .select-menu {
+  -webkit-appearance: none;
+  border-radius: none;
+  -moz-appearance: none;
+  -webkit-border-radius: 0px;
+  appearance: none;
+  height: 50px;
+  background: url("assets/blackDownArrow.svg") 96%/30px no-repeat #eee;
+}
+
+form.search-bar button {
+  -webkit-appearance: none;
+  border-radius: 0px;
+  padding: 0;
+  width: 40px;
+  height: 50px;
+  border: none;
+}
+
+form.search-bar .search-bar-icon {
+  width: 20px;
+
+}
+
+
+
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -806,10 +957,7 @@ ul.gallery-container li img {
   text-align: center;
   clear: both;
   padding-top: 1rem;
-}
-
-.header h2 {
-  padding-bottom: 2rem;
+  text-shadow: 6px 7px #589b69;
 }
 
 nav.header-nav {
@@ -845,11 +993,41 @@ label[for="userInput"] p {
   text-align: center;
   margin: 0;
   padding-top: 1rem;
+  font-family: "Lato", sans-serif;
   padding-bottom: 1rem;
 }
 
+
+@media (max-width: 1080px) {
+  .heading-primary {
+    font-size: 6rem;
+  }
+  .heading-secondary {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .heading-primary {
+    font-size: 4rem;
+  }
+  .heading-secondary {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .heading-primary {
+    font-size: 4rem;
+  }
+}
+
+.App {
+  background: #232323;
+
 .header-nav-checkbox {
   visibility: hidden;
+
 }
 
 .header-nav-checkbox:checked ~ nav.header-nav {
@@ -1065,8 +1243,15 @@ label[for="userInput"] p {
   transition: background-color 0.3s ease-out;
 }
 
+
+ul.gallery-container li.gallery-item {
+  height: 300px;
+  width: calc(20% - 4px);
+  margin: 2px;
+
 .delete-button:hover {
   background-color: #589b69;
+
 }
 
 .delete-button:focus {
@@ -1085,8 +1270,75 @@ label[for="userInput"] p {
   border: 2px solid tomato;
 }
 
+
+@media (max-width: 1500px) {
+  ul.gallery-container li.gallery-item {
+    height: 300px;
+    width: calc(20% - 4px);
+    margin: 2px;
+  }
+}
+
+@media (max-width: 1300px) {
+  ul.gallery-container li.gallery-item {
+    height: 250px;
+    width: calc(25% - 4px);
+    margin: 2px;
+  }
+}
+
+@media (max-width: 1000px) {
+  ul.gallery-container li.gallery-item {
+    height: 220px;
+    margin: 2px;
+  }
+}
+
+@media (max-width: 800px) {
+  ul.gallery-container li.gallery-item {
+    height: 200px;
+    width: calc(33% - 4px);
+    margin: 2px;
+  }
+}
+
+@media (max-width: 600px) {
+  ul.gallery-container li.gallery-item {
+    height: 200px;
+    width: calc(50% - 4px);
+    margin: 2px;
+  }
+}
+
+@media (max-width: 450px) {
+  ul.gallery-container li.gallery-item {
+    height: 200px;
+    width: calc(100% - 4px);
+    margin: 2px;
+  }
+}
+
+footer {
+  text-align: center;
+  background: #000000;
+  color: #fafafa;
+  position: relative;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fafafa;
+}
+
+footer p {
+  margin: 0;
+  padding-top: 1rem;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+
 form.search-bar {
   margin-bottom: 4rem;
+
 }
 
 form.search-bar input {

@@ -124,29 +124,48 @@
           color: $black;
           font-family: $body-font;
         }
-
     }
-
-    &-label {
-        color: $black;
-        font-size: 0.8rem;
-        margin-left: 1rem;
-        transition: all .3s;
+  }
+  &-input {
+    padding: $tiny-gap $small-gap;
+    background: transparent;
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid $green;
+    border-radius: 2px;
+    background: url("./assets/fatPencil.svg") no-repeat;
+    background-size: 1rem;
+    background-position: 100% 80%;
+    &:focus {
+      background: transparent;
+      border-bottom: 3px solid $dark-yellow;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+      outline: none;
     }
-
-    &-input:placeholder-shown + &-label {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-4rem);
+    &::placeholder {
+      color: $black;
+      font-family: $body-font;
     }
+  }
+  &-label {
+    color: $black;
+    font-size: 0.8rem;
+    margin-left: 1rem;
+    transition: all 0.3s;
+  }
+  &-input:placeholder-shown + &-label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-1rem);
+  }
 }
 
 .font-big {
-    font-size: 2.4rem;
+  font-size: 2.4rem;
 }
 
 .font-small {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .close {
@@ -204,7 +223,3 @@
     border-bottom: 16px solid $green;
   }
 }
-
-
-
-

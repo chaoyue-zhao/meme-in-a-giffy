@@ -10,17 +10,13 @@
 .header {
   background: $black;
   padding-top: $small-gap;
-
   h1 {
     margin: 0;
     padding: 0;
     text-align: center;
     clear: both;
     padding-top: $small-gap;
-  }
-
-  h2 {
-    padding-bottom: $medium-gap;
+    text-shadow: 6px 7px $green;
   }
 }
 
@@ -39,7 +35,6 @@ nav.header-nav {
       float: left;
       margin-right: 10px;
     }
-
     &-button {
       float: left;
     }
@@ -48,12 +43,31 @@ nav.header-nav {
 
 label[for="userInput"] {
   min-width: calc(100% - 253px);
-
   p {
     text-align: center;
     margin: 0;
     padding-top: $small-gap;
+    font-family: $body-font;
     padding-bottom: $small-gap;
+  }
+}
+
+
+@media (max-width: 1080px) {
+  .heading-primary {
+    font-size: 6rem;
+  }
+  .heading-secondary {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .heading-primary {
+    font-size: 4rem;
+  }
+  .heading-secondary {
+    font-size: 1rem;
   }
 }
 

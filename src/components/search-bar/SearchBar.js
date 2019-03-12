@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import searchIcon from "./../../assets/searchIcon.svg";
-// import downArrow from "./../../assets/downArrow.svg";
+import { constants } from "crypto";
+// import blackDownArrow from "./../../assets/blackDownArrow.svg";
 
 class SearchBar extends Component {
   constructor() {
@@ -8,7 +9,8 @@ class SearchBar extends Component {
     this.state = {
       query: "",
       //setting the default to gifs so when page first load, there is something for the api call if the user did not select anything
-      type: "gifs"
+      type: "gifs",
+      placeholder: "Search GIFs and Memes"
     };
   }
 
@@ -24,6 +26,18 @@ class SearchBar extends Component {
     });
   };
 
+  updateDimensions = () => {
+    if (window.innerWidth < 600) {
+      this.setState({ placeholder: "Search" });
+      console.log("what ?", window.innerWidth);
+    }
+    console.log("what dimension", window.innerWidth);
+  };
+  componentDidMount() {
+    this.updateDimensions();
+    console.log("updatedimension", window.innerWidth);
+  }
+
   formSubmit = e => {
     e.preventDefault();
     this.props.getHandleFormSubmit(this.state.query, this.state.type);
@@ -34,28 +48,37 @@ class SearchBar extends Component {
       <React.Fragment>
         <form onSubmit={this.formSubmit} className="search-bar">
           <div className="form-description">
-            <p className="paragraph paragraph-title">
+            <p className="heading heading-secondary">
               Search for gifs, click to create memes, and save it to your list!
             </p>
           </div>
-          <label htmlFor="userInput" className="visuallyhidden">
-            Please enter a search term for your:
-          </label>
-          <input
-            type="text"
-            name="query"
-            id="userInput"
-            onChange={this.handleSearchChange}
-            value={this.state.query}
-            placeholder="Search all the GIFs and Memes"
-          />
-          <select className="select-menu" name="type" id="type" onChange={this.handleSelectChange}>
-            <option value="gifs">Gifs</option>
-            <option value="memes">Memes</option>
-          </select>
-          <button type="submit">
-            <img src={searchIcon} className="search-bar-icon" alt="search"/>
-          </button>
+          <div className="modal-input-container clearfix">
+            <input
+              type="text"
+              name="query"
+              className="modal-input"
+              autocomplete="off"
+              id="userInput"
+              onChange={this.handleSearchChange}
+              value={this.state.query}
+              placeholder={this.state.placeholder}
+            />
+            <label htmlFor="userInput" className="modal-label">
+              Search all the GIFs and Memes
+            </label>
+            <select
+              className="select-menu"
+              name="type"
+              id="type"
+              onChange={this.handleSelectChange}
+            >
+              <option value="gifs">Gifs</option>
+              <option value="memes">Memes</option>
+            </select>
+            <button type="submit">
+              <img src={searchIcon} className="search-bar-icon" alt="search" />
+            </button>
+          </div>
         </form>
       </React.Fragment>
     );
