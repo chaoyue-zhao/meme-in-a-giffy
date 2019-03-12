@@ -3,11 +3,19 @@
 @import "base/setup";
 @import "base/typography";
 @import "components/button/button";
-@import "components/gif-modal/gif-modal";
-@import "components/search-bar/search-bar";
-@import "components/header/header";
-@import "components/search-page/search-page";
+
+@import "components/confirm-saved-modal/confirm-saved-modal";
+
+@import "components/footer/footer";
+
 @import "components/gallery-list/gallery-list";
 @import "components/gallery-list-item/gallery-list-item";
-@import "components/footer/footer";
-@import "components/confirm-saved-modal/confirm-saved-modal";
+@import "components/gif-modal/gif-modal";
+
+@import "components/header/header";
+
+@import "components/meme-list-item/meme-list-item";
+
+@import "components/search-bar/search-bar";
+@import "components/search-page/search-page";
+
