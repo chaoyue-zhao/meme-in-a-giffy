@@ -17,7 +17,7 @@ form.search-bar {
     &-input {
       padding: $tiny-gap $small-gap;
       background: $white;
-      width: calc(100% - 40px - 120px);
+      width: calc(100% - 40px - 100px);
       float: left;
       border: none;
       border-bottom: 3px solid $green;
@@ -50,7 +50,7 @@ form.search-bar {
     }
   }
   select {
-    width: 120px;
+    width: 100px;
     -webkit-appearance: none;
     -webkit-border-radius: 0px;
     border-radius: 0px;
@@ -64,7 +64,7 @@ form.search-bar {
     -webkit-border-radius: 0px;
     appearance: none;
     height: 50px;
-    background: url("assets/blackDownArrow.svg") 96% / 30px no-repeat #eee;
+    background: url("assets/blackDownArrow.svg") 96% / 30px no-repeat $white;
   }
   button {
     -webkit-appearance: none;
