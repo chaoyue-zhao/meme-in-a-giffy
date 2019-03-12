@@ -9,7 +9,7 @@ class Twitter extends Component {
             href={`https://twitter.com/intent/tweet?text=made+this+meme+with+Meme+in+a+Giffy&hashtags=memeinaGiffy&url=http://localhost:3001/display/${this.props.memeId}`}
             data-size="large"
           >
-            <button type='button' className='share-meme'>         
+            <button type='button' className='twitter-share-button'>         
               <img src={TwitterLogo} alt="Twitter logo" className="twitter-share-image"/>
             </button>
           </a>

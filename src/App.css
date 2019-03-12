@@ -542,7 +542,6 @@ ul.gallery-container li.gallery-item {
 }
 
 ul.gallery-container li.meme-list-item {
-  height: 200px;
   margin: 20px;
   width: calc(25% - 40px);
 }
@@ -1063,12 +1062,6 @@ label[for="userInput"] p {
   }
 }
 
-.like-dislike-container,
-.meme-delete-button {
-  float: left;
-  padding: 5px;
-}
-
 .meme-list-item {
   background: rgba(250, 250, 250, 0.9);
   -webkit-box-shadow: 0px 0px 15px 10px rgba(250, 250, 250, 0.3);
@@ -1082,7 +1075,7 @@ label[for="userInput"] p {
 
 .meme-list-item-bar {
   background-color: #232323;
-  padding: 10px;
+  padding: 2px;
   margin: 0px;
 }
 
@@ -1101,30 +1094,43 @@ label[for="userInput"] p {
 .meme-list-item-bar .up-arrow:hover,
 .meme-list-item-bar .down-arrow:hover,
 .meme-list-item-bar .delete-button:hover,
-.meme-list-item-bar .share-meme:hover {
+.meme-list-item-bar .twitter-share-button:hover {
   cursor: pointer;
 }
 
 .meme-list-item-bar .meme-delete-button {
   display: inline-block;
   text-align: center;
-  margin: 0 auto;
   width: 65%;
+  margin: 0 auto;
 }
 
 .like-dislike-container {
   width: 100%;
+  float: left;
+  text-align: center;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.tweet-and-delete {
+  width: 60%;
   text-align: center;
   margin: 0 auto;
 }
 
-.share-meme {
-  padding-top: 5px;
+.twitter-share-button {
   display: inline-block;
   float: left;
-  width: 3%;
   border: none;
   background: transparent;
+  padding-top: 1px;
+  margin: 0 auto;
+}
+
+.twitter-share-button .twitter-share-button img.twitter-share-image {
+  height: 40px;
+  width: 40px;
 }
 
 .delete-button {
@@ -1136,6 +1142,7 @@ label[for="userInput"] p {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  margin-top: 3px;
   padding: 8px 1rem;
   border: 1px solid #589b69;
   border-radius: 20px;
@@ -1151,18 +1158,6 @@ label[for="userInput"] p {
 
 .delete-button:focus {
   outline: none;
-}
-
-.tweet-and-delete {
-  text-align: center;
-  margin: 0 auto;
-}
-
-.tweet-and-delete .twitter-share-button img.twitter-share-image {
-  display: block;
-  height: 80px;
-  width: 80px;
-  border: 2px solid tomato;
 }
 
 form.search-bar {
