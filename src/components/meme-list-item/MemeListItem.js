@@ -74,7 +74,6 @@ class MemeListItem extends Component {
   }
 
   render() {
-    console.log(this.props)
     const { images, title, inputOne, inputTwo } = this.props.item;
     return (
       <li className='meme-list-item'>

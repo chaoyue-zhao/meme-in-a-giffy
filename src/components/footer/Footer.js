@@ -7,10 +7,10 @@ class Footer extends Component {
       <footer className="clearfix">
         <div className="clearfix wrapper">
           <p>
-            Made by <a href="#">Chao</a>&nbsp;
-            <a href="#">Jonathan</a> &nbsp;
-            <a href="#">Jeannette</a> &nbsp;
-            <a href="#">Moe</a>
+            Made by <a href="http://chaoyuezhao.com/" target="_blank" rel="noopener noreferrer" className="space">Chaoyue Zhao,</a>
+            <a href="http://jeannetteng.com/" target="_blank" rel="noopener noreferrer" className="space">Jeannette Ng,</a>
+            <a href="http://jonathanwongcodes.com/" target="_blank" rel="noopener noreferrer" className="space">Jonathan Wong,</a>
+            <a href="http://mabbas.codes/" target="_blank" rel="noopener noreferrer" className="space">Mohammed Abbas</a>            
           </p>
           <img src={giphy} alt="Powered by Giphy" />
         </div>

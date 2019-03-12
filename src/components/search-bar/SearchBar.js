@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import searchIcon from "./../../assets/searchIcon.svg";
-import { constants } from "crypto";
 // import blackDownArrow from "./../../assets/blackDownArrow.svg";
 
 class SearchBar extends Component {
@@ -62,7 +61,7 @@ class SearchBar extends Component {
               type="text"
               name="query"
               className="modal-input"
-              autocomplete="off"
+              autoComplete="off"
               id="userInput"
               onChange={this.handleSearchChange}
               value={this.state.query}

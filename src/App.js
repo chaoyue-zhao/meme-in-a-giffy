@@ -24,13 +24,11 @@ class App extends Component {
 		auth.onAuthStateChanged(( async user => {
 			if (user) {
         await this.setState({ auth: user.uid })
-				console.log('loggedIn')
 			} else {
         await this.setState ({ auth: null })
         if(history.location.pathname==="/saved"){
           history.push("/");
         }
-				console.log('loggedOut')
 			}
 		}
 		))

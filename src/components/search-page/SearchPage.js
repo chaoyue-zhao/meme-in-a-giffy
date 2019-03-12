@@ -94,7 +94,6 @@ class SearchPage extends Component {
     }
 
   render() {
-    console.log("state at SearchPage", this.state.displayedItems);
     if (!this.state.displayedItems) return <div />;
     return (
       <div className="App">

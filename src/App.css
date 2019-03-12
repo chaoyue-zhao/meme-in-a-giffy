@@ -472,10 +472,9 @@ body {
 }
 
 .confirm-save {
+  position: absolute;
   top: 50%;
   left: 50%;
-  right: auto;
-  bottom: auto;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   border-radius: 20px;
@@ -495,6 +494,7 @@ body {
 .confirm-save-text {
   margin: .5rem 0;
   padding-bottom: 1rem;
+  font-family: "Fjalla One", sans-serif;
   font-size: 1.2rem;
   color: #232323;
 }
@@ -536,6 +536,10 @@ footer p {
   padding-top: 1rem;
   text-align: center;
   font-family: "Lato", sans-serif;
+}
+
+footer p .space {
+  margin-right: 10px;
 }
 
 .gallery ul {
@@ -675,12 +679,12 @@ ul.gallery-container li img {
 
 .modal-image-container {
   width: 100%;
-  height: 50vh;
+  height: 55vh;
   margin: 0 auto;
-  padding: 8vh 0;
   position: relative;
   background: #232323;
   border: 5px solid #232323;
+  padding: 9vh 0;
 }
 
 .modal-image {
@@ -700,24 +704,22 @@ ul.gallery-container li img {
   text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
   word-wrap: break-word;
   margin: 0;
+  text-align: center;
 }
 
 .modal-text-top, .modal-text-bottom {
-  z-index: 30;
-  margin: 0;
-  padding: 0 10px;
+  position: absolute;
+  width: 100%;
+  left: 0;
 }
 
 .modal-text-top {
-  position: absolute;
   top: 0;
-  left: 0;
+  padding-right: 2rem;
 }
 
 .modal-text-bottom {
-  position: absolute;
   top: 85%;
-  left: 0;
 }
 
 .modal-input-container {
@@ -743,7 +745,7 @@ ul.gallery-container li img {
 }
 
 .modal-input {
-  padding: 10px 1rem;
+  padding: 10px 2rem 10px 1rem;
   background: transparent;
   width: 100%;
   border: none;
@@ -917,8 +919,9 @@ nav.header-nav ul.clearfix {
   margin: 0;
   float: right;
   margin: 1rem 0;
-  -webkit-transition: opacity 0.3s 1s;
-  transition: opacity 0.3s 1s;
+ opacity 0.3s 1s;
+  -webkit-transition: opacity .3s .5s;
+  transition: opacity .3s .5s;
 }
 
 nav.header-nav ul.clearfix li {
