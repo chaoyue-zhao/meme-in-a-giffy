@@ -44,7 +44,8 @@ class SearchPage extends Component {
       params: {
         //still working on hiding this key
         api_key: `${process.env.REACT_APP_API_KEY}`,
-        q: query
+        q: query,
+        ratings: "PG-13"
       }
     });
   };

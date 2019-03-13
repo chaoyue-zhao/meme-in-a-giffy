@@ -56,20 +56,19 @@ class MemeListItem extends Component {
   renderButtons = () =>{
     return this.props.savedMeme ? (
       <button
-      type='button'
-      className='delete-button'
-      onClick={this.onDeleteClick}
+        className="meme-button"
+        onClick={this.onDeleteClick} 
       >
-      Delete
+        Delete
       </button>
+      
     ):(
-    <button 
-        type='button' 
-        className='save-button'
-        onClick={this.onSaveClick}
-        >
-        Save
-    </button>
+      <button
+        className="meme-button"
+        onClick={this.onDeleteClick}
+      >
+      Saved
+      </button>
     )
   }
 
@@ -78,18 +77,20 @@ class MemeListItem extends Component {
     return (
       <li className='meme-list-item'>
         <div className='meme-text-image-container'>
-            <p>{inputOne}</p>
-            <img src={images.original.url} alt={title} />
-            <p>{inputTwo}</p>
+            <p className="meme-text-top">{inputOne}</p>
+            <div className="image-container">
+              <img src={images.original.url} alt={title} className="meme-image" />
+            </div>
+            <p className="meme-text-bottom">{inputTwo}</p>
         </div>
         <div className='meme-list-item-bar clearfix'>
-            <div className='like-dislike-container'>
+            <div className='like-dislike-container clearfix'>
                 <button type='button' className='up-arrow' onClick={this.handleLikes}><img src={upArrow} alt="upvote" /></button>
-                <span>{this.props.item.likes}</span>
+                <span className='num-likes'>{this.props.item.likes}</span>
                 <button type='button' className='down-arrow' onClick={this.handleDislikes}><img src={downArrow} alt="downvote"/></button>
                 <span>{this.props.item.dislikes}</span>
             </div>
-            <div className='tweet-and-delete'>
+            <div className='tweet-and-delete clearfix'>
               <div className='twitter-share-button'>
                 <Twitter memeId={this.props.item.id} className="clearfix"/> 
               </div>

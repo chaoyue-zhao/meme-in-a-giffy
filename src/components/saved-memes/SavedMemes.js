@@ -42,7 +42,7 @@ class SavedMemes extends Component {
     }  
 
     render() {
-        if(this.state.savedMemes.length ===0 ) return <div>No Saved Memes</div>
+        if (this.state.savedMemes.length === 0) return <div className="gallery-error"><h2 className="heading-tertiary">No Saved Memes</h2></div>
         return(
           <GalleryList 
             displayedItems={this.state.savedMemes} 

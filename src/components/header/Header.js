@@ -3,6 +3,16 @@ import { NavLink } from "react-router-dom";
 import SuperNiceButton from "../button/Button";
 
 class Header extends Component {
+  constructor(){
+    super();
+
+    this.checkbox = React.createRef();
+  }
+
+  handleCheckBox = () => {
+    this.checkbox.current.checked = false;
+  }
+
   render() {
     return (
       <header className="header">
@@ -11,33 +21,34 @@ class Header extends Component {
             type="checkbox"
             className="header-nav-checkbox"
             id="checkbox"
+            ref={this.checkbox}
           />
           <label htmlFor="checkbox" className="header-nav-button">
             <span className="header-nav-icon" />
           </label>
           <nav className="header-nav clearfix">
             <ul className="clearfix">
-              <li>
+              <li onClick={this.handleCheckBox}>
                 <NavLink to="/" exact>
                   <SuperNiceButton text="Search" />
                 </NavLink>
               </li>
               {this.props.isAuth && (
-                <li>
+                <li onClick={this.handleCheckBox}>
                   <NavLink to="/saved">
                     <SuperNiceButton text="Saved" />
                   </NavLink>
                 </li>
               )}
               {this.props.isAuth ? (
-                <li>
+                <li onClick={this.handleCheckBox}>
                   <SuperNiceButton
                     click={this.props.handleLogOutClick}
                     text="Log Out"
                   />
                 </li>
               ) : (
-                <li>
+                <li onClick={this.handleCheckBox}>
                   <SuperNiceButton
                     click={this.props.handleLogInClick}
                     text="Log In"

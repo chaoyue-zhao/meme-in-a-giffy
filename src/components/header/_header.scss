@@ -10,6 +10,7 @@
 .header {
   background: $black;
   padding-top: $small-gap;
+
   h1 {
     margin: 0;
     padding: 0;
@@ -27,7 +28,7 @@ nav.header-nav {
     margin: 0;
     float: right;
     margin: 1rem 0;
-    transition: opacity .3s .5s;
+    transition: opacity 0.3s 0.5s;
 
     li {
       list-style: none;
@@ -35,6 +36,7 @@ nav.header-nav {
       float: left;
       margin-right: 10px;
     }
+
     &-button {
       float: left;
     }
@@ -52,43 +54,25 @@ label[for="userInput"] {
   }
 }
 
-
-@media (max-width: 1080px) {
-  .heading-primary {
-    font-size: 6rem;
-  }
-  .heading-secondary {
-    font-size: 1.4rem;
-  }
-}
-
-@media (max-width: 800px) {
-  .heading-primary {
-    font-size: 4rem;
-  }
-  .heading-secondary {
-    font-size: 1rem;
-  }
-}
-
 //Checkbox Nav styles
 .header-nav {
   &-checkbox {
     visibility: hidden;
   }
-  &-checkbox:checked~nav.header-nav {
+
+  &-checkbox:checked ~ nav.header-nav {
     width: 100vw;
     height: 100vh;
     border-radius: 0;
     top: 0;
     right: 0;
   }
-  &-checkbox:checked~nav.header-nav ul.clearfix {
+  &-checkbox:checked ~ nav.header-nav ul.clearfix {
     display: block;
     transform: scale(1) translateY(-60%);
     opacity: 1;
   }
-  &-checkbox:checked~.header-nav-button .header-nav-icon {
+  &-checkbox:checked ~ .header-nav-button .header-nav-icon {
     background: transparent;
     &::before {
       transform: rotate(45deg);
@@ -148,7 +132,6 @@ h2.heading {
     }
   } //Styles for the mobile nav appearance
   .header-nav {
-    
     &-button {
       display: block;
       height: 3rem;

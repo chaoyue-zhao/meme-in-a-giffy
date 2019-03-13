@@ -4,189 +4,279 @@ $red: #9b5d58;
 $white: #ffffff;
 
 .meme-list-item {
-    background: rgba(250, 250, 250, 0.9);
-    box-shadow: 0px 0px 15px 10px rgba(250, 250, 250, 0.3);
-    margin: 20px;
+  background: rgba(250, 250, 250, 0.9);
+  box-shadow: 0px 0px 15px 10px rgba(250, 250, 250, 0.3);
+  margin: 20px;
+  width: calc(25% - 40px);
+}
 
-    width: calc(25% - 40px);
+.meme-text-image-container {
+  position: relative;
+  padding: 100px 0;
+  text-align: center;
 
-    .meme-text-image-container {
-        p {
-            color: $black;
-            font-weight: bold;
-        }
-    }
+  .meme-text-top,
+  .meme-text-bottom {
+    position: absolute;
+    width: 100%;
+    color: $black;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    overflow: hidden;
+  }
+  
+  .meme-text-top {
+    top: 10px;
+    left: 0;
+  }
+  
+  .meme-text-bottom {
+    bottom: 10px;
+    left: 0;
+  }
+}
+
+.image-container {
+  height: 300px;
+
+  .meme-image {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+}
+
+.meme-text-top,
+.meme-text-bottom {
+  margin: 0;
 }
 
 .meme-list-item-bar {
-    background-color: #232323;
-    padding-bottom: 15px;
-    margin: 0px;
+  background-color: #232323;
+  padding-bottom: 15px;
+  margin: 0px;
 
-    .up-arrow,
-    .down-arrow {
-        height: 40px;
-        background: transparent;
-        border: none;
-    }
-
-    span {
-        font-size: 45px;
-        padding: 0 10px;
-    }
-
-    .up-arrow,
-    .down-arrow,
-    .delete-button,
-    .twitter-share-button {
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    .meme-delete-button {
-        display: inline-block;
-        text-align: center;
-        width: 65%;
-        margin: 0 auto;
-    }
-  }
-  .meme-delete-button {
-    display: inline-block;
-    text-align: center;
-    margin: 0 auto;
-    width: 65%;
+  .up-arrow,
+  .down-arrow {
+    height: 60px;
+    width: 60px;
+    transform: translateY(10px);
+    object-fit: cover;
+    background: transparent;
+    border: none;
   }
 
+  span {
+    font-size: 45px;
+    padding: 0 10px;
 
-.like-dislike-container {
-    width: 100%;
-    float: left;
-    text-align: center;
-    margin: 0 auto;
-    padding: 5px;
+    &:first-of-type {
+      margin-right: 20px;
+    }
+  }
+
+  .up-arrow,
+  .down-arrow,
+  .delete-button,
+  .twitter-share-button {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
-
-.tweet-and-delete {
-    width: 60%;
-    text-align: center;
-    margin: 0 auto;
+.like-dislike-container {
+  width: 100%;
+  float: left;
+  text-align: center;
+  margin: 0 auto;
+  padding: 5px;
 }
 
 .twitter-share-button {
-    display: inline-block;
-    float: left;
-    border: none;
-    background:transparent;
-    padding-top: 1px;
-    margin:0 auto;
+  display: inline-block;
+  float: left;
+  width: 20%;
+  margin: 0 10%;
+  border: none;
+  background: transparent;
+  padding-top: 1px;
 
-    .twitter-share-button img.twitter-share-image {
-        height: 40px;
-        width: 40px;
-    }
+  .twitter-share-button img.twitter-share-image {
+    height: 40px;
+    width: 40px;
+  }
 }
 
-.delete-button {
-    -webkit-font-smoothing: antialiased;
-    background-color: $white;
-    text-decoration: none;
-    text-transform: uppercase;
-    user-select: none;
-    margin-top: 3px;
-    padding: 8px 1rem;
-    border: 1px solid $green;
-    border-radius: 20px;
-    display: inline-block;
-    position: relative;
-    transition: background-color 0.3s ease-out;
- 
-    &:hover {
-      background-color: $green;
+.meme-button {
+  color: $white;
+  background-color: transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px 1rem;
+  border: 3px solid $green;
+  display: inline-block;
+  float: left;
+  width: 40%;
+  margin: 0 10%;
+  cursor: pointer;
+  transition: background-color 0.3s ease-out;
+
+  &:hover,
+  &:focus {
+    background-color: $green;
+  }
+}
+
+// MEDIA QUERIES
+
+@media (max-width: 1400px) {
+  .meme-list-item {
+    width: calc(33% - 40px);
+    margin: 20px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .meme-list-item {
+    width: calc(50% - 40px);
+    margin: 20px;
+  }
+
+  .twitter-share-button {
+    margin: 0 5% 0 20%;
+  }
+
+  .meme-button {
+    width: 30%;
+    margin: 0 25% 0 0;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .twitter-share-button {
+    margin: 0 10% 0 15%;
+    width: 20%;
+  }
+
+  .meme-button {
+    width: 40%;
+    margin: 0 15% 0 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .meme-list-item {
+    width: calc(100% - 120px);
+    margin: 60px;
+  }
+
+  .twitter-share-button {
+    width: 20%;
+    margin: 0 5% 0 15%;
+  }
+
+  .meme-button {
+    width: 40%;
+    margin: 0 10%;
+  }
+
+  .meme-list-item-bar {
+
+    span:first-of-type {
+      margin-right: 120px;
     }
-  
-    &:focus {
-      outline: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .tweet-and-delete {
+    clear:both;
+  }
+  .twitter-share-button {
+    width: 50%;
+    margin:0;
+    padding-left:20%;
+  }
+
+  .meme-button {
+    width: 50%;
+  }
+
+  .meme-list-item-bar {
+    span:first-of-type {
+      margin-right:0;
     }
   }
 
-  // MEDIA QUERIES
+  .meme-list-item-bar {
+    width:100%;
+  }
 
-  @media (max-width: 1500px) {
-    .meme-list-item {
-        width: calc(25% - 40px);
-        margin: 20px;
-    }
+  .like-dislike-container span, .down-arrow, .up-arrow {
+    margin:0;
+    width:25%;
+    float: left;
+    display:block;
+  }
 
-    .tweet-and-delete {
-        width: 50%;
-        text-align: center;
-        margin: 0 auto;
+  .meme-list-item-bar {
+    span:first-of-type {
+      margin:0;
     }
   }
-  
-  @media (max-width: 1300px) {
-    .meme-list-item {
-        width: calc(25% - 40px);
-        margin: 20px;
+
+  button.meme-button {
+    margin:0;
+    width:40%;
+  }
+}
+
+@media (max-width:450px) {
+  div.like-dislike-container.clearfix {
+    padding: 5% 20%;
+  }
+  .meme-list-item {
+    margin: 2rem 0;
+    width:100%;
+  }
+  .meme-list-item-bar {
+    span {
+      font-size:30px;
     }
 
-    .tweet-and-delete {
-        width: 50%;
-        text-align: center;
-        margin: 0 auto;
+    .up-arrow, .down-arrow {
+      height:50px;
+      width:50px;
+      transform: translateY(0);
     }
   }
-  
-  @media (max-width: 1000px) {
-    .meme-list-item {
-        width: calc(50% - 40px);
-        margin: 20px;
-    }
 
-    .tweet-and-delete {
-        width: 50%;
-        text-align: center;
-        margin: 0 auto;
-    }
+  button.meme-button {
+    font-size:16px;
   }
-  
-  @media (max-width: 800px) {
-    .meme-list-item {
-        width: calc(50% - 40px);
-        margin: 20px;
-    }
+}
 
-    .tweet-and-delete {
-        width: 50%;
-        text-align: center;
-        margin: 0 auto;
-    }
+@media (max-width:390px) {
+  .tweet-and-delete {
+    transform: translateX(-5%);
   }
-  
-  @media (max-width: 600px) {
-    .meme-list-item {
-        width: calc(100% - 120px);
-        margin: 60px;
-    }
 
-    .tweet-and-delete {
-        width: 40%;
-        text-align: center;
-        margin: 0 auto;
-    }
+  button.meme-button {
+    width:40%;
   }
-  
-  @media (max-width: 450px) {
-    .meme-list-item {
-        width: calc(100% - 40px);
-        margin: 20px;
-    }
 
-    .tweet-and-delete {
-        width: 45%;
-        text-align: center;
-        margin: 0 auto;
-    }
+  .meme-list-item-bar {
+  span {
+    font-size:25px;
   }
+
+  .up-arrow, .down-arrow {
+    height:40px;
+    width:40px;
+    transform: translateY(0);
+  }
+}
+}

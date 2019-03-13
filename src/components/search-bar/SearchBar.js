@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import searchIcon from "./../../assets/searchIcon.svg";
+import searchIcon from "./../../assets/search-icon.svg";
 import Granim from "granim";
 
 class SearchBar extends Component {

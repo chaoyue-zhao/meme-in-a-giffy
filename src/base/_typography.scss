@@ -12,6 +12,7 @@
   }
   &-tertiary {
     font-size: 3rem;
+    text-shadow: 5px 5px #589b69;
   }
 }
 
@@ -38,7 +39,7 @@
 @media (max-width: 800px) {
   .heading {
     &-primary {
-      font-size: 5rem;
+      font-size: 4rem;
     }
     &-secondary {
       font-size: 1rem;
@@ -62,24 +63,16 @@
     &-primary {
       font-size: 3rem;
     }
-  }
-}
-
-@media (max-width: 500px) {
-  .heading {
-    &-primary {
-      font-size: 2.7rem;
-    }
     &-tertiary {
       font-size: 2rem;
     }
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 420px) {
   .heading {
     &-primary {
-      font-size: 2.2rem;
+      font-size: 2.8rem;
     }
   }
 }
