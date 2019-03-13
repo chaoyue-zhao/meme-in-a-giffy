@@ -6,10 +6,14 @@ class Twitter extends Component {
         return (
           <a
             className="twitter-share-button"
-            href={`https://twitter.com/intent/tweet?text=made+this+meme+with+Meme+in+a+Giffy&hashtags=memeinaGiffy&url=http://localhost:3001/display/${this.props.memeId}`}
+            href={`https://twitter.com/intent/tweet?text=Come+and+made+your+meme+with+Meme+in+a+Giffy&hashtags=memeinaGiffy&url=https://meme-in-a-giffy.firebaseapp.com/`}
             data-size="large"
-          >   
-           <img src={TwitterLogo} alt="Twitter logo" className="twitter-share-image"/>
+          >
+            <img
+              src={TwitterLogo}
+              alt="Twitter logo"
+              className="twitter-share-image"
+            />
           </a>
         );
     }
