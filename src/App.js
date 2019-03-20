@@ -54,11 +54,6 @@ class App extends Component {
             />
             <Switch>
               <Route path="/" render={(props) => <SearchPage authId={this.state.auth} {...props} />} exact={true} />
-              {/* <Route path="/saved"
-              render={
-                (props) => <SavedMemes authId={this.state.auth} {...props} /> 
-              }
-              />          */}
               <PrivateRoute path="/saved" component={SavedMemes} authId={this.state.auth}/>
               <Route path="/display/:memeId" component= {MemeDetails}/>
             </Switch> 
