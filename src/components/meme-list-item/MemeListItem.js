@@ -65,7 +65,7 @@ class MemeListItem extends Component {
     ):(
       <button
         className="meme-button"
-        onClick={this.onDeleteClick}
+        onClick={this.onSaveClick}
       >
       Saved
       </button>
