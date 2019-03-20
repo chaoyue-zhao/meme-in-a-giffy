@@ -1,5 +1,6 @@
 {
   "projects": {
-    "staging": "meme-in-a-giffy"
+    "staging": "meme-in-a-giffy",
+    "default": "meme-in-a-giffy"
   }
 }
